@@ -1,0 +1,12 @@
+sch2hdl -intstyle ise -family spartan3 -verilog Data_path_drc.vf -w D:/lab5/Data_path.sch 
+sch2hdl -intstyle ise -family spartan3 -verilog Data_path_drc.vf -w D:/lab5/Data_path.sch 
+sch2hdl -intstyle ise -family spartan3 -verilog Data_path_drc.vf -w D:/lab5/Data_path.sch 
+sch2hdl -intstyle ise -family spartan3 -verilog Data_path_drc.vf -w D:/lab5/Data_path.sch 
+sch2hdl -intstyle ise -family spartan3 -verilog Data_path_drc.vf -w D:/lab5/Data_path.sch 
+sch2sym -intstyle ise -family spartan3 -refsym Data_path D:/lab5/Data_path.sch D:/lab5/Data_path.sym 
+xst -intstyle ise -ifn "D:/lab5/Data_path.xst" -ofn "D:/lab5/Data_path.syr" 
+xst -intstyle ise -ifn "D:/org/lab5/Data_path.xst" -ofn "D:/org/lab5/Data_path.syr" 
+xst -intstyle ise -ifn "D:/org/lab5/Data_path.xst" -ofn "D:/org/lab5/Data_path.syr" 
+sch2hdl -sympath D:/aaa/lab5.1/ipcore_dir -intstyle ise -family spartan3 -verilog Data_path_drc.vf -w D:/aaa/lab5.1/Data_path.sch 
+sch2sym -intstyle ise -family spartan3 -refsym Data_path D:/aaa/lab5.1/Data_path.sch D:/aaa/lab5.1/Data_path.sym 
+sch2sym -intstyle ise -family spartan3e -refsym Data_path D:/Users/AAI_CPU/Data_path.sch D:/Users/AAI_CPU/Data_path.sym 

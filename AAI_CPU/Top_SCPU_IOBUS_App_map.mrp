@@ -1,0 +1,1524 @@
+Release 14.6 Map P.68d (nt64)
+Xilinx Mapping Report File for Design 'Top_SCPU_IOBUS_App'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off
+-c 100 -o Top_SCPU_IOBUS_App_map.ncd Top_SCPU_IOBUS_App.ngd
+Top_SCPU_IOBUS_App.pcf 
+Target Device  : xc3s500e
+Target Package : fg320
+Target Speed   : -4
+Mapper Version : spartan3e -- $Revision: 1.55 $
+Mapped Date    : Wed Oct 21 20:29:21 2015
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    4
+Logic Utilization:
+  Total Number Slice Registers:       1,376 out of   9,312   14%
+    Number used as Flip Flops:        1,335
+    Number used as Latches:              41
+  Number of 4 input LUTs:             5,478 out of   9,312   58%
+Logic Distribution:
+  Number of occupied Slices:          3,360 out of   4,656   72%
+    Number of Slices containing only related logic:   3,360 out of   3,360 100%
+    Number of Slices containing unrelated logic:          0 out of   3,360   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Total Number of 4 input LUTs:       5,600 out of   9,312   60%
+    Number used as logic:             3,430
+    Number used as a route-thru:        122
+    Number used for Dual Port RAMs:   2,048
+      (Two LUTs used per Dual Port RAM)
+
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+  Number of bonded IOBs:                 28 out of     232   12%
+  Number of RAMB16s:                      2 out of      20   10%
+  Number of BUFGMUXs:                     3 out of      24   12%
+
+Average Fanout of Non-Clock Nets:                4.03
+
+Peak Memory Usage:  354 MB
+Total REAL time to MAP completion:  5 secs 
+Total CPU time to MAP completion:   5 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:PhysDesignRules:372 - Gated clock. Clock net U4/vram_addr_cmp_eq0001 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net Clk_CPU is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA7> on
+   block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
+   amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
+   block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
+   amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network U9/button_pulse<3> has no load.
+INFO:LIT:395 - The above info message is repeated 71 more times for the
+   following (max. 5 shown):
+   U9/button_pulse<2>,
+   U9/button_pulse<1>,
+   U9/button_pulse<0>,
+   U9/SW_OK<7>,
+   U9/SW_OK<6>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:MapLib:159 - Net Timing constraints on signal clk_50mhz are pushed forward
+   through input buffer.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+ 512 block(s) removed
+   9 block(s) optimized away
+ 512 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "U8/clkdiv<31>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_xor<31>" (XOR) removed.
+  The signal "U8/Result<31>" is sourceless and has been removed.
+   Sourceless block "U8/clkdiv_31" (FF) removed.
+The signal "U8/clkdiv<30>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_cy<30>_rt" (ROM) removed.
+  The signal "U8/Mcount_clkdiv_cy<30>_rt" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_cy<30>" (MUX) removed.
+    The signal "U8/Mcount_clkdiv_cy<30>" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_xor<30>" (XOR) removed.
+    The signal "U8/Result<30>" is sourceless and has been removed.
+     Sourceless block "U8/clkdiv_30" (FF) removed.
+The signal "U8/clkdiv<29>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_cy<29>_rt" (ROM) removed.
+  The signal "U8/Mcount_clkdiv_cy<29>_rt" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_cy<29>" (MUX) removed.
+    The signal "U8/Mcount_clkdiv_cy<29>" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_xor<29>" (XOR) removed.
+    The signal "U8/Result<29>" is sourceless and has been removed.
+     Sourceless block "U8/clkdiv_29" (FF) removed.
+The signal "U8/clkdiv<28>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_cy<28>_rt" (ROM) removed.
+  The signal "U8/Mcount_clkdiv_cy<28>_rt" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_cy<28>" (MUX) removed.
+    The signal "U8/Mcount_clkdiv_cy<28>" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_xor<28>" (XOR) removed.
+    The signal "U8/Result<28>" is sourceless and has been removed.
+     Sourceless block "U8/clkdiv_28" (FF) removed.
+The signal "U8/clkdiv<27>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_cy<27>_rt" (ROM) removed.
+  The signal "U8/Mcount_clkdiv_cy<27>_rt" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_cy<27>" (MUX) removed.
+    The signal "U8/Mcount_clkdiv_cy<27>" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_xor<27>" (XOR) removed.
+    The signal "U8/Result<27>" is sourceless and has been removed.
+     Sourceless block "U8/clkdiv_27" (FF) removed.
+The signal "U8/clkdiv<26>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_cy<26>_rt" (ROM) removed.
+  The signal "U8/Mcount_clkdiv_cy<26>_rt" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_cy<26>" (MUX) removed.
+    The signal "U8/Mcount_clkdiv_cy<26>" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_xor<26>" (XOR) removed.
+    The signal "U8/Result<26>" is sourceless and has been removed.
+     Sourceless block "U8/clkdiv_26" (FF) removed.
+The signal "U8/clkdiv<25>" is sourceless and has been removed.
+ Sourceless block "U8/Mcount_clkdiv_cy<25>_rt" (ROM) removed.
+  The signal "U8/Mcount_clkdiv_cy<25>_rt" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_cy<25>" (MUX) removed.
+    The signal "U8/Mcount_clkdiv_cy<25>" is sourceless and has been removed.
+   Sourceless block "U8/Mcount_clkdiv_xor<25>" (XOR) removed.
+    The signal "U8/Result<25>" is sourceless and has been removed.
+     Sourceless block "U8/clkdiv_25" (FF) removed.
+The signal "U8/Mcount_clkdiv_cy<24>" is sourceless and has been removed.
+The signal "U9/button_pulse<3>" is sourceless and has been removed.
+The signal "U9/button_pulse<2>" is sourceless and has been removed.
+The signal "U9/button_pulse<1>" is sourceless and has been removed.
+The signal "U9/button_pulse<0>" is sourceless and has been removed.
+The signal "U9/SW_OK<7>" is sourceless and has been removed.
+The signal "U9/SW_OK<6>" is sourceless and has been removed.
+The signal "U9/SW_OK<5>" is sourceless and has been removed.
+The signal "U9/SW_OK<4>" is sourceless and has been removed.
+The signal "U9/button_pulse_mux0000<0>" is sourceless and has been removed.
+ Sourceless block "U9/button_pulse_0" (FF) removed.
+The signal "U9/button_pulse_mux0000<1>" is sourceless and has been removed.
+ Sourceless block "U9/button_pulse_1" (FF) removed.
+The signal "U9/button_pulse_mux0000<2>" is sourceless and has been removed.
+ Sourceless block "U9/button_pulse_2" (FF) removed.
+The signal "U9/button_pulse_mux0000<3>" is sourceless and has been removed.
+ Sourceless block "U9/button_pulse_3" (FF) removed.
+The signal "U9/pulse" is sourceless and has been removed.
+ Sourceless block "U9/button_pulse_mux0000<3>1" (ROM) removed.
+ Sourceless block "U9/button_pulse_mux0000<2>1" (ROM) removed.
+ Sourceless block "U9/button_pulse_mux0000<1>1" (ROM) removed.
+ Sourceless block "U9/button_pulse_mux0000<0>1" (ROM) removed.
+ Sourceless block "U9/pulse_rstpot1" (ROM) removed.
+  The signal "U9/pulse_rstpot1" is sourceless and has been removed.
+   Sourceless block "U9/pulse" (FF) removed.
+The signal "U10/counter1_OUT" is sourceless and has been removed.
+ Sourceless block "U10/Msub__sub0000_cy<0>" (MUX) removed.
+  The signal "U10/Msub__sub0000_cy<0>" is sourceless and has been removed.
+   Sourceless block "U10/Msub__sub0000_cy<1>" (MUX) removed.
+    The signal "U10/Msub__sub0000_cy<1>" is sourceless and has been removed.
+     Sourceless block "U10/Msub__sub0000_cy<2>" (MUX) removed.
+      The signal "U10/Msub__sub0000_cy<2>" is sourceless and has been removed.
+       Sourceless block "U10/Msub__sub0000_cy<3>" (MUX) removed.
+        The signal "U10/Msub__sub0000_cy<3>" is sourceless and has been removed.
+         Sourceless block "U10/Msub__sub0000_cy<4>" (MUX) removed.
+          The signal "U10/Msub__sub0000_cy<4>" is sourceless and has been removed.
+           Sourceless block "U10/Msub__sub0000_cy<5>" (MUX) removed.
+            The signal "U10/Msub__sub0000_cy<5>" is sourceless and has been removed.
+             Sourceless block "U10/Msub__sub0000_cy<6>" (MUX) removed.
+              The signal "U10/Msub__sub0000_cy<6>" is sourceless and has been removed.
+               Sourceless block "U10/Msub__sub0000_cy<7>" (MUX) removed.
+                The signal "U10/Msub__sub0000_cy<7>" is sourceless and has been removed.
+                 Sourceless block "U10/Msub__sub0000_cy<8>" (MUX) removed.
+                  The signal "U10/Msub__sub0000_cy<8>" is sourceless and has been removed.
+                   Sourceless block "U10/Msub__sub0000_cy<9>" (MUX) removed.
+                    The signal "U10/Msub__sub0000_cy<9>" is sourceless and has been removed.
+                     Sourceless block "U10/Msub__sub0000_cy<10>" (MUX) removed.
+                      The signal "U10/Msub__sub0000_cy<10>" is sourceless and has been removed.
+                       Sourceless block "U10/Msub__sub0000_cy<11>" (MUX) removed.
+                        The signal "U10/Msub__sub0000_cy<11>" is sourceless and has been removed.
+                         Sourceless block "U10/Msub__sub0000_cy<12>" (MUX) removed.
+                          The signal "U10/Msub__sub0000_cy<12>" is sourceless and has been removed.
+                           Sourceless block "U10/Msub__sub0000_cy<13>" (MUX) removed.
+                            The signal "U10/Msub__sub0000_cy<13>" is sourceless and has been removed.
+                             Sourceless block "U10/Msub__sub0000_cy<14>" (MUX) removed.
+                              The signal "U10/Msub__sub0000_cy<14>" is sourceless and has been removed.
+                               Sourceless block "U10/Msub__sub0000_cy<15>" (MUX) removed.
+                                The signal "U10/Msub__sub0000_cy<15>" is sourceless and has been removed.
+                                 Sourceless block "U10/Msub__sub0000_cy<16>" (MUX) removed.
+                                  The signal "U10/Msub__sub0000_cy<16>" is sourceless and has been removed.
+                                   Sourceless block "U10/Msub__sub0000_cy<17>" (MUX) removed.
+                                    The signal "U10/Msub__sub0000_cy<17>" is sourceless and has been removed.
+                                     Sourceless block "U10/Msub__sub0000_cy<18>" (MUX) removed.
+                                      The signal "U10/Msub__sub0000_cy<18>" is sourceless and has been removed.
+                                       Sourceless block "U10/Msub__sub0000_cy<19>" (MUX) removed.
+                                        The signal "U10/Msub__sub0000_cy<19>" is sourceless and has been removed.
+                                         Sourceless block "U10/Msub__sub0000_cy<20>" (MUX) removed.
+                                          The signal "U10/Msub__sub0000_cy<20>" is sourceless and has been removed.
+                                           Sourceless block "U10/Msub__sub0000_cy<21>" (MUX) removed.
+                                            The signal "U10/Msub__sub0000_cy<21>" is sourceless and has been removed.
+                                             Sourceless block "U10/Msub__sub0000_cy<22>" (MUX) removed.
+                                              The signal "U10/Msub__sub0000_cy<22>" is sourceless and has been removed.
+                                               Sourceless block "U10/Msub__sub0000_cy<23>" (MUX) removed.
+                                                The signal "U10/Msub__sub0000_cy<23>" is sourceless and has been removed.
+                                                 Sourceless block "U10/Msub__sub0000_cy<24>" (MUX) removed.
+*The signal "U10/Msub__sub0000_cy<24>" is sourceless and has been removed.
+* Sourceless block "U10/Msub__sub0000_cy<25>" (MUX) removed.
+*  The signal "U10/Msub__sub0000_cy<25>" is sourceless and has been removed.
+*   Sourceless block "U10/Msub__sub0000_cy<26>" (MUX) removed.
+*    The signal "U10/Msub__sub0000_cy<26>" is sourceless and has been removed.
+*     Sourceless block "U10/Msub__sub0000_cy<27>" (MUX) removed.
+*      The signal "U10/Msub__sub0000_cy<27>" is sourceless and has been removed.
+*       Sourceless block "U10/Msub__sub0000_cy<28>" (MUX) removed.
+*        The signal "U10/Msub__sub0000_cy<28>" is sourceless and has been removed.
+*         Sourceless block "U10/Msub__sub0000_cy<29>" (MUX) removed.
+*          The signal "U10/Msub__sub0000_cy<29>" is sourceless and has been removed.
+*           Sourceless block "U10/Msub__sub0000_cy<30>" (MUX) removed.
+*            The signal "U10/Msub__sub0000_cy<30>" is sourceless and has been removed.
+*             Sourceless block "U10/Msub__sub0000_cy<31>" (MUX) removed.
+*              The signal "U10/Msub__sub0000_cy<31>" is sourceless and has been removed.
+*               Sourceless block "U10/Msub__sub0000_xor<32>" (XOR) removed.
+*                The signal "U10/_sub0000<32>" is sourceless and has been removed.
+*                 Sourceless block "U10/Mmux_counter0_32_mux0000_4" (ROM) removed.
+*                  The signal "U10/Mmux_counter0_32_mux0000_4" is sourceless and has been removed.
+*                   Sourceless block "U10/Mmux_counter0_32_mux0000_2_f5" (MUX) removed.
+*                    The signal "U10/counter0_32_mux0000" is sourceless and has been removed.
+*                     Sourceless block "U10/counter0_32" (FF) removed.
+*                      The signal "U10/counter0<32>" is sourceless and has been removed.
+*                       Sourceless block "U10/sq0" (FF) removed.
+*                        The signal "U10/sq0" is sourceless and has been removed.
+*                         Sourceless block "U10/Mxor_counter0_32_xor0000_Result1" (ROM) removed.
+*                          The signal "U10/counter0_32_xor0000" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_22_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_22_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_22_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_22_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_22" (FF) removed.
+*                                The signal "U10/counter0<22>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<22>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<22>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<22>" (XOR) removed.
+*                                    The signal "U10/_sub0000<22>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_22_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_22_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_22_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_22_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_22_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_22_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_21_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_21_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_21_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_21_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_21" (FF) removed.
+*                                The signal "U10/counter0<21>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<21>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<21>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<21>" (XOR) removed.
+*                                    The signal "U10/_sub0000<21>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_21_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_21_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_21_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_21_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_21_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_21_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_20_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_20_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_20_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_20_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_20" (FF) removed.
+*                                The signal "U10/counter0<20>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<20>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<20>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<20>" (XOR) removed.
+*                                    The signal "U10/_sub0000<20>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_20_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_20_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_20_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_20_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_20_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_20_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_19_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_19_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_19_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_19_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_19" (FF) removed.
+*                                The signal "U10/counter0<19>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<19>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<19>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<19>" (XOR) removed.
+*                                    The signal "U10/_sub0000<19>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_19_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_19_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_19_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_19_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_19_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_19_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_18_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_18_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_18_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_18_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_18" (FF) removed.
+*                                The signal "U10/counter0<18>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<18>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<18>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<18>" (XOR) removed.
+*                                    The signal "U10/_sub0000<18>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_18_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_18_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_18_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_18_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_18_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_18_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_17_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_17_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_17_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_17_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_17" (FF) removed.
+*                                The signal "U10/counter0<17>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<17>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<17>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<17>" (XOR) removed.
+*                                    The signal "U10/_sub0000<17>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_17_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_17_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_17_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_17_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_17_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_17_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_16_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_16_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_16_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_16_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_16" (FF) removed.
+*                                The signal "U10/counter0<16>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<16>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<16>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<16>" (XOR) removed.
+*                                    The signal "U10/_sub0000<16>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_16_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_16_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_16_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_16_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_16_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_16_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_15_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_15_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_15_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_15_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_15" (FF) removed.
+*                                The signal "U10/counter0<15>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<15>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<15>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<15>" (XOR) removed.
+*                                    The signal "U10/_sub0000<15>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_15_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_15_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_15_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_15_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_15_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_15_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_14_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_14_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_14_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_14_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_14" (FF) removed.
+*                                The signal "U10/counter0<14>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<14>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<14>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<14>" (XOR) removed.
+*                                    The signal "U10/_sub0000<14>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_14_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_14_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_14_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_14_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_14_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_14_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_13_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_13_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_13_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_13_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_13" (FF) removed.
+*                                The signal "U10/counter0<13>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<13>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<13>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<13>" (XOR) removed.
+*                                    The signal "U10/_sub0000<13>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_13_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_13_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_13_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_13_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_13_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_13_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_12_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_12_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_12_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_12_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_12" (FF) removed.
+*                                The signal "U10/counter0<12>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<12>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<12>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<12>" (XOR) removed.
+*                                    The signal "U10/_sub0000<12>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_12_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_12_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_12_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_12_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_12_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_12_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_11_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_11_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_11_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_11_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_11" (FF) removed.
+*                                The signal "U10/counter0<11>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<11>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<11>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<11>" (XOR) removed.
+*                                    The signal "U10/_sub0000<11>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_11_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_11_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_11_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_11_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_11_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_11_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_10_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_10_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_10_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_10_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_10" (FF) removed.
+*                                The signal "U10/counter0<10>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<10>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<10>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<10>" (XOR) removed.
+*                                    The signal "U10/_sub0000<10>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_10_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_10_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_10_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_10_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_10_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_10_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_9_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_9_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_9_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_9_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_9" (FF) removed.
+*                                The signal "U10/counter0<9>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<9>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<9>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<9>" (XOR) removed.
+*                                    The signal "U10/_sub0000<9>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_9_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_9_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_9_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_9_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_9_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_9_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_8_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_8_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_8_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_8_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_8" (FF) removed.
+*                                The signal "U10/counter0<8>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<8>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<8>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<8>" (XOR) removed.
+*                                    The signal "U10/_sub0000<8>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_8_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_8_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_8_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_8_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_8_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_8_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_7_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_7_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_7_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_7_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_7" (FF) removed.
+*                                The signal "U10/counter0<7>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<7>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<7>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<7>" (XOR) removed.
+*                                    The signal "U10/_sub0000<7>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_7_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_7_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_7_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_7_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_7_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_7_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_6_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_6_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_6_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_6_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_6" (FF) removed.
+*                                The signal "U10/counter0<6>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<6>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<6>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<6>" (XOR) removed.
+*                                    The signal "U10/_sub0000<6>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_6_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_6_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_6_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_6_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_6_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_6_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_5_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_5_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_5_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_5_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_5" (FF) removed.
+*                                The signal "U10/counter0<5>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<5>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<5>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<5>" (XOR) removed.
+*                                    The signal "U10/_sub0000<5>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_5_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_5_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_5_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_5_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_5_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_5_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_4_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_4_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_4_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_4_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_4" (FF) removed.
+*                                The signal "U10/counter0<4>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<4>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<4>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<4>" (XOR) removed.
+*                                    The signal "U10/_sub0000<4>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_4_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_4_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_4_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_4_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_4_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_4_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_3_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_3_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_3_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_3_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_3" (FF) removed.
+*                                The signal "U10/counter0<3>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<3>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<3>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<3>" (XOR) removed.
+*                                    The signal "U10/_sub0000<3>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_3_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_3_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_3_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_3_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_3_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_3_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_2_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_2_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_2_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_2_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_2" (FF) removed.
+*                                The signal "U10/counter0<2>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<2>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<2>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<2>" (XOR) removed.
+*                                    The signal "U10/_sub0000<2>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_2_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_2_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_2_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_2_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_2_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_2_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_1_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_1_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_1_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_1_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_1" (FF) removed.
+*                                The signal "U10/counter0<1>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<1>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<1>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<1>" (XOR) removed.
+*                                    The signal "U10/_sub0000<1>" is sourceless and has been removed.
+*                                     Sourceless block "U10/Mmux_counter0_1_mux0000_4" (ROM) removed.
+*                                      The signal "U10/Mmux_counter0_1_mux0000_4" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_1_mux0003_SW0" (ROM) removed.
+*                                  The signal "U10/counter0_1_mux0003_SW0/O" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_1_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/counter0_1_mux0003_SW1/O" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_0_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_0_mux0000_3" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_0_mux0000_2_f5" (MUX) removed.
+*                              The signal "U10/counter0_0_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_0" (FF) removed.
+*                                The signal "U10/counter0<0>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_cy<0>_rt" (ROM) removed.
+*                                  The signal "U10/Msub__sub0000_cy<0>_rt" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<0>" (XOR) removed.
+*                                    The signal "U10/_sub0000<0>" is sourceless and has been removed.
+*                                     Sourceless block "U10/counter0_0_mux00021" (ROM) removed.
+*                                      The signal "U10/counter0_0_mux0002" is sourceless and has been removed.
+*                                       Sourceless block "U10/Mmux_counter0_0_mux0000_4" (ROM) removed.
+*                                        The signal "U10/Mmux_counter0_0_mux0000_4" is sourceless and has been removed.
+*                                     Sourceless block "U10/counter0_0_mux0003_f5" (MUX) removed.
+*                                      The signal "U10/counter0_0_mux0003" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_0_mux00031" (ROM) removed.
+*                                  The signal "U10/counter0_0_mux00031" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_0_mux00032" (ROM) removed.
+*                                  The signal "U10/counter0_0_mux00032" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_30_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_30_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_29_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_29_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_28_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_28_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_27_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_27_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_26_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_26_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_25_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_25_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_24_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_24_mux0000_3/O" is sourceless and has been
+removed.
+*                           Sourceless block "U10/Mmux_counter0_23_mux0000_3" (ROM) removed.
+*                            The signal "U10/Mmux_counter0_23_mux0000_3/O" is sourceless and has been
+removed.
+*                         Sourceless block "U10/Mmux_counter0_32_mux0000_3" (ROM) removed.
+*                          The signal "U10/Mmux_counter0_32_mux0000_3" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_31_mux0000_2_f5_SW0_F" (ROM) removed.
+*                          The signal "U10/N195" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_31_mux0000_2_f5_SW0" (MUX) removed.
+*                            The signal "U10/N164" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_31_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_31_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_31" (FF) removed.
+*                                The signal "U10/counter0<31>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_31_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N96" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<31>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<31>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<31>" (XOR) removed.
+*                                    The signal "U10/_sub0000<31>" is sourceless and has been removed.
+*                                 Sourceless block "U10/Mmux_counter0_31_mux0000_4_SW02" (ROM) removed.
+*                                  The signal "U10/Mmux_counter0_31_mux0000_4_SW01" is sourceless and has been
+removed.
+*                                   Sourceless block "U10/Mmux_counter0_31_mux0000_4_SW0_f5" (MUX) removed.
+*                                    The signal "U10/N98" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_23_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N71" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_23_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N122" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_23_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_23_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_23_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_23_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_23" (FF) removed.
+*                                The signal "U10/counter0<23>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_23_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N72" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_23_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N123" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<23>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<23>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<23>" (XOR) removed.
+*                                    The signal "U10/_sub0000<23>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_24_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N74" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_24_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N119" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_24_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_24_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_24_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_24_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_24" (FF) removed.
+*                                The signal "U10/counter0<24>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_24_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N75" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_24_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N120" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<24>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<24>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<24>" (XOR) removed.
+*                                    The signal "U10/_sub0000<24>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_25_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N77" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_25_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N116" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_25_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_25_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_25_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_25_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_25" (FF) removed.
+*                                The signal "U10/counter0<25>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_25_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N78" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_25_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N117" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<25>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<25>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<25>" (XOR) removed.
+*                                    The signal "U10/_sub0000<25>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_26_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N80" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_26_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N113" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_26_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_26_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_26_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_26_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_26" (FF) removed.
+*                                The signal "U10/counter0<26>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_26_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N81" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_26_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N114" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<26>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<26>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<26>" (XOR) removed.
+*                                    The signal "U10/_sub0000<26>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_27_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N83" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_27_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N110" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_27_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_27_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_27_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_27_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_27" (FF) removed.
+*                                The signal "U10/counter0<27>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_27_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N84" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_27_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N111" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<27>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<27>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<27>" (XOR) removed.
+*                                    The signal "U10/_sub0000<27>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_28_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N86" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_28_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N107" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_28_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_28_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_28_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_28_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_28" (FF) removed.
+*                                The signal "U10/counter0<28>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_28_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N87" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_28_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N108" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<28>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<28>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<28>" (XOR) removed.
+*                                    The signal "U10/_sub0000<28>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_29_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N89" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_29_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N104" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_29_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_29_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_29_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_29_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_29" (FF) removed.
+*                                The signal "U10/counter0<29>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_29_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N90" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_29_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N105" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<29>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<29>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<29>" (XOR) removed.
+*                                    The signal "U10/_sub0000<29>" is sourceless and has been removed.
+*                       Sourceless block "U10/counter0_30_mux0003_SW0" (ROM) removed.
+*                        The signal "U10/N92" is sourceless and has been removed.
+*                         Sourceless block "U10/Mmux_counter0_30_mux0000_4_SW0" (ROM) removed.
+*                          The signal "U10/N101" is sourceless and has been removed.
+*                           Sourceless block "U10/Mmux_counter0_30_mux0000_4" (MUX) removed.
+*                            The signal "U10/Mmux_counter0_30_mux0000_4" is sourceless and has been removed.
+*                             Sourceless block "U10/Mmux_counter0_30_mux0000_2_f5" (ROM) removed.
+*                              The signal "U10/counter0_30_mux0000" is sourceless and has been removed.
+*                               Sourceless block "U10/counter0_30" (FF) removed.
+*                                The signal "U10/counter0<30>" is sourceless and has been removed.
+*                                 Sourceless block "U10/counter0_30_mux0003_SW1" (ROM) removed.
+*                                  The signal "U10/N93" is sourceless and has been removed.
+*                                   Sourceless block "U10/Mmux_counter0_30_mux0000_4_SW1" (ROM) removed.
+*                                    The signal "U10/N102" is sourceless and has been removed.
+*                                 Sourceless block "U10/Msub__sub0000_lut<30>_INV_0" (BUF) removed.
+*                                  The signal "U10/Msub__sub0000_lut<30>" is sourceless and has been removed.
+*                                   Sourceless block "U10/Msub__sub0000_xor<30>" (XOR) removed.
+*                                    The signal "U10/_sub0000<30>" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_22_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N125" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_22_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N126" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_21_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N128" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_21_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N129" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_20_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N131" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_20_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N132" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_19_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N134" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_19_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N135" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_18_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N137" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_18_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N138" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_17_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N140" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_17_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N141" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_16_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N143" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_16_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N144" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_15_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N146" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_15_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N147" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_14_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N149" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_14_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N150" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_13_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N152" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_13_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N153" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_12_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N155" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_12_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N156" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_11_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N158" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_11_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N159" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_10_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N161" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_10_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N162" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_9_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N166" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_9_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N167" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_8_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N169" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_8_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N170" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_7_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N172" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_7_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N173" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_6_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N175" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_6_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N176" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_5_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N178" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_5_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N179" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_4_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N181" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_4_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N182" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_3_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N184" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_3_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N185" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_2_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N187" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_2_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N188" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_1_mux0000_4_SW0" (ROM) removed.
+*                        The signal "U10/N190" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_1_mux0000_4_SW1" (ROM) removed.
+*                        The signal "U10/N191" is sourceless and has been removed.
+*                       Sourceless block "U10/Msub__sub0000_lut<32>_INV_0" (BUF) removed.
+*                        The signal "U10/Msub__sub0000_lut<32>" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_31_mux0000_2_f5_SW0_G" (ROM) removed.
+*                        The signal "U10/N196" is sourceless and has been removed.
+*                       Sourceless block "U10/clr0_and00001" (ROM) removed.
+*                        The signal "U10/clr0_and00001" is sourceless and has been removed.
+*                         Sourceless block "U10/clr0_and0000_f5" (MUX) removed.
+*                          The signal "U10/clr0_and0000" is sourceless and has been removed.
+*                           Sourceless block "U10/clr0" (FF) removed.
+*                            The signal "U10/clr0" is sourceless and has been removed.
+*                             Sourceless block "U10/M0_and00001" (ROM) removed.
+*                              The signal "U10/M0_and0000" is sourceless and has been removed.
+*                               Sourceless block "U10/M0" (FF) removed.
+*                                The signal "U10/M0" is sourceless and has been removed.
+*                       Sourceless block "U10/Mmux_counter0_31_mux0000_4_SW01" (ROM) removed.
+*                        The signal "U10/Mmux_counter0_31_mux0000_4_SW0" is sourceless and has been
+removed.
+The signal "U10/N1" is sourceless and has been removed.
+The signal "U10/counter0_Lock_not0001" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_0" (FF) removed.
+  The signal "U10/counter0_Lock<0>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_1" (FF) removed.
+  The signal "U10/counter0_Lock<1>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_2" (FF) removed.
+  The signal "U10/counter0_Lock<2>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_3" (FF) removed.
+  The signal "U10/counter0_Lock<3>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_4" (FF) removed.
+  The signal "U10/counter0_Lock<4>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_5" (FF) removed.
+  The signal "U10/counter0_Lock<5>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_6" (FF) removed.
+  The signal "U10/counter0_Lock<6>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_7" (FF) removed.
+  The signal "U10/counter0_Lock<7>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_8" (FF) removed.
+  The signal "U10/counter0_Lock<8>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_9" (FF) removed.
+  The signal "U10/counter0_Lock<9>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_10" (FF) removed.
+  The signal "U10/counter0_Lock<10>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_11" (FF) removed.
+  The signal "U10/counter0_Lock<11>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_12" (FF) removed.
+  The signal "U10/counter0_Lock<12>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_13" (FF) removed.
+  The signal "U10/counter0_Lock<13>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_14" (FF) removed.
+  The signal "U10/counter0_Lock<14>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_15" (FF) removed.
+  The signal "U10/counter0_Lock<15>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_16" (FF) removed.
+  The signal "U10/counter0_Lock<16>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_17" (FF) removed.
+  The signal "U10/counter0_Lock<17>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_18" (FF) removed.
+  The signal "U10/counter0_Lock<18>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_19" (FF) removed.
+  The signal "U10/counter0_Lock<19>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_20" (FF) removed.
+  The signal "U10/counter0_Lock<20>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_21" (FF) removed.
+  The signal "U10/counter0_Lock<21>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_22" (FF) removed.
+  The signal "U10/counter0_Lock<22>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_23" (FF) removed.
+  The signal "U10/counter0_Lock<23>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_24" (FF) removed.
+  The signal "U10/counter0_Lock<24>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_25" (FF) removed.
+  The signal "U10/counter0_Lock<25>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_26" (FF) removed.
+  The signal "U10/counter0_Lock<26>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_27" (FF) removed.
+  The signal "U10/counter0_Lock<27>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_28" (FF) removed.
+  The signal "U10/counter0_Lock<28>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_29" (FF) removed.
+  The signal "U10/counter0_Lock<29>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_30" (FF) removed.
+  The signal "U10/counter0_Lock<30>" is sourceless and has been removed.
+ Sourceless block "U10/counter0_Lock_31" (FF) removed.
+  The signal "U10/counter0_Lock<31>" is sourceless and has been removed.
+The signal "U10/counter_Ctrl_not0001" is sourceless and has been removed.
+ Sourceless block "U10/counter_Ctrl_1" (FF) removed.
+  The signal "U10/counter_Ctrl<1>" is sourceless and has been removed.
+   Sourceless block "U10/sq0_cmp_eq00001" (ROM) removed.
+    The signal "U10/sq0_cmp_eq0000" is sourceless and has been removed.
+ Sourceless block "U10/counter_Ctrl_2" (FF) removed.
+  The signal "U10/counter_Ctrl<2>" is sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<31>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<30>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<29>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<28>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<27>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<26>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<25>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<24>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<23>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<22>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<21>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<20>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<19>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<18>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<17>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<16>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<15>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<14>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<13>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<12>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<11>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<10>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<9>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<8>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<7>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<6>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<5>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<4>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<3>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<2>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<1>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<0>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<31>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<30>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<29>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<28>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<27>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<26>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<25>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<24>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<23>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<22>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<21>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<20>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<19>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<18>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<17>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<16>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<15>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<14>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<13>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<12>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<11>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<10>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<9>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<8>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<7>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<6>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<5>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<4>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<3>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<2>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<1>" is
+sourceless and has been removed.
+The signal
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<0>" is
+sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "XLXI_15/counter_set<0>" is unused and has been removed.
+ Unused block "XLXI_15/counter_set_0" (FF) removed.
+The signal "XLXI_15/counter_set<1>" is unused and has been removed.
+ Unused block "XLXI_15/counter_set_1" (FF) removed.
+Unused block "U10/M0_and0000111" (ROM) removed.
+Unused block "U10/XST_GND" (ZERO) removed.
+Unused block "U10/XST_VCC" (ONE) removed.
+Unused block "U10/counter_Ctrl_not00011" (ROM) removed.
+Unused block "U9/SW_OK_4" (FF) removed.
+Unused block "U9/SW_OK_5" (FF) removed.
+Unused block "U9/SW_OK_6" (FF) removed.
+Unused block "U9/SW_OK_7" (FF) removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_0" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_1" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_10" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_11" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_12" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_13" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_14" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_15" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_16" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_17" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_18" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_19" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_2" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_20" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_21" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_22" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_23" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_24" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_25" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_26" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_27" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_28" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_29" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_3" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_30" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_31" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_4" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_5" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_6" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_7" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_8" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_9" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_0" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_1" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_10" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_11" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_12" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_13" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_14" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_15" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_16" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_17" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_18" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_19" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_2" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_20" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_21" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_22" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_23" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_24" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_25" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_26" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_27" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_28" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_29" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_3" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_30" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_31" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_4" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_5" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_6" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_7" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_8" (FF)
+removed.
+Unused block
+"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_9" (FF)
+removed.
+Unused block "U8/Mcount_clkdiv_cy<24>" (MUX) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		U3/XST_GND
+VCC 		U3/XST_VCC
+GND 		U8/XST_GND
+VCC 		U8/XST_VCC
+GND 		U9/XST_GND
+VCC 		U9/XST_VCC
+GND 		XLXI_24/XST_GND
+VCC 		XLXI_3
+GND 		XST_GND
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| BTN<0>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
+| BTN<1>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
+| BTN<2>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
+| BTN<3>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
+| LED<0>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<1>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<2>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<3>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<4>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<5>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<6>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| LED<7>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| PS2_Data                           | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| PS2_clk                            | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SW<0>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| SW<1>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| SW<2>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| SW<3>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
+| SW<4>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SW<5>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SW<6>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| SW<7>                              | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| clk_50mhz                          | IBUF             | INPUT     | LVTTL                |       |          |      |              |          | 0 / 0    |
+| vga_hs                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| vga_rgb<0>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| vga_rgb<1>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| vga_rgb<2>                         | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
+| vga_vs                             | IOB              | OUTPUT    | LVTTL                |       | 12       | SLOW |              |          | 0 / 0    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

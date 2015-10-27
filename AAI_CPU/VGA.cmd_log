@@ -1,0 +1,4 @@
+vhdtdtfi -lib work D:/Users/Lab10-11cp/VGA.v -lang verilog -prj lab10-11 -o VGA.spl -module VGA -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA.spl D:/Users/Lab10-11cp/VGA.sym 
+vhdtdtfi -lib work D:/Users/Lab10-11cp/VGA.v -lang verilog -prj lab10-11 -o VGA.spl -module VGA -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA.spl D:/Users/Lab10-11cp/VGA.sym 

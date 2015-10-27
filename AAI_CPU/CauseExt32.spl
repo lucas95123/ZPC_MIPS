@@ -1,0 +1,8 @@
+[Inputs]
+=Cause_2[1:0]=
+[Outputs]
+=Cause_32[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel CauseExt32
+

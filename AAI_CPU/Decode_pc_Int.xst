@@ -1,0 +1,5 @@
+set -tmpdir "D:/aaa/lab5.1/xst/projnav.tmp"
+set -xsthdpdir "D:/aaa/lab5.1/xst"
+elaborate
+-ifn Decode_pc_Int.prj
+-ifmt mixed

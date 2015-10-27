@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="Ext_32_Unsigned">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2015-10-25T4:26:19</timestamp>
+    <attr value="Ext_32_Unsigned" name="VeriModel" />
+    <pin polarity="Input" x="32" y="-32" name="imm_16(15:0)" />
+    <pin polarity="Output" x="192" y="-32" name="Imm_32(31:0)" />
+    <graph>
+        <rect width="104" x="64" y="-44" height="24" />
+        <line x2="32" y1="-32" y2="-32" x1="64" />
+        <line x2="192" y1="-32" y2="-32" x1="168" />
+        <attrtext style="alignment:BCENTER;fontsize:14;fontname:Arial" attrname="SymbolName" x="116" y="-44" type="symbol" />
+    </graph>
+</symbol>

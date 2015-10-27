@@ -1,0 +1,12 @@
+vhdtdtfi -lib work D:/Users/ORG-Project4/VGA_controller.v -lang verilog -prj Project4 -o VGA_controller.spl -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA_controller.spl D:/Users/ORG-Project4/VGA_controller.sym 
+vhdtdtfi -lib work D:/Users/ORG-Project4/VGA_controller.v -lang verilog -prj Project4 -o VGA_controller.spl -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA_controller.spl D:/Users/ORG-Project4/VGA_controller.sym 
+vhdtdtfi -lib work D:/Users/ORG-Project4/VGA_controller.v -lang verilog -prj Project4 -o VGA_controller.spl -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA_controller.spl D:/Users/ORG-Project4/VGA_controller.sym 
+vhdtdtfi -lib work D:/Users/ORG-Project4/VGA_controller.v -lang verilog -prj Project4 -o VGA_controller.spl -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA_controller.spl D:/Users/ORG-Project4/VGA_controller.sym 
+vhdtdtfi -lang verilog -prj Project4 -o D:/Users/ORG-Project4/VGA_controller.tfi -lib work D:/Users/ORG-Project4//VGA_controller.v -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lang verilog -prj Project4 -o D:/Users/ORG-Project4/VGA_controller.tfi -lib work D:/Users/ORG-Project4//VGA_controller.v -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/tfi.tft -deleteonerror 
+vhdtdtfi -lib work D:/Users/ORG-Project4/VGA_controller.v -lang verilog -prj Project4 -o VGA_controller.spl -module VGA_controller -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 VGA_controller.spl D:/Users/ORG-Project4/VGA_controller.sym 

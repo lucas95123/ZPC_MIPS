@@ -1,0 +1,8 @@
+[Inputs]
+=imm_16[15:0]=
+[Outputs]
+=Imm_32[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel Ext_32_Unsigned
+

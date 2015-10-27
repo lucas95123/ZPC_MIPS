@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/Users/AAI_CPU/CauseExt32.v -lang verilog -prj Project4 -o CauseExt32.spl -module CauseExt32 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e CauseExt32.spl D:/Users/AAI_CPU/CauseExt32.sym 

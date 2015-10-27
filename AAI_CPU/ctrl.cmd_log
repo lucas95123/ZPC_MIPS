@@ -1,0 +1,4 @@
+vhdtdtfi -lib work D:/Users/Lab10-11/ctrl.v -lang verilog -prj lab10-11 -o ctrl.spl -module ctrl -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 ctrl.spl D:/Users/Lab10-11/ctrl.sym 
+vhdtdtfi -lib work D:/Users/Lab10-11/ctrl.v -lang verilog -prj lab10-11 -o ctrl.spl -module ctrl -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 ctrl.spl D:/Users/Lab10-11/ctrl.sym 

@@ -1,0 +1,5 @@
+set -tmpdir "D:/Users/ORG-Project4/xst/projnav.tmp"
+set -xsthdpdir "D:/Users/ORG-Project4/xst"
+elaborate
+-ifn mux2to1_32.prj
+-ifmt mixed

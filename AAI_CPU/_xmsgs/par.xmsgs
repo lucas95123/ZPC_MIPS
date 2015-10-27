@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="internal" file="Portability" num="0" delta="new" srcfile="Port_MsgStreamImp.c" srcline="468" srcrcs="1.20" >Unable to delete requested message stream.
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;0&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;1&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;2&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;3&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;4&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;5&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;6&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;7&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">vga_hs</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">vga_rgb&lt;0&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">vga_rgb&lt;1&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">vga_rgb&lt;2&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">vga_vs</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">BTN&lt;0&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">BTN&lt;1&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">BTN&lt;2&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">BTN&lt;3&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">PS2_Data</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">PS2_clk</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;0&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;1&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;2&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;3&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;4&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;5&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;6&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">SW&lt;7&gt;</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1530" delta="old" >Input IO <arg fmt="%s" index="1">clk_50mhz</arg> has invalid Bank assignment
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">Clk_CPU</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF1</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/Cpu_data4bus_not0001</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/Cpu_data4bus_not00011</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">clk_50mhz_BUFGP</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1369" delta="old" >Clock frequency for one or more clocks was not found through
+timing constraints (PCF file) or simulation data.  Without knowing the
+clock frequency of all clocks, dynamic power information for those clock
+domains will default to zero which may under-estimate the power for this
+design.  To avoid this warning, provide at least one of the following:
+  1. The proper timing constraints (PERIOD) for clocks (re-implement design
+     and load the newly generated PCF file into XPower Analyzer)
+  2. A post PAR simulation-generated VCD or SAIF file indicating clock
+     frequencies
+  3. The clock frequency for clocks in the &quot;By Type -&gt; Clocks&quot; view in the
+     XPower Analyzer GUI and then applying &quot;Update Power Analysis&quot;
+</msg>
+
+<msg type="internal" file="Portability" num="0" delta="new" srcfile="Port_MsgStreamImp.c" srcline="468" srcrcs="1.20" >Unable to delete requested message stream.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">Clk_CPU</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF1</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/Cpu_data4bus_not0001</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/Cpu_data4bus_not00011</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">clk_50mhz_BUFGP</arg>&quot; is zero.
+</msg>
+
+<msg type="warning" file="Power" num="1369" delta="old" >Clock frequency for one or more clocks was not found through
+timing constraints (PCF file) or simulation data.  Without knowing the
+clock frequency of all clocks, dynamic power information for those clock
+domains will default to zero which may under-estimate the power for this
+design.  To avoid this warning, provide at least one of the following:
+  1. The proper timing constraints (PERIOD) for clocks (re-implement design
+     and load the newly generated PCF file into XPower Analyzer)
+  2. A post PAR simulation-generated VCD or SAIF file indicating clock
+     frequencies
+  3. The clock frequency for clocks in the &quot;By Type -&gt; Clocks&quot; view in the
+     XPower Analyzer GUI and then applying &quot;Update Power Analysis&quot;
+</msg>
+
+<msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">0</arg> CLK pins and <arg fmt="%d" index="3">45</arg> NON_CLK pins failed to route using a CLK template.
+</msg>
+
+<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">Clk_CPU</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">12</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
+</msg>
+
+<msg type="info" file="Par" num="277" delta="old" >Power optimization/reduction has been run on this design.  Please use XPower to analyze and report the power usage for this design.
+</msg>
+
+</messages>
+

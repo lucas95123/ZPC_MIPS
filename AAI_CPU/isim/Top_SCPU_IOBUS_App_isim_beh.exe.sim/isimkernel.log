@@ -1,0 +1,28 @@
+Command line:
+   Top_SCPU_IOBUS_App_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  15994
+
+Wed Oct 21 20:28:54 2015
+
+
+ Elaboration Time: 0.046875 sec
+
+ Current Memory Usage: 1008.4 Meg
+
+ Total Signals          : 549
+ Total Nets             : 2641
+ Total Signal Drivers   : 191
+ Total Blocks           : 73
+ Total Primitive Blocks : 62
+ Total Processes        : 234
+ Total Traceable Variables  : 485
+ Total Scalar Nets and Variables : 94208
+
+ Total Simulation Time: 0.171875 sec
+
+ Current Memory Usage: 1322.99 Meg
+
+Wed Oct 21 20:29:41 2015
+

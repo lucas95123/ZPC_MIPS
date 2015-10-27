@@ -1,0 +1,42 @@
+Release 14.6 - xst P.68d (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to D:/Users/ORG-Project4/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> Parameter xsthdpdir set to D:/Users/ORG-Project4/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
+ 
+--> WARNING:Xst:3164 - Option "-debug" found multiple times in the command line. Only the first occurence is considered.
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "mux2to1_32.v" in library work
+Compiling verilog file "Top_SCPU_IOBUS_Sch.vf" in library work
+Module <mux2to1_32> compiled
+Module <alu_MUSER_Top_SCPU_IOBUS_Sch> compiled
+Module <Data_path_MUSER_Top_SCPU_IOBUS_Sch> compiled
+Module <Muliti_CPU_MUSER_Top_SCPU_IOBUS_Sch> compiled
+Module <Top_SCPU_IOBUS_Sch> compiled
+No errors in compilation
+Analysis of file <"mux2to1_32.prj"> succeeded.
+ 
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.09 secs
+ 
+--> 
+
+Total memory usage is 206336 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

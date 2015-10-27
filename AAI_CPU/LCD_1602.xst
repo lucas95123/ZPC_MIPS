@@ -1,0 +1,5 @@
+set -tmpdir "D:/Users/AAI_CPU/xst/projnav.tmp"
+set -xsthdpdir "D:/Users/AAI_CPU/xst"
+elaborate
+-ifn LCD_1602.prj
+-ifmt mixed

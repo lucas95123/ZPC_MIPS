@@ -1,0 +1,4 @@
+vhdtdtfi -lib work D:/Users/AAI_CPU/Ext_32_Unsigned.v -lang verilog -prj Project4 -o Ext_32_Unsigned.spl -module Ext_32_Unsigned -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Ext_32_Unsigned.spl D:/Users/AAI_CPU/Ext_32_Unsigned.sym 
+vhdtdtfi -lib work D:/Users/AAI_CPU/Ext_32_Unsigned.v -lang verilog -prj Project4 -o Ext_32_Unsigned.spl -module Ext_32_Unsigned -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Ext_32_Unsigned.spl D:/Users/AAI_CPU/Ext_32_Unsigned.sym 

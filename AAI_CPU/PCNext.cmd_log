@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/Users/AAI_CPU/PCNext.v -lang verilog -prj Project4 -o PCNext.spl -module PCNext -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e PCNext.spl D:/Users/AAI_CPU/PCNext.sym 

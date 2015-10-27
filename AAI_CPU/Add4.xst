@@ -1,0 +1,5 @@
+set -tmpdir "D:/Users/AAI_CPU/xst/projnav.tmp"
+set -xsthdpdir "D:/Users/AAI_CPU/xst"
+elaborate
+-ifn Add4.prj
+-ifmt mixed

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="mux4to1_32">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2015-3-3T17:37:7</timestamp>
+    <attr value="mux4to1_32" name="VeriModel" />
+    <pin polarity="Input" x="48" y="-144" name="sel(1:0)" />
+    <pin polarity="Output" x="80" y="-64" name="o(31:0)" />
+    <pin polarity="Input" x="16" y="-112" name="a(31:0)" />
+    <pin polarity="Input" x="16" y="-80" name="b(31:0)" />
+    <pin polarity="Input" x="16" y="-48" name="c(31:0)" />
+    <pin polarity="Input" x="16" y="-16" name="d(31:0)" />
+    <graph>
+        <line x2="16" y1="-80" y2="-80" style="linewidth:W" x1="28" />
+        <line x2="16" y1="-48" y2="-48" style="linewidth:W" x1="28" />
+        <line x2="16" y1="-16" y2="-16" style="linewidth:W" x1="28" />
+        <rect width="40" x="28" y="-136" height="128" />
+        <attrtext style="fontsize:12;fontname:Arial;textcolor:rgb(255,255,255)" attrname="PinName" x="24" y="-16" type="pin d(31:0)" />
+        <line x2="16" y1="-112" y2="-112" style="linewidth:W" x1="28" />
+        <attrtext style="alignment:VCENTER;fontsize:12;fontname:Arial;textcolor:rgb(255,255,255)" attrname="PinName" x="36" y="-112" type="pin sel(1:0)" />
+        <line x2="48" y1="-136" y2="-144" style="linewidth:W" x1="48" />
+        <line x2="68" y1="-64" y2="-64" style="linewidth:W" x1="80" />
+        <attrtext style="alignment:VRIGHT;fontsize:12;fontname:Arial;textcolor:rgb(255,255,255)" attrname="PinName" x="60" y="-48" type="pin o(31:0)" />
+        <attrtext style="alignment:BVCENTER;fontsize:12;fontname:Arial;textcolor:rgb(255,0,0)" attrname="SymbolName" x="68" y="-44" type="symbol" />
+        <attrtext style="fontsize:9;fontname:Arial;textcolor:rgb(255,255,255)" attrname="PinName" x="28" y="-112" type="pin a(31:0)" />
+        <attrtext style="fontsize:9;fontname:Arial;textcolor:rgb(255,255,255)" attrname="PinName" x="32" y="-80" type="pin b(31:0)" />
+        <attrtext style="fontsize:9;fontname:Arial;textcolor:rgb(255,255,255)" attrname="PinName" x="32" y="-48" type="pin c(31:0)" />
+    </graph>
+</symbol>

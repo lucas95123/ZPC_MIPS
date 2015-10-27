@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/Users/ORG-Project4/mux2to1_15.v -lang verilog -prj Project4 -o mux2to1_15.spl -module mux2to1_15 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 mux2to1_15.spl D:/Users/ORG-Project4/mux2to1_15.sym 

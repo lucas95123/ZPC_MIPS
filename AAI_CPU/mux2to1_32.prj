@@ -1,0 +1,2 @@
+verilog work "mux2to1_32.v"
+verilog work "Top_SCPU_IOBUS_Sch.vf"

@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/Users/AAI_CPU/Status_shifter.v -lang verilog -prj Project4 -o Status_shifter.spl -module Status_shifter -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Status_shifter.spl D:/Users/AAI_CPU/Status_shifter.sym 

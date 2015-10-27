@@ -1,0 +1,10 @@
+sch2hdl -intstyle ise -family spartan3 -verilog ALU_drc.vf -w D:/3130000368/lab5/ALU.sch 
+sch2hdl -intstyle ise -family spartan3 -verilog ALU_drc.vf -w D:/3130000368/lab5/ALU.sch 
+sch2sym -intstyle ise -family spartan3 -refsym ALU D:/3130000368/lab5/ALU.sch D:/3130000368/lab5/ALU.sym 
+xst -intstyle ise -ifn "D:/lab5/ALU.xst" -ofn "D:/lab5/ALU.syr" 
+xst -intstyle ise -ifn "D:/lab5/ALU.xst" -ofn "D:/lab5/ALU.syr" 
+xst -intstyle ise -ifn "D:/lab5/ALU.xst" -ofn "D:/lab5/ALU.syr" 
+xst -intstyle ise -ifn "D:/lab5/ALU.xst" -ofn "D:/lab5/ALU.syr" 
+xst -intstyle ise -ifn "D:/lab5/ALU.xst" -ofn "D:/lab5/ALU.syr" 
+sch2hdl -intstyle ise -family spartan3 -verilog ALU_drc.vf -w D:/lab5/ALU.sch 
+sch2sym -intstyle ise -family spartan3 -refsym ALU D:/lab5/ALU.sch D:/lab5/ALU.sym 

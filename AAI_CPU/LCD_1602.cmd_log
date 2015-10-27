@@ -1,0 +1,4 @@
+vhdtdtfi -lib work D:/Users/AAI_CPU/LCD_1602.v -lang verilog -prj Project4 -o LCD_1602.spl -module LCD_1602 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e LCD_1602.spl D:/Users/AAI_CPU/LCD_1602.sym 
+vhdtdtfi -lib work D:/Users/AAI_CPU/LCD_1602.v -lang verilog -prj Project4 -o LCD_1602.spl -module LCD_1602 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e LCD_1602.spl D:/Users/AAI_CPU/LCD_1602.sym 

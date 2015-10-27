@@ -1,0 +1,3 @@
+vhdtdtfi -lib work D:/Users/ORG-Project4/Addr_buffer.v -lang verilog -prj Project4 -o Addr_buffer.spl -module Addr_buffer -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3 Addr_buffer.spl D:/Users/ORG-Project4/Addr_buffer.sym 
+vhdtdtfi -lang verilog -prj Project4 -o D:/Users/ORG-Project4/Addr_buffer.tfi -lib work D:/Users/ORG-Project4//Addr_buffer.v -module Addr_buffer -template D:/XilinxIse/14.6/ISE_DS/ISE//data/tfi.tft -deleteonerror 

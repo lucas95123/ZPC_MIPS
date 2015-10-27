@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/Users/AAI_CPU/Add4.v -lang verilog -prj Project4 -o Add4.spl -module Add4 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e Add4.spl D:/Users/AAI_CPU/Add4.sym 

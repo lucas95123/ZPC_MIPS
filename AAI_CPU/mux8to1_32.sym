@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="mux8to1_32">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2015-10-26T15:57:37</timestamp>
+    <attr value="mux8to1_32" name="VeriModel" />
+    <pin polarity="Input" x="48" y="-528" name="x1(31:0)" />
+    <pin polarity="Input" x="48" y="-544" name="x0(31:0)" />
+    <pin polarity="Input" x="48" y="-512" name="x2(31:0)" />
+    <pin polarity="Input" x="48" y="-496" name="x3(31:0)" />
+    <pin polarity="Input" x="48" y="-480" name="x4(31:0)" />
+    <pin polarity="Input" x="48" y="-464" name="x5(31:0)" />
+    <pin polarity="Input" x="48" y="-448" name="x6(31:0)" />
+    <pin polarity="Input" x="48" y="-432" name="x7(31:0)" />
+    <pin polarity="Input" x="80" y="-560" name="sel(2:0)" />
+    <pin polarity="Output" x="128" y="-496" name="o(31:0)" />
+    <graph>
+        <line x2="48" y1="-528" y2="-528" x1="64" />
+        <line x2="64" y1="-544" y2="-544" x1="48" />
+        <line x2="64" y1="-512" y2="-512" x1="48" />
+        <line x2="64" y1="-496" y2="-496" x1="48" />
+        <line x2="64" y1="-480" y2="-480" x1="48" />
+        <line x2="64" y1="-464" y2="-464" x1="48" />
+        <line x2="64" y1="-448" y2="-448" x1="48" />
+        <line x2="64" y1="-432" y2="-432" x1="48" />
+        <line x2="80" y1="-560" y2="-548" x1="80" />
+        <rect width="44" x="64" y="-548" height="120" />
+        <line x2="128" y1="-496" y2="-496" x1="108" />
+    </graph>
+</symbol>

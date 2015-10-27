@@ -1,0 +1,250 @@
+# Period constraint for 50MHz operation
+#
+NET "clk_50mhz" PERIOD = 20 ns HIGH 50 %;
+#
+# Timing setting
+#
+NET "clk_50mhz" TNM_NET = "clk_50mhz";
+#
+# I/O constraints for Spartan-3E Starter Kit (Rev.C)
+#
+# soldered 50MHz Clock
+#
+NET "clk_50mhz" LOC = "C9" | IOSTANDARD = LVTTL;
+#
+NET "SW[3]" loc = "L13" | IOSTANDARD = LVTTL | PULLUP;#不管了
+NET "SW[2]" loc = "L14" | IOSTANDARD = LVTTL | PULLUP;#CPU单步时钟1,全速时钟0
+NET "SW[1]" loc = "H18" | IOSTANDARD = LVTTL | PULLUP;#高位1，低位0
+NET "SW[0]" loc = "N17" | IOSTANDARD = LVTTL | PULLUP;#文本模式1,图形模式0
+
+NET "LED[7]" loc = "F9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[6]" loc = "E9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[5]" loc = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[4]" loc = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[3]" loc = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[2]" loc = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[1]" loc = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "LED[0]" loc = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+
+NET "BTN[3]" loc = "V4" | IOSTANDARD = LVTTL | PULLDOWN;#reset
+NET "BTN[2]" loc = "D18" | IOSTANDARD = LVTTL | PULLDOWN;
+NET "BTN[1]" loc = "K17" | IOSTANDARD = LVTTL | PULLDOWN;
+NET "BTN[0]" loc = "H13" | IOSTANDARD = LVTTL | PULLDOWN;
+
+#VGA
+NET "vga_rgb<2>" LOC = "G15" | IOSTANDARD = LVTTL;
+NET "vga_rgb<1>" LOC = "H15" | IOSTANDARD = LVTTL;
+NET "vga_rgb<0>" LOC = "H14" | IOSTANDARD = LVTTL;
+NET "vga_vs" LOC = "F14" | IOSTANDARD = LVTTL;
+NET "vga_hs" LOC = "F15" | IOSTANDARD = LVTTL;
+# Constraints for 'picoblaze_dac_control'.
+#
+# Revision C of the Spartan-3E Starter Kit.
+#
+# Ken Chapman - Xilinx Ltd - November 2005
+# Revised : 21st February 2006
+#
+# Period constraint for 50MHz operation
+#
+#NET "clk_raw" PERIOD = 20 ns HIGH 50 %;
+#
+# Timing setting
+#
+#NET "clk_raw" TNM_NET = "clk_raw";
+#
+# I/O constraints for Spartan-3E Starter Kit (Rev.C)
+#
+# soldered 50MHz Clock
+#
+#NET "clk_raw" LOC = "C9" | IOSTANDARD = LVTTL;
+#
+# SPI devices
+#
+#NET "spi_sck"      LOC = "U16" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_sdi"      LOC = "T4"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_rom_cs"   LOC = "U3"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_amp_cs"   LOC = "N7"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_adc_conv" LOC = "P11" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_dac_cs"   LOC = "N8"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_amp_shdn" LOC = "P7"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#NET "spi_dac_clr"  LOC = "P8"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+#
+#
+# Strata Flash (need to disable to use SDO signal of the SPI bus)
+#
+#NET "strataflash_oe" LOC = "C18" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#NET "strataflash_ce" LOC = "D16" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#NET "strataflash_we" LOC = "D17" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#NET "strataflash_byte" LOC = "C17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#
+#NET "strataflash_D<15>" LOC = "T8"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<14>" LOC = "R8"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<13>" LOC = "P6"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<12>" LOC = "M16" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<11>" LOC = "M15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<10>" LOC = "P17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<9>"  LOC = "R16" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<8>"  LOC = "R15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<7>"  LOC = "N9"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<6>"  LOC = "M9"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<5>"  LOC = "R9"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<4>"  LOC = "U9"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<3>"  LOC = "V9"  | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<2>"  LOC = "R10" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<1>"  LOC = "P10" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "strataflash_D<0>"  LOC = "N10" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#
+#NET "sf_A<24>" LOC = "A11" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<23>" LOC = "N11" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<22>" LOC = "V12" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<21>" LOC = "V13" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<20>" LOC = "T12" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<19>" LOC = "V15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<18>" LOC = "U15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<17>" LOC = "T16" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<16>" LOC = "U18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<15>" LOC = "T17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<14>" LOC = "R18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<13>" LOC = "T18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<12>" LOC = "L16" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<11>" LOC = "L15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<10>" LOC = "K13" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<9>" LOC = "K12" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<8>" LOC = "K15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<7>" LOC = "K14" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<6>" LOC = "J17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<5>" LOC = "J16" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<4>" LOC = "J15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<3>" LOC = "J14" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<2>" LOC = "J12" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<1>" LOC = "J13" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "sf_A<0>" LOC = "H17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#
+#
+# DDR SDRAM
+#
+#NET "sd_A<12>" LOC = "P2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<11>" LOC = "N5" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<10>" LOC = "T2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<9>" LOC = "N4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<8>" LOC = "H2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<7>" LOC = "H1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<6>" LOC = "H3" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<5>" LOC = "H4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<4>" LOC = "F4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<3>" LOC = "P1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<2>" LOC = "R2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<1>" LOC = "R3" | IOSTANDARD = SSTL2_I ;
+#NET "sd_A<0>" LOC = "T1" | IOSTANDARD = SSTL2_I ;
+#
+#NET "sd_DQ<15>" LOC = "H5" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<14>" LOC = "H6" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<13>" LOC = "G5" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<12>" LOC = "G6" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<11>" LOC = "F2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<10>" LOC = "F1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<9>" LOC = "E1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<8>" LOC = "E2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<7>" LOC = "M6" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<6>" LOC = "M5" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<5>" LOC = "M4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<4>" LOC = "M3" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<3>" LOC = "L4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<2>" LOC = "L3" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<1>" LOC = "L1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_DQ<0>" LOC = "L2" | IOSTANDARD = SSTL2_I ;
+#
+#NET "sd_BA<0>" LOC = "K5" | IOSTANDARD = SSTL2_I ;
+#NET "sd_BA<1>" LOC = "K6" | IOSTANDARD = SSTL2_I ;
+#NET "sd_CAS" LOC = "C2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_CK_N" LOC = "J4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_CK_P" LOC = "J5" | IOSTANDARD = SSTL2_I ;
+#NET "sd_CKE" LOC = "K3" | IOSTANDARD = SSTL2_I ;
+#NET "sd_CS" LOC = "K4" | IOSTANDARD = SSTL2_I ;
+#NET "sd_LDM" LOC = "J2" | IOSTANDARD = SSTL2_I ;
+#NET "sd_LDQS" LOC = "L6" | IOSTANDARD = SSTL2_I ;
+#NET "sd_RAS" LOC = "C1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_UDM" LOC = "J1" | IOSTANDARD = SSTL2_I ;
+#NET "sd_UDQS" LOC = "G3" | IOSTANDARD = SSTL2_I ;
+#NET "sd_WE" LOC = "D1" | IOSTANDARD = SSTL2_I ;
+# Prohibit VREF pins
+#CONFIG PROHIBIT = D2;
+#CONFIG PROHIBIT = G4;
+#CONFIG PROHIBIT = J6;
+#CONFIG PROHIBIT = L5;
+#CONFIG PROHIBIT = R4;
+#
+#NET "sd_dbg_st" LOC = "A6" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#
+#
+# Platform Flash
+#
+#NET "platformflash_oe" LOC = "T3" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#
+#
+# Debug LEDs
+# 4mA drive.
+#
+#NET "led<0>" LOC = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<1>" LOC = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<2>" LOC = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<3>" LOC = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<4>" LOC = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<5>" LOC = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<6>" LOC = "E9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "led<7>" LOC = "F9"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#
+#
+#
+# Simple switches
+#   Pull UP resistors used to stop floating condition during switching.
+#
+#NET "switch<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP;
+#NET "switch<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP;
+#NET "switch<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP;
+#NET "switch<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP;
+#
+#
+# Press buttons
+#   Must have pull DOWN resistors to provide Low when not pressed.
+#
+#NET "btn_north" LOC = "V4"  | IOSTANDARD = LVTTL | PULLDOWN;
+#NET "btn_east"  LOC = "H13" | IOSTANDARD = LVTTL | PULLDOWN;
+#NET "btn_south" LOC = "K17" | IOSTANDARD = LVTTL | PULLDOWN;
+#NET "btn_west"  LOC = "D18" | IOSTANDARD = LVTTL | PULLDOWN;
+#
+#
+# LCD control lines
+#
+#
+#NET "lcd_e"  LOC = "M18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "lcd_rs" LOC = "L18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "lcd_rw" LOC = "L17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#
+#
+# External SPI bus to microprocessor
+#
+#
+#NET "extspi_si"  LOC = "C5"  | IOSTANDARD = LVTTL | PULLUP;
+#NET "extspi_so"  LOC = "D5"  | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+#NET "extspi_sck" LOC = "A4"  | IOSTANDARD = LVTTL | PULLDOWN;
+#NET "extspi_ce"  LOC = "B4"  | IOSTANDARD = LVTTL | PULLUP;
+#
+#
+# Debug bus for scope probe
+#
+#
+#NET "aux_o<0>"  LOC = "D7" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "aux_o<1>"  LOC = "C7" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "aux_o<2>"  LOC = "F8" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#NET "aux_o<3>"  LOC = "E8" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;
+#
+#
+# Rotation encoder input
+#
+#
+#NET "rot_cnt"  LOC = "V16" | IOSTANDARD = LVCMOS33 | PULLDOWN ;
+#
+#
+# End of File
+#
