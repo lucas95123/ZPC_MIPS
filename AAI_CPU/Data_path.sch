@@ -55,7 +55,7 @@
         <signal name="XLXN_104(31:0)" />
         <signal name="Inst(15:0)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,N0" />
-        <signal name="imm_32(31:0)" />
+        <signal name="Imm_32(31:0)" />
         <signal name="CP0_out(31:0)" />
         <signal name="PC_Current(31:28),Inst(25:0),N0,N0" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,N0,N0" />
@@ -73,8 +73,6 @@
         <signal name="N0,N0,N0,N0,CP0_out(31:4)" />
         <signal name="PC_next(31:0)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" />
-        <signal name="XLXN_237" />
-        <signal name="XLXN_238" />
         <port polarity="Output" name="Inst(31:0)" />
         <port polarity="Input" name="clk" />
         <port polarity="Input" name="IRWrite" />
@@ -329,7 +327,7 @@
             <blockpin signalname="XLXN_41(31:0)" name="o(31:0)" />
             <blockpin signalname="data_out(31:0)" name="a(31:0)" />
             <blockpin signalname="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,N0" name="b(31:0)" />
-            <blockpin signalname="imm_32(31:0)" name="c(31:0)" />
+            <blockpin signalname="Imm_32(31:0)" name="c(31:0)" />
             <blockpin signalname="Imm_32(29:0),N0,N0" name="d(31:0)" />
         </block>
         <block symbolname="xor2" name="XLXI_21">
@@ -398,7 +396,7 @@
             <blockpin signalname="Unsigned" name="sel" />
             <blockpin signalname="XLXN_104(31:0)" name="a(31:0)" />
             <blockpin signalname="XLXN_103(31:0)" name="b(31:0)" />
-            <blockpin signalname="imm_32(31:0)" name="o(31:0)" />
+            <blockpin signalname="Imm_32(31:0)" name="o(31:0)" />
         </block>
         <block symbolname="mux8to1_32" name="XLXI_33">
             <blockpin signalname="XLXN_3(31:0)" name="x1(31:0)" />
@@ -690,7 +688,7 @@
         <branch name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,N0">
             <wire x2="1696" y1="1552" y2="1552" x1="1632" />
         </branch>
-        <branch name="imm_32(31:0)">
+        <branch name="Imm_32(31:0)">
             <wire x2="1664" y1="1776" y2="1776" x1="1472" />
             <wire x2="1664" y1="1584" y2="1776" x1="1664" />
             <wire x2="1696" y1="1584" y2="1584" x1="1664" />

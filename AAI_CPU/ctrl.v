@@ -1,4 +1,6 @@
 `timescale 1ns / 1ps
+`define CPU_ctrl_signals{PCWrite, PCWriteCond, IorD, MemRead, MemWrite, IRWrite, MemtoReg, PCSource, ALUSrcB, ALUSrcA, RegWrite, RegDst, CPU_MIO}
+`define CP0_ctrl_signals{CP0Write, CP0Dst, Cause, DatatoCP0}
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,7 +20,8 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module ctrl(input INT,
+module ctrl(input INT_KBD,
+				input INT_CNT,
 				input clk,
             input reset,
 				input zero,
@@ -51,14 +54,14 @@ module ctrl(input INT,
 	 parameter IF = 5'b00000, ID=5'b00001, EX_R= 5'b00010, EX_Mem=5'b00011, EX_I= 5'b00100,
     WB_Lui=5'b00101, EX_beq=5'b00110, EX_bne= 5'b00111, EX_jr= 5'b01000, EX_jal=5'b01001,
     EX_j= 5'b01010, MEM_RD=5'b01011, MEM_WD= 5'b01100, WB_R= 5'b01101, WB_I=5'b01110, WB_LW=5'b01111, 
-	 CP0_RD=5'b10000,CP0_WD=5'10001,INT_WEPC=5'b10010,INT_WCAUSE=5'b10011,INT_WSHIFT=5'b10100,INT_JHANDLER=5'b10101,Error=5'b11111;
+	 CP0_RD=5'b10000,CP0_WD=5'b10001,INT_WEPC=5'b10010,INT_WCAUSE=5'b10011,INT_WSHIFT=5'b10100,INT_JHANDLER=5'b10101,Error=5'b11111;
     parameter AND=3'b000, OR=3'b001, ADD=3'b010, SUB=3'b110, NOR=3'b100, SLT=3'b111, XOR=3'b011, SRL=3'b101;
 	 
     wire [5:0] opcode;
+	 wire [4:0] rs;
 	 wire [5:0] funct;
-    `define CPU_ctrl_signals{PCWrite/*1*/, PCWriteCond/*1*/, IorD/*1*/, MemRead/*1*/, MemWrite/*1*/, IRWrite/*1*/, 
-										MemtoReg/*3*/, PCSource/*3*/, ALUSrcB/*2*/, ALUSrcA/*1*/, RegWrite/*1*/, RegDst/*2*/, CPU_MIO/*1*/}/*19bit*/
-	 `define CP0_ctrl_signals{CP0Write/*1*/,CP0Dst/*2*/,Cause/*3*/,DatatoCP0/*3*/};/*9bit*/
+	 reg INT_SYS;
+	 reg INT_UNIMPL;
 	 assign opcode[5:0]=Inst_in[31:26];
 	 assign rs[4:0]=Inst_in[25:21];
 	 assign funct[5:0]=Inst_in[5:0];
@@ -66,18 +69,22 @@ module ctrl(input INT,
     always @ (posedge clk or posedge reset)
     if (reset==1) 
 	  begin //reset pushed
-      `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; CP0_ctrl_signals<=8'h00; ALU_operation<=ADD; state_out<= IF; 
+		`CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<= IF; 
 	  end//12821
-    else
+    else if(INT_KBD|INT_CNT)
+	  begin
+	   `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h143; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=INT_WEPC; //INT_KBD OR INT_CNT
+	  end
+	 else
      case(state_out)
       IF: begin 
 		     if(MIO_ready) 
 			   begin
-             `CPU_ctrl_signals<=17'h00060; Branch<=0; Unsigned<=0; CP0_ctrl_signals<=8'h00; ALU_operation<=ADD; state_out<= ID;
+             `CPU_ctrl_signals<=19'h00060; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<= ID; INT_SYS<=1'b0; INT_UNIMPL<=1'b0;
 				end	   
            else 
 			   begin 
-				 `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; CP0_ctrl_signals<=8'h00; ALU_operation<=ADD; state_out<=IF;
+				 `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;
 				end
           end
       ID: begin
@@ -85,11 +92,11 @@ module ctrl(input INT,
 					  6'h0: 
 					   begin 
 					    case(funct)
-							6'h8: begin `CPU_ctrl_signals<=17'h10010; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_jr; end
-							6'hc: begin `CPU_ctrl_signals<=17'h; CP0_ctrl_signals<=8'hed; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; end
+							6'h8: begin `CPU_ctrl_signals<=19'h40010; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_jr; end //jr
+							6'hc: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h143; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_SYS<=1'b1; end //syscall
 						   default:
 							 begin
-							 `CPU_ctrl_signals<=17'h00010; CP0_ctrl_signals<=8'h00; Unsigned<=0; Branch<=0; 
+							 `CPU_ctrl_signals<=19'h00010; `CP0_ctrl_signals<=9'h000; Unsigned<=0; Branch<=0; 
 							   case(funct)
 							    6'b100000:	 ALU_operation<= ADD;//add
                          6'b100010:  ALU_operation<= SUB;//sub
@@ -105,96 +112,99 @@ module ctrl(input INT,
 						 endcase
 						end
 					  6'h23: begin
-							`CPU_ctrl_signals<=17'h00050; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_Mem;//lw
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_Mem;//lw
 								end
 					  6'h2b: begin
-							`CPU_ctrl_signals<=17'h00050; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_Mem;//sw
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_Mem;//sw
 								end
 					  6'h4: begin 
-							`CPU_ctrl_signals<=17'h08090; CP0_ctrl_signals<=8'h00; Branch<=1; Unsigned<=0; ALU_operation<=SUB;state_out<=EX_beq; //beq
+							`CPU_ctrl_signals<=19'h20090; `CP0_ctrl_signals<=9'h000; Branch<=1; Unsigned<=0; ALU_operation<=SUB;state_out<=EX_beq; //beq
 								end
 					  6'h5: begin 
-							`CPU_ctrl_signals<=17'h08090; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=SUB;state_out<=EX_bne; //bne
+							`CPU_ctrl_signals<=19'h20090; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=SUB;state_out<=EX_bne; //bne
 								end
 					  6'h2: begin 
-							`CPU_ctrl_signals<=17'h10160; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=EX_j;  //jump
+							`CPU_ctrl_signals<=19'h40160; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=EX_j;  //jump
 								end
 					  6'h3:  begin 
-							`CPU_ctrl_signals<=17'h1076c; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_jal; //jal
+							`CPU_ctrl_signals<=19'h40d6c; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_jal; //jal
 								end
 					  6'ha: begin 
-							`CPU_ctrl_signals<=17'h00050; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<= SLT;state_out<=EX_I;   //slti
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= SLT;state_out<=EX_I;   //slti
 								end
 					  6'h8:  begin 
-							`CPU_ctrl_signals<=17'h00050; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<= ADD;state_out<=EX_I;   //addi
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= ADD;state_out<=EX_I;   //addi
 								end
 					  6'h9:  begin 
-							`CPU_ctrl_signals<=17'h00050; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=1; ALU_operation<= ADD;state_out<=EX_I;   //addiu
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=1; ALU_operation<= ADD;state_out<=EX_I;   //addiu
 								end
-					  6'h10 begin
-								case(rs)
+					  6'h10: case(rs)
 									5'h0:begin 
-										`CPU_ctrl_signals<=17'h/*MemtoReg, RegDst*/; Unsigned<=0; Branch<=0;ALU_operation<= ADD;state_out<=CP0_RD; //mfc0
+										`CPU_ctrl_signals<=19'h01008; `CP0_ctrl_signals<=9'h000; Unsigned<=0; Branch<=0; ALU_operation<= ADD;state_out<=CP0_RD; //mfc0
 											end
 									5'h4:begin 
-										`CPU_ctrl_signals<=17'h/*CP0Write*/; Unsigned<=0; Branch<=0;ALU_operation<= ADD;state_out<=CP0_WD; //mtc0
+										`CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h100; Unsigned<=0; Branch<=0; ALU_operation<= ADD;state_out<=CP0_WD; //mtc0
 											end
 								endcase
-							  end
 					  6'hc: begin 
-							`CPU_ctrl_signals<=17'h00050; Branch<=0; Unsigned<=0; ALU_operation<= AND;state_out<=EX_I;   //andi
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= AND;state_out<=EX_I;   //andi
 								end
 					  6'hd: begin 
-							`CPU_ctrl_signals<=17'h00050; Branch<=0; Unsigned<=0; ALU_operation<= OR;state_out<=EX_I;   //ori
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= OR;state_out<=EX_I;   //ori
 								end
 					  6'he: begin 
-							`CPU_ctrl_signals<=17'h00050; Branch<=0; Unsigned<=0; ALU_operation<= XOR;state_out<=EX_I;   //xori
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= XOR;state_out<=EX_I;   //xori
 								end
 					  6'hf: begin 
-							`CPU_ctrl_signals<=17'h00050; Branch<=0; Unsigned<=0; ALU_operation<= ADD;state_out<=EX_I;//lui
+							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= ADD;state_out<=EX_I;//lui
 								end
 					  default: state_out<=IF;  
 					  endcase        						
 		    end
 		EX_R: begin
-				   `CPU_ctrl_signals<=17'h0001a; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=WB_R;
+				   `CPU_ctrl_signals<=19'h0001a; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=WB_R;
 		      end
 	   EX_Mem: begin
 					 case(opcode)
 					 6'h23:  begin 
-								`CPU_ctrl_signals<=17'h06051; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=MEM_RD;//lw
+								`CPU_ctrl_signals<=19'h18051; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=MEM_RD;//lw
 								end
 					 6'h2b:  begin
-								`CPU_ctrl_signals<=17'h05051; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=MEM_WD;//sw
+								`CPU_ctrl_signals<=19'h14051; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=MEM_WD;//sw
 								end
 					 endcase
 					end
 		EX_I: begin 
 		       case(opcode)
-				 6'hf:begin `CPU_ctrl_signals<=17'h00468; Branch<=0; Unsigned<=0; ALU_operation<= ADD;state_out<=WB_Lui; end
-				 default:begin`CPU_ctrl_signals<=17'h00058; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=WB_I; end
+				 6'hf:begin `CPU_ctrl_signals<=19'h00868; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= ADD;state_out<=WB_Lui; end
+				 default:begin`CPU_ctrl_signals<=19'h00058; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=WB_I; end
 				 endcase
 				end
-	   EX_beq: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		EX_bne: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		EX_jr: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		EX_jal: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		EX_j: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		MEM_RD: begin `CPU_ctrl_signals<=17'h00208; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=WB_LW; end 
-		MEM_WD: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		CP0_RD: begin `CPU_ctrl_signals<=17'h; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		CP0_WD: begin `CPU_ctrl_signals<=17'h; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		WB_LW: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		WB_R: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		WB_I: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		WB_Lui: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		INT_WEPC: begin CP0_ctrl_signals<=8'ha9; state_out<=INT_WCAUSE;end
-		INT_WCAUSE: begin CP0_ctrl_signals<=8'hca; state_out<=INT_WSHIFT;end
-		INT_WSHIFT: begin CP0_ctrl_signals<=8'h00; state_out<=INT_JHANDLER;end
-		INT_JHANDLER: begin state_out<=IF;end
-		Error: begin 
-				 `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;
-				 end
-    endcase
+	   EX_beq: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		EX_bne: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		EX_jr: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		EX_jal: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		EX_j: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		MEM_RD: begin `CPU_ctrl_signals<=19'h00408; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=WB_LW; end 
+		MEM_WD: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		CP0_RD: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		CP0_WD: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		WB_LW: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		WB_R: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		WB_I: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		WB_Lui: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
+		INT_WEPC: begin 
+						`CPU_ctrl_signals<=19'h00000; state_out<=INT_WCAUSE;
+						if(INT_KBD) `CP0_ctrl_signals<=9'h180;
+						else if(INT_CNT) `CP0_ctrl_signals<=9'h1a0;
+						else if(INT_SYS) begin `CP0_ctrl_signals<=9'h188; INT_SYS=1'b0; end 
+						else if(INT_UNIMPL) begin `CP0_ctrl_signals<=9'h190; INT_UNIMPL=1'b0; ends
+						else if(overflow) `CP0_ctrl_signals<=9'h198;
+						else `CP0_ctrl_signals<=9'h000;
+				    end
+		INT_WCAUSE: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h1c1; state_out<=INT_WSHIFT;end
+		INT_WSHIFT: begin `CPU_ctrl_signals<=19'h40200; `CP0_ctrl_signals<=9'h040; state_out<=INT_JHANDLER;end
+		INT_JHANDLER: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;end
+		Error: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h143; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_UNIMPL<=1'b1; end
 endmodule
 

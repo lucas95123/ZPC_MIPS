@@ -15,13 +15,16 @@
          <ClosedNode>/Top_SCPU_IOBUS_App D:|Users|ORG-P4-NOVRAM|Top_SCPU_IOBUS_App.sch/U12 - VGA_controller</ClosedNode>
          <ClosedNode>/Top_SCPU_IOBUS_App D:|Users|Project4|Top_SCPU_IOBUS_App.sch/U1 - Muliti_CPU/XLXI_6 - Data_path</ClosedNode>
          <ClosedNode>/Top_SCPU_IOBUS_App D:|Users|Project4|Top_SCPU_IOBUS_App.sch/XLXI_15 - VGA</ClosedNode>
+         <ClosedNode>/Top_SCPU_IOBUS_App D:|Users|ZPC_MIPS|AAI_CPU|Top_SCPU_IOBUS_App.sch/U1 - Muliti_CPU/U1_2 - Data_path/U1 - ALU</ClosedNode>
       </ClosedNodes>
-      <SelectedItems/>
-      <ScrollbarPosition orientation="vertical" >13</ScrollbarPosition>
+      <SelectedItems>
+         <SelectedItem>U1_1 - ctrl (D:/Users/ZPC_MIPS/AAI_CPU/ctrl.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000023a000000020000000000000000000000000200000064ffffffff0000008100000003000000020000023a0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>U1 - Muliti_CPU (D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.sch)</CurrentItem>
+      <CurrentItem>U1_1 - ctrl (D:/Users/ZPC_MIPS/AAI_CPU/ctrl.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_SCHEMATIC" guiview="Process" >
       <ClosedNodes>

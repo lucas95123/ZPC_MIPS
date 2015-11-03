@@ -113,6 +113,9 @@
 <msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">clk_50mhz_BUFGP</arg>&quot; is zero.
 </msg>
 
+<msg type="warning" file="Power" num="1337" delta="new" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">clkdiv&lt;7&gt;</arg>&quot; is zero.
+</msg>
+
 <msg type="warning" file="Power" num="1369" delta="old" >Clock frequency for one or more clocks was not found through
 timing constraints (PCF file) or simulation data.  Without knowing the
 clock frequency of all clocks, dynamic power information for those clock
@@ -150,6 +153,9 @@ design.  To avoid this warning, provide at least one of the following:
 <msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">clk_50mhz_BUFGP</arg>&quot; is zero.
 </msg>
 
+<msg type="warning" file="Power" num="1337" delta="new" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">clkdiv&lt;7&gt;</arg>&quot; is zero.
+</msg>
+
 <msg type="warning" file="Power" num="1369" delta="old" >Clock frequency for one or more clocks was not found through
 timing constraints (PCF file) or simulation data.  Without knowing the
 clock frequency of all clocks, dynamic power information for those clock
@@ -163,12 +169,16 @@ design.  To avoid this warning, provide at least one of the following:
      XPower Analyzer GUI and then applying &quot;Update Power Analysis&quot;
 </msg>
 
+<msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">Clk_CPU</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">12</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
+</msg>
+
 <msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> may have excessive skew because 
    <arg fmt="%d" index="2">0</arg> CLK pins and <arg fmt="%d" index="3">45</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
-<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">Clk_CPU</arg> may have excessive skew because 
-   <arg fmt="%d" index="2">12</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
+<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">clkdiv&lt;7&gt;</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">6</arg> CLK pins and <arg fmt="%d" index="3">1</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
 <msg type="info" file="Par" num="277" delta="old" >Power optimization/reduction has been run on this design.  Please use XPower to analyze and report the power usage for this design.

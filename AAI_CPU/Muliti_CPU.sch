@@ -31,16 +31,14 @@
         <signal name="reset" />
         <signal name="MIO_ready" />
         <signal name="XLXN_33" />
-        <signal name="XLXN_34" />
         <signal name="inst_out(31:0)" />
-        <signal name="state_out(4:0)" />
+        <signal name="state(4:0)" />
         <signal name="XLXN_43(2:0)" />
         <signal name="XLXN_44(1:0)" />
         <signal name="Cause(2:0)" />
         <signal name="XLXN_46(2:0)" />
         <signal name="Data_in(31:0)" />
         <signal name="XLXN_49(2:0)" />
-        <signal name="XLXN_50" />
         <signal name="INT_CNT" />
         <signal name="overflow" />
         <port polarity="Input" name="INT_KBD" />
@@ -53,7 +51,7 @@
         <port polarity="Input" name="reset" />
         <port polarity="Input" name="MIO_ready" />
         <port polarity="Output" name="inst_out(31:0)" />
-        <port polarity="Output" name="state_out(4:0)" />
+        <port polarity="Output" name="state(4:0)" />
         <port polarity="Input" name="Data_in(31:0)" />
         <port polarity="Input" name="INT_CNT" />
         <blockdef name="ctrl">
@@ -199,7 +197,7 @@
             <blockpin signalname="Cause(2:0)" name="Cause(2:0)" />
             <blockpin signalname="XLXN_46(2:0)" name="DatatoCP0(2:0)" />
             <blockpin signalname="XLXN_49(2:0)" name="ALU_operation(2:0)" />
-            <blockpin signalname="state_out(4:0)" name="state_out(4:0)" />
+            <blockpin signalname="state(4:0)" name="state_out(4:0)" />
             <blockpin signalname="INT_CNT" name="INT_CNT" />
         </block>
         <block symbolname="Data_path" name="U1_2">
@@ -352,7 +350,7 @@
             <wire x2="2656" y1="624" y2="624" x1="1168" />
             <wire x2="2656" y1="624" y2="704" x1="2656" />
         </branch>
-        <iomarker fontsize="28" x="2944" y="2144" name="state_out(4:0)" orien="R0" />
+        <iomarker fontsize="28" x="2944" y="2144" name="state(4:0)" orien="R0" />
         <iomarker fontsize="28" x="2960" y="2080" name="CPU_MIO" orien="R0" />
         <branch name="inst_out(31:0)">
             <wire x2="1216" y1="1856" y2="1856" x1="1168" />
@@ -363,7 +361,7 @@
             <wire x2="2704" y1="1280" y2="2112" x1="2704" />
         </branch>
         <iomarker fontsize="28" x="816" y="2128" name="Data_in(31:0)" orien="R180" />
-        <branch name="state_out(4:0)">
+        <branch name="state(4:0)">
             <wire x2="1760" y1="1968" y2="1968" x1="1696" />
             <wire x2="1760" y1="1968" y2="2144" x1="1760" />
             <wire x2="2944" y1="2144" y2="2144" x1="1760" />

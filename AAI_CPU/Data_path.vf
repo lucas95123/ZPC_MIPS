@@ -7,11 +7,11 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Data_path.vf
-// /___/   /\     Timestamp : 10/21/2015 20:27:16
+// /___/   /\     Timestamp : 11/03/2015 21:35:55
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: sch2hdl -sympath D:/Users/AAI_CPU/ipcore_dir -intstyle ise -family spartan3e -verilog D:/Users/AAI_CPU/Data_path.vf -w D:/Users/AAI_CPU/Data_path.sch
+//Command: sch2hdl -sympath D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir -intstyle ise -family spartan3e -verilog D:/Users/ZPC_MIPS/AAI_CPU/Data_path.vf -w D:/Users/ZPC_MIPS/AAI_CPU/Data_path.sch
 //Design Name: Data_path
 //Device: spartan3e
 //Purpose:
@@ -92,7 +92,11 @@ module Data_path(ALUSrcA,
                  ALUSrcB, 
                  ALU_operation, 
                  Branch, 
+                 Cause, 
                  clk, 
+                 CP0Dst, 
+                 CP0Write, 
+                 DatatoCP0, 
                  data2CPU, 
                  IorD, 
                  IRWrite, 
@@ -116,13 +120,17 @@ module Data_path(ALUSrcA,
     input [1:0] ALUSrcB;
     input [2:0] ALU_operation;
     input Branch;
+    input [2:0] Cause;
     input clk;
+    input [1:0] CP0Dst;
+    input CP0Write;
+    input [2:0] DatatoCP0;
     input [31:0] data2CPU;
     input IorD;
     input IRWrite;
-    input [1:0] MemtoReg;
+    input [2:0] MemtoReg;
     input MIO_ready;
-    input [1:0] PCSource;
+    input [2:0] PCSource;
     input PCWrite;
     input PCWriteCond;
     input [1:0] RegDst;
@@ -137,11 +145,14 @@ module Data_path(ALUSrcA,
    output zero;
    
    wire [31:0] ALU_Out;
-   wire [29:0] Imm_32;
+   wire [31:0] CP0_out;
+   wire [31:0] Imm_32;
    wire N0;
+   wire [31:0] PC_next;
    wire V5;
    wire [4:0] Wt_addr;
    wire [31:0] Wt_data;
+   wire [4:0] W_R_addr;
    wire [31:0] XLXN_3;
    wire [31:0] XLXN_41;
    wire [31:0] XLXN_42;
@@ -153,10 +164,9 @@ module Data_path(ALUSrcA,
    wire XLXN_65;
    wire XLXN_70;
    wire [31:0] XLXN_75;
-   wire [4:0] XLXN_101;
    wire [31:0] XLXN_103;
    wire [31:0] XLXN_104;
-   wire [31:0] XLXN_109;
+   wire [31:0] XLXN_224;
    wire [31:0] PC_Current_DUMMY;
    wire zero_DUMMY;
    wire [31:0] Inst_DUMMY;
@@ -183,24 +193,17 @@ module Data_path(ALUSrcA,
               .D(data2CPU[31:0]), 
               .rst(N0), 
               .Q(XLXN_3[31:0]));
-   mux4to1_32  mux1 (.a(ALU_Out[31:0]), 
-                    .b(XLXN_3[31:0]), 
-                    .c({Inst_DUMMY[15:0], N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         N0, N0, N0, N0, N0, N0, N0}), 
-                    .d(PC_Current_DUMMY[31:0]), 
-                    .sel(MemtoReg[1:0]), 
-                    .o(Wt_data[31:0]));
    mux4to1_5  mux2 (.a(Inst_DUMMY[20:16]), 
                    .b(Inst_DUMMY[15:11]), 
                    .c({V5, V5, V5, V5, V5}), 
-                   .d(XLXN_101[4:0]), 
+                   .d({N0, N0, N0, N0, N0}), 
                    .sel(RegDst[1:0]), 
                    .o(Wt_addr[4:0]));
    mux4to1_32  mux3 (.a(data_out_DUMMY[31:0]), 
                     .b({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, V5, N0, 
          N0}), 
-                    .c(XLXN_109[31:0]), 
+                    .c(Imm_32[31:0]), 
                     .d({Imm_32[29:0], N0, N0}), 
                     .sel(ALUSrcB[1:0]), 
                     .o(XLXN_41[31:0]));
@@ -208,12 +211,6 @@ module Data_path(ALUSrcA,
                     .b(XLXN_48[31:0]), 
                     .sel(ALUSrcA), 
                     .o(XLXN_49[31:0]));
-   mux4to1_32  mux5 (.a(XLXN_42[31:0]), 
-                    .b(ALU_Out[31:0]), 
-                    .c({PC_Current_DUMMY[31:28], Inst_DUMMY[25:0], N0, N0}), 
-                    .d(ALU_Out[31:0]), 
-                    .sel(PCSource[1:0]), 
-                    .o(XLXN_75[31:0]));
    mux2to1_32  mux6 (.a(PC_Current_DUMMY[31:0]), 
                     .b(ALU_Out[31:0]), 
                     .sel(IorD), 
@@ -255,9 +252,60 @@ module Data_path(ALUSrcA,
    GND  XLXI_26 (.G(N0));
    VCC  XLXI_27 (.P(V5));
    Ext_32_Unsigned  XLXI_29 (.imm_16(Inst_DUMMY[15:0]), 
-                            .Imm_32(XLXN_103[31:0]));
+                            .imm_32(XLXN_103[31:0]));
    mux2to1_32  XLXI_30 (.a(XLXN_104[31:0]), 
                        .b(XLXN_103[31:0]), 
                        .sel(Unsigned), 
-                       .o(XLXN_109[31:0]));
+                       .o(Imm_32[31:0]));
+   mux8to1_32  XLXI_33 (.sel(MemtoReg[2:0]), 
+                       .x0(ALU_Out[31:0]), 
+                       .x1(XLXN_3[31:0]), 
+                       .x2({Inst_DUMMY[15:0], N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0}), 
+                       .x3(PC_Current_DUMMY[31:0]), 
+                       .x4(CP0_out[31:0]), 
+                       .x5(), 
+                       .x6(), 
+                       .x7(), 
+                       .o(Wt_data[31:0]));
+   mux8to1_32  XLXI_35 (.sel(PCSource[2:0]), 
+                       .x0(XLXN_42[31:0]), 
+                       .x1(ALU_Out[31:0]), 
+                       .x2({PC_Current_DUMMY[31:28], Inst_DUMMY[25:0], N0, 
+         N0}), 
+                       .x3(ALU_Out[31:0]), 
+                       .x4(CP0_out[31:0]), 
+                       .x5({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, V5, N0, 
+         N0, N0}), 
+                       .x6(), 
+                       .x7(), 
+                       .o(XLXN_75[31:0]));
+   mux4to1_5  XLXI_42 (.a(Inst_DUMMY[15:11]), 
+                      .b({N0, V5, V5, N0, N0}), 
+                      .c({N0, V5, V5, N0, V5}), 
+                      .d({N0, V5, V5, V5, N0}), 
+                      .sel(CP0Dst[1:0]), 
+                      .o(W_R_addr[4:0]));
+   CoPorcessor0  XLXI_48 (.clk(clk), 
+                         .rst(N0), 
+                         .R_addr(W_R_addr[4:0]), 
+                         .we(CP0Write), 
+                         .Wt_addr(W_R_addr[4:0]), 
+                         .Wt_data(XLXN_224[31:0]), 
+                         .rdata_(CP0_out[31:0]));
+   PCNext  XLXI_55 (.inPCCurrent(PC_Current_DUMMY[31:0]), 
+                   .outPCNext(PC_next[31:0]));
+   mux8to1_32  XLXI_56 (.sel(DatatoCP0[2:0]), 
+                       .x0(data_out_DUMMY[31:0]), 
+                       .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         Cause[2:0]}), 
+                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
+                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
+                       .x4(PC_Current_DUMMY[31:0]), 
+                       .x5(PC_next[31:0]), 
+                       .x6(), 
+                       .x7(), 
+                       .o(XLXN_224[31:0]));
 endmodule

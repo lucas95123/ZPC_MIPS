@@ -7,11 +7,11 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Top_SCPU_IOBUS_App.vf
-// /___/   /\     Timestamp : 10/21/2015 19:41:26
+// /___/   /\     Timestamp : 11/03/2015 21:39:16
 // \   \  /  \ 
 //  \___\/\___\ 
 //
-//Command: sch2hdl -sympath D:/Users/AAI_CPU/ipcore_dir -intstyle ise -family spartan3e -verilog D:/Users/AAI_CPU/Top_SCPU_IOBUS_App.vf -w D:/Users/AAI_CPU/Top_SCPU_IOBUS_App.sch
+//Command: sch2hdl -sympath D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir -intstyle ise -family spartan3e -verilog D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf -w D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.sch
 //Design Name: Top_SCPU_IOBUS_App
 //Device: spartan3e
 //Purpose:
@@ -92,7 +92,11 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
                                           ALUSrcB, 
                                           ALU_operation, 
                                           Branch, 
+                                          Cause, 
                                           clk, 
+                                          CP0Dst, 
+                                          CP0Write, 
+                                          DatatoCP0, 
                                           data2CPU, 
                                           IorD, 
                                           IRWrite, 
@@ -104,7 +108,7 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
                                           RegDst, 
                                           RegWrite, 
                                           reset, 
-                                          XLXN_102, 
+                                          Unsigned, 
                                           data_out, 
                                           Inst, 
                                           M_addr, 
@@ -116,19 +120,23 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
     input [1:0] ALUSrcB;
     input [2:0] ALU_operation;
     input Branch;
+    input [2:0] Cause;
     input clk;
+    input [1:0] CP0Dst;
+    input CP0Write;
+    input [2:0] DatatoCP0;
     input [31:0] data2CPU;
     input IorD;
     input IRWrite;
-    input [1:0] MemtoReg;
+    input [2:0] MemtoReg;
     input MIO_ready;
-    input [1:0] PCSource;
+    input [2:0] PCSource;
     input PCWrite;
     input PCWriteCond;
     input [1:0] RegDst;
     input RegWrite;
     input reset;
-    input XLXN_102;
+    input Unsigned;
    output [31:0] data_out;
    output [31:0] Inst;
    output [31:0] M_addr;
@@ -137,11 +145,14 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
    output zero;
    
    wire [31:0] ALU_Out;
-   wire [29:0] Imm_32;
+   wire [31:0] CP0_out;
+   wire [31:0] Imm_32;
    wire N0;
+   wire [31:0] PC_next;
    wire V5;
    wire [4:0] Wt_addr;
    wire [31:0] Wt_data;
+   wire [4:0] W_R_addr;
    wire [31:0] XLXN_3;
    wire [31:0] XLXN_41;
    wire [31:0] XLXN_42;
@@ -153,9 +164,9 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
    wire XLXN_65;
    wire XLXN_70;
    wire [31:0] XLXN_75;
-   wire [4:0] XLXN_101;
    wire [31:0] XLXN_103;
    wire [31:0] XLXN_104;
+   wire [31:0] XLXN_224;
    wire [31:0] PC_Current_DUMMY;
    wire zero_DUMMY;
    wire [31:0] Inst_DUMMY;
@@ -182,24 +193,17 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
               .D(data2CPU[31:0]), 
               .rst(N0), 
               .Q(XLXN_3[31:0]));
-   mux4to1_32  mux1 (.a(ALU_Out[31:0]), 
-                    .b(XLXN_3[31:0]), 
-                    .c({Inst_DUMMY[15:0], N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         N0, N0, N0, N0, N0, N0, N0}), 
-                    .d(PC_Current_DUMMY[31:0]), 
-                    .sel(MemtoReg[1:0]), 
-                    .o(Wt_data[31:0]));
    mux4to1_5  mux2 (.a(Inst_DUMMY[20:16]), 
                    .b(Inst_DUMMY[15:11]), 
                    .c({V5, V5, V5, V5, V5}), 
-                   .d(XLXN_101[4:0]), 
+                   .d({N0, N0, N0, N0, N0}), 
                    .sel(RegDst[1:0]), 
                    .o(Wt_addr[4:0]));
    mux4to1_32  mux3 (.a(data_out_DUMMY[31:0]), 
                     .b({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, V5, N0, 
          N0}), 
-                    .c(), 
+                    .c(Imm_32[31:0]), 
                     .d({Imm_32[29:0], N0, N0}), 
                     .sel(ALUSrcB[1:0]), 
                     .o(XLXN_41[31:0]));
@@ -207,12 +211,6 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
                     .b(XLXN_48[31:0]), 
                     .sel(ALUSrcA), 
                     .o(XLXN_49[31:0]));
-   mux4to1_32  mux5 (.a(XLXN_42[31:0]), 
-                    .b(ALU_Out[31:0]), 
-                    .c({PC_Current_DUMMY[31:28], Inst_DUMMY[25:0], N0, N0}), 
-                    .d(ALU_Out[31:0]), 
-                    .sel(PCSource[1:0]), 
-                    .o(XLXN_75[31:0]));
    mux2to1_32  mux6 (.a(PC_Current_DUMMY[31:0]), 
                     .b(ALU_Out[31:0]), 
                     .sel(IorD), 
@@ -253,20 +251,70 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
                  .O(XLXN_70));
    GND  XLXI_26 (.G(N0));
    VCC  XLXI_27 (.P(V5));
-   mux2to1_32  XLXI_28 (.a(XLXN_104[31:0]), 
-                       .b(XLXN_103[31:0]), 
-                       .sel(XLXN_102), 
-                       .o({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, V5, 
-         N0, N0}));
    Ext_32_Unsigned  XLXI_29 (.imm_16(Inst_DUMMY[15:0]), 
                             .imm_32(XLXN_103[31:0]));
+   mux2to1_32  XLXI_30 (.a(XLXN_104[31:0]), 
+                       .b(XLXN_103[31:0]), 
+                       .sel(Unsigned), 
+                       .o(Imm_32[31:0]));
+   mux8to1_32  XLXI_33 (.sel(MemtoReg[2:0]), 
+                       .x0(ALU_Out[31:0]), 
+                       .x1(XLXN_3[31:0]), 
+                       .x2({Inst_DUMMY[15:0], N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0}), 
+                       .x3(PC_Current_DUMMY[31:0]), 
+                       .x4(CP0_out[31:0]), 
+                       .x5(), 
+                       .x6(), 
+                       .x7(), 
+                       .o(Wt_data[31:0]));
+   mux8to1_32  XLXI_35 (.sel(PCSource[2:0]), 
+                       .x0(XLXN_42[31:0]), 
+                       .x1(ALU_Out[31:0]), 
+                       .x2({PC_Current_DUMMY[31:28], Inst_DUMMY[25:0], N0, 
+         N0}), 
+                       .x3(ALU_Out[31:0]), 
+                       .x4(CP0_out[31:0]), 
+                       .x5({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, V5, N0, 
+         N0, N0}), 
+                       .x6(), 
+                       .x7(), 
+                       .o(XLXN_75[31:0]));
+   mux4to1_5  XLXI_42 (.a(Inst_DUMMY[15:11]), 
+                      .b({N0, V5, V5, N0, N0}), 
+                      .c({N0, V5, V5, N0, V5}), 
+                      .d({N0, V5, V5, V5, N0}), 
+                      .sel(CP0Dst[1:0]), 
+                      .o(W_R_addr[4:0]));
+   CoPorcessor0  XLXI_48 (.clk(clk), 
+                         .rst(N0), 
+                         .R_addr(W_R_addr[4:0]), 
+                         .we(CP0Write), 
+                         .Wt_addr(W_R_addr[4:0]), 
+                         .Wt_data(XLXN_224[31:0]), 
+                         .rdata_(CP0_out[31:0]));
+   PCNext  XLXI_55 (.inPCCurrent(PC_Current_DUMMY[31:0]), 
+                   .outPCNext(PC_next[31:0]));
+   mux8to1_32  XLXI_56 (.sel(DatatoCP0[2:0]), 
+                       .x0(data_out_DUMMY[31:0]), 
+                       .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         Cause[2:0]}), 
+                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
+                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
+                       .x4(PC_Current_DUMMY[31:0]), 
+                       .x5(PC_next[31:0]), 
+                       .x6(), 
+                       .x7(), 
+                       .o(XLXN_224[31:0]));
 endmodule
 `timescale 1ns / 1ps
 
 module Muliti_CPU_MUSER_Top_SCPU_IOBUS_App(clk, 
                                            Data_in, 
-                                           INT, 
+                                           INT_CNT, 
+                                           INT_KBD, 
                                            MIO_ready, 
                                            reset, 
                                            Addr_out, 
@@ -279,7 +327,8 @@ module Muliti_CPU_MUSER_Top_SCPU_IOBUS_App(clk,
 
     input clk;
     input [31:0] Data_in;
-    input INT;
+    input INT_CNT;
+    input INT_KBD;
     input MIO_ready;
     input reset;
    output [31:0] Addr_out;
@@ -292,71 +341,85 @@ module Muliti_CPU_MUSER_Top_SCPU_IOBUS_App(clk,
    
    wire ALUSrcA;
    wire [1:0] ALUSrcB;
-   wire [2:0] ALU_operation;
    wire Branch;
+   wire [2:0] Cause;
+   wire CP0Write;
    wire IorD;
    wire IRWrite;
    wire MemRead;
-   wire [1:0] MemtoReg;
+   wire [2:0] MemtoReg;
    wire MemWrite;
    wire neg_MemRead;
    wire overflow;
-   wire [1:0] PCSource;
    wire PCWrite;
    wire PCWriteCond;
    wire [1:0] RegDst;
    wire RegWrite;
-   wire XLXN_1;
-   wire zero;
+   wire Unsigned;
+   wire XLXN_33;
+   wire [2:0] XLXN_43;
+   wire [1:0] XLXN_44;
+   wire [2:0] XLXN_46;
+   wire [2:0] XLXN_49;
    wire [31:0] inst_out_DUMMY;
    
    assign inst_out[31:0] = inst_out_DUMMY[31:0];
    ctrl  U1_1 (.clk(clk), 
               .Inst_in(inst_out_DUMMY[31:0]), 
+              .INT_CNT(INT_CNT), 
+              .INT_KBD(INT_KBD), 
               .MIO_ready(MIO_ready), 
               .overflow(overflow), 
               .reset(reset), 
-              .zero(zero), 
+              .zero(XLXN_33), 
               .ALUSrcA(ALUSrcA), 
               .ALUSrcB(ALUSrcB[1:0]), 
-              .ALU_operation(ALU_operation[2:0]), 
+              .ALU_operation(XLXN_49[2:0]), 
               .Branch(Branch), 
+              .Cause(Cause[2:0]), 
               .CPU_MIO(CPU_MIO), 
+              .CP0Dst(XLXN_44[1:0]), 
+              .CP0Write(CP0Write), 
+              .DatatoCP0(XLXN_46[2:0]), 
               .IorD(IorD), 
               .IRWrite(IRWrite), 
               .MemRead(MemRead), 
-              .MemtoReg(MemtoReg[1:0]), 
+              .MemtoReg(MemtoReg[2:0]), 
               .MemWrite(MemWrite), 
-              .PCSource(PCSource[1:0]), 
+              .PCSource(XLXN_43[2:0]), 
               .PCWrite(PCWrite), 
               .PCWriteCond(PCWriteCond), 
               .RegDst(RegDst[1:0]), 
               .RegWrite(RegWrite), 
               .state_out(state[4:0]), 
-              .Unsigned(XLXN_1));
+              .Unsigned(Unsigned));
    Data_path  U1_2 (.ALUSrcA(ALUSrcA), 
                    .ALUSrcB(ALUSrcB[1:0]), 
-                   .ALU_operation(ALU_operation[2:0]), 
+                   .ALU_operation(XLXN_49[2:0]), 
                    .Branch(Branch), 
+                   .Cause(Cause[2:0]), 
                    .clk(clk), 
+                   .CP0Dst(XLXN_44[1:0]), 
+                   .CP0Write(CP0Write), 
+                   .DatatoCP0(XLXN_46[2:0]), 
                    .data2CPU(Data_in[31:0]), 
                    .IorD(IorD), 
                    .IRWrite(IRWrite), 
-                   .MemtoReg(MemtoReg[1:0]), 
+                   .MemtoReg(MemtoReg[2:0]), 
                    .MIO_ready(MIO_ready), 
-                   .PCSource(PCSource[1:0]), 
+                   .PCSource(XLXN_43[2:0]), 
                    .PCWrite(PCWrite), 
                    .PCWriteCond(PCWriteCond), 
                    .RegDst(RegDst[1:0]), 
                    .RegWrite(RegWrite), 
                    .reset(reset), 
-                   .Unsigned(XLXN_1), 
+                   .Unsigned(Unsigned), 
                    .data_out(Data_out[31:0]), 
                    .Inst(inst_out_DUMMY[31:0]), 
                    .M_addr(Addr_out[31:0]), 
                    .overflow(overflow), 
                    .PC_Current(PC_out[31:0]), 
-                   .zero(zero));
+                   .zero(XLXN_33));
    INV  XLXI_4 (.I(MemRead), 
                .O(neg_MemRead));
    AND2  XLXI_5 (.I0(MemWrite), 
@@ -420,7 +483,8 @@ module Top_SCPU_IOBUS_App(BTN,
    assign LED[7:0] = LED_DUMMY[7:0];
    Muliti_CPU_MUSER_Top_SCPU_IOBUS_App  U1 (.clk(Clk_CPU), 
                                            .Data_in(Data_in[31:0]), 
-                                           .INT(counter0_out), 
+                                           .INT_CNT(counter0_out), 
+                                           .INT_KBD(), 
                                            .MIO_ready(V5), 
                                            .reset(rst), 
                                            .state(), 
