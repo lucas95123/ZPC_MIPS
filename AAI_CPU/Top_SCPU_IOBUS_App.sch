@@ -48,7 +48,6 @@
         <signal name="XLXN_191(0:0)" />
         <signal name="vram_addr(8:0)" />
         <signal name="vram_data_out(31:0)" />
-        <signal name="XLXN_193(8:0)" />
         <port polarity="Input" name="BTN(3:0)" />
         <port polarity="Input" name="SW(7:0)" />
         <port polarity="Input" name="clk_50mhz" />
@@ -185,7 +184,7 @@
             <line x2="544" y1="144" y2="144" style="linewidth:W" x1="576" />
         </blockdef>
         <blockdef name="Muliti_CPU">
-            <timestamp>2015-6-10T7:27:38</timestamp>
+            <timestamp>2015-11-3T2:20:21</timestamp>
             <rect width="64" x="-80" y="-124" height="24" />
             <line x2="-80" y1="-112" y2="-112" x1="-16" />
             <line x2="-80" y1="-512" y2="-512" x1="-16" />
@@ -203,7 +202,8 @@
             <line x2="432" y1="-176" y2="-176" x1="368" />
             <line x2="432" y1="-304" y2="-304" x1="368" />
             <line x2="-76" y1="-288" y2="-288" x1="-12" />
-            <rect style="linewidth:W;linecolor:rgb(0,0,255);fillcolor:rgb(255,170,255);fillstyle:Solid" width="384" x="-16" y="-560" height="564" />
+            <line x2="-16" y1="-208" y2="-208" x1="-80" />
+            <rect style="linewidth:W;linecolor:rgb(0,0,255);fillcolor:rgb(255,170,255);fillstyle:Solid" width="384" x="-16" y="-560" height="556" />
         </blockdef>
         <blockdef name="keyboard_buffer">
             <timestamp>2015-10-16T7:9:15</timestamp>
@@ -316,7 +316,7 @@
         </block>
         <block symbolname="Muliti_CPU" name="U1">
             <blockpin signalname="Clk_CPU" name="clk" />
-            <blockpin signalname="counter0_out" name="INT" />
+            <blockpin signalname="counter0_out" name="INT_CNT" />
             <blockpin name="inst_out(31:0)" />
             <blockpin signalname="rst" name="reset" />
             <blockpin signalname="V5" name="MIO_ready" />
@@ -327,6 +327,7 @@
             <blockpin signalname="Addr_out(31:0)" name="Addr_out(31:0)" />
             <blockpin signalname="Cpu_data2bus(31:0)" name="Data_out(31:0)" />
             <blockpin name="state(4:0)" />
+            <blockpin name="INT_KBD" />
         </block>
         <block symbolname="led_Dev_IO" name="XLXI_15">
             <blockpin signalname="XLXN_55" name="clk" />

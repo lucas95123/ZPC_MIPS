@@ -38,7 +38,7 @@ module ctrl(input INT,
 				output reg Unsigned,
 				output reg CP0Write,
 				output reg [1:0] CP0Dst,
-				output reg [1:0] Cause,
+				output reg [2:0] Cause,
 				output reg [2:0] DatatoCP0,
 				output reg [1:0] RegDst,//
 				output reg [2:0] MemtoReg,//
@@ -51,14 +51,14 @@ module ctrl(input INT,
 	 parameter IF = 5'b00000, ID=5'b00001, EX_R= 5'b00010, EX_Mem=5'b00011, EX_I= 5'b00100,
     WB_Lui=5'b00101, EX_beq=5'b00110, EX_bne= 5'b00111, EX_jr= 5'b01000, EX_jal=5'b01001,
     EX_j= 5'b01010, MEM_RD=5'b01011, MEM_WD= 5'b01100, WB_R= 5'b01101, WB_I=5'b01110, WB_LW=5'b01111, 
-	 CP0_RD=5'b10000,CP0_WD=5'10001,INT_SEPC=5'b10010,INT_SCAUSE=5'b10011,INT_SSHIFT=5'b10100,INT_JHANDLER=5'b10101,Error=5'b11111;
+	 CP0_RD=5'b10000,CP0_WD=5'10001,INT_WEPC=5'b10010,INT_WCAUSE=5'b10011,INT_WSHIFT=5'b10100,INT_JHANDLER=5'b10101,Error=5'b11111;
     parameter AND=3'b000, OR=3'b001, ADD=3'b010, SUB=3'b110, NOR=3'b100, SLT=3'b111, XOR=3'b011, SRL=3'b101;
 	 
     wire [5:0] opcode;
 	 wire [5:0] funct;
     `define CPU_ctrl_signals{PCWrite/*1*/, PCWriteCond/*1*/, IorD/*1*/, MemRead/*1*/, MemWrite/*1*/, IRWrite/*1*/, 
 										MemtoReg/*3*/, PCSource/*3*/, ALUSrcB/*2*/, ALUSrcA/*1*/, RegWrite/*1*/, RegDst/*2*/, CPU_MIO/*1*/}/*19bit*/
-	 `define CP0_ctrl_signals{CP0Write/*1*/,CP0Dst/*2*/,Cause/*2*/,DatatoCP0/*3*/};/*8bit*/
+	 `define CP0_ctrl_signals{CP0Write/*1*/,CP0Dst/*2*/,Cause/*3*/,DatatoCP0/*3*/};/*9bit*/
 	 assign opcode[5:0]=Inst_in[31:26];
 	 assign rs[4:0]=Inst_in[25:21];
 	 assign funct[5:0]=Inst_in[5:0];
@@ -86,7 +86,7 @@ module ctrl(input INT,
 					   begin 
 					    case(funct)
 							6'h8: begin `CPU_ctrl_signals<=17'h10010; CP0_ctrl_signals<=8'h00; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_jr; end
-							6'hc: begin `CPU_ctrl_signals<=17'h; CP0_ctrl_signals<=8'hed; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_SEPC; end
+							6'hc: begin `CPU_ctrl_signals<=17'h; CP0_ctrl_signals<=8'hed; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; end
 						   default:
 							 begin
 							 `CPU_ctrl_signals<=17'h00010; CP0_ctrl_signals<=8'h00; Unsigned<=0; Branch<=0; 
@@ -188,9 +188,9 @@ module ctrl(input INT,
 		WB_R: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
 		WB_I: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
 		WB_Lui: begin `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
-		INT_SEPC: begin CP0_ctrl_signals<=8'ha9; state_out<=INT_SCAUSE;end
-		INT_SCAUSE: begin CP0_ctrl_signals<=8'hca; state_out<=INT_SSHIFT;end
-		INT_SSHIFT: begin CP0_ctrl_signals<=8'h00; state_out<=INT_JHANDLER;end
+		INT_WEPC: begin CP0_ctrl_signals<=8'ha9; state_out<=INT_WCAUSE;end
+		INT_WCAUSE: begin CP0_ctrl_signals<=8'hca; state_out<=INT_WSHIFT;end
+		INT_WSHIFT: begin CP0_ctrl_signals<=8'h00; state_out<=INT_JHANDLER;end
 		INT_JHANDLER: begin state_out<=IF;end
 		Error: begin 
 				 `CPU_ctrl_signals<=17'h12821; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;

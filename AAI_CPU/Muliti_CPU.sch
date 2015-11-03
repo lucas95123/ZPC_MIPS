@@ -6,7 +6,7 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="INT" />
+        <signal name="INT_KBD" />
         <signal name="neg_MemRead" />
         <signal name="mem_w" />
         <signal name="PC_out(31:0)" />
@@ -32,19 +32,18 @@
         <signal name="MIO_ready" />
         <signal name="XLXN_33" />
         <signal name="XLXN_34" />
-        <signal name="XLXN_36" />
-        <signal name="XLXN_37" />
         <signal name="inst_out(31:0)" />
-        <signal name="XLXN_40(31:0)" />
-        <signal name="XLXN_41" />
         <signal name="state_out(4:0)" />
         <signal name="XLXN_43(2:0)" />
         <signal name="XLXN_44(1:0)" />
-        <signal name="XLXN_45(1:0)" />
+        <signal name="Cause(2:0)" />
         <signal name="XLXN_46(2:0)" />
         <signal name="Data_in(31:0)" />
         <signal name="XLXN_49(2:0)" />
-        <port polarity="Input" name="INT" />
+        <signal name="XLXN_50" />
+        <signal name="INT_CNT" />
+        <signal name="overflow" />
+        <port polarity="Input" name="INT_KBD" />
         <port polarity="Output" name="mem_w" />
         <port polarity="Output" name="PC_out(31:0)" />
         <port polarity="Output" name="Data_out(31:0)" />
@@ -56,8 +55,9 @@
         <port polarity="Output" name="inst_out(31:0)" />
         <port polarity="Output" name="state_out(4:0)" />
         <port polarity="Input" name="Data_in(31:0)" />
+        <port polarity="Input" name="INT_CNT" />
         <blockdef name="ctrl">
-            <timestamp>2015-10-27T2:12:55</timestamp>
+            <timestamp>2015-11-3T2:17:6</timestamp>
             <line x2="480" y1="-992" y2="-992" x1="416" />
             <line x2="480" y1="-928" y2="-928" x1="416" />
             <line x2="480" y1="-864" y2="-864" x1="416" />
@@ -76,7 +76,7 @@
             <line x2="480" y1="-176" y2="-176" x1="416" />
             <rect width="64" x="416" y="-124" height="24" />
             <line x2="480" y1="-112" y2="-112" x1="416" />
-            <rect style="fillcolor:rgb(255,170,255);fillstyle:Solid" width="352" x="64" y="-1008" height="1308" />
+            <rect style="fillcolor:rgb(255,170,255);fillstyle:Solid" width="352" x="64" y="-1012" height="1312" />
             <line x2="0" y1="-800" y2="-800" x1="64" />
             <line x2="0" y1="-608" y2="-608" x1="64" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
@@ -97,6 +97,7 @@
             <line x2="416" y1="16" y2="16" x1="480" />
             <line x2="416" y1="80" y2="80" x1="480" />
             <line x2="416" y1="144" y2="144" x1="480" />
+            <line x2="64" y1="-896" y2="-896" x1="0" />
         </blockdef>
         <blockdef name="inv">
             <timestamp>2000-1-1T10:10:10</timestamp>
@@ -118,7 +119,7 @@
             <line x2="64" y1="-48" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="Data_path">
-            <timestamp>2015-10-27T2:16:29</timestamp>
+            <timestamp>2015-11-3T2:15:6</timestamp>
             <line x2="0" y1="-992" y2="-992" x1="64" />
             <line x2="0" y1="-928" y2="-928" x1="64" />
             <line x2="0" y1="-864" y2="-864" x1="64" />
@@ -137,7 +138,7 @@
             <line x2="528" y1="-224" y2="-224" x1="464" />
             <rect width="64" x="464" y="-44" height="24" />
             <line x2="528" y1="-32" y2="-32" x1="464" />
-            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="68" y="-1032" height="1336" />
+            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="68" y="-1032" height="1328" />
             <line x2="64" y1="-480" y2="-480" x1="0" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
@@ -189,16 +190,17 @@
             <blockpin signalname="clk" name="clk" />
             <blockpin signalname="reset" name="reset" />
             <blockpin signalname="XLXN_33" name="zero" />
-            <blockpin signalname="XLXN_34" name="overflow" />
+            <blockpin signalname="overflow" name="overflow" />
             <blockpin signalname="MIO_ready" name="MIO_ready" />
             <blockpin signalname="inst_out(31:0)" name="Inst_in(31:0)" />
-            <blockpin signalname="INT" name="INT" />
+            <blockpin signalname="INT_KBD" name="INT_KBD" />
             <blockpin signalname="XLXN_43(2:0)" name="PCSource(2:0)" />
             <blockpin signalname="XLXN_44(1:0)" name="CP0Dst(1:0)" />
-            <blockpin signalname="XLXN_45(1:0)" name="Cause(1:0)" />
+            <blockpin signalname="Cause(2:0)" name="Cause(2:0)" />
             <blockpin signalname="XLXN_46(2:0)" name="DatatoCP0(2:0)" />
             <blockpin signalname="XLXN_49(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="state_out(4:0)" name="state_out(4:0)" />
+            <blockpin signalname="INT_CNT" name="INT_CNT" />
         </block>
         <block symbolname="Data_path" name="U1_2">
             <attr value="Data_path" name="VeriModel" />
@@ -211,7 +213,7 @@
             <blockpin signalname="ALUSrcA" name="ALUSrcA" />
             <blockpin signalname="PCWrite" name="PCWrite" />
             <blockpin signalname="XLXN_33" name="zero" />
-            <blockpin signalname="XLXN_34" name="overflow" />
+            <blockpin signalname="overflow" name="overflow" />
             <blockpin signalname="PC_out(31:0)" name="PC_Current(31:0)" />
             <blockpin signalname="inst_out(31:0)" name="Inst(31:0)" />
             <blockpin signalname="Data_out(31:0)" name="data_out(31:0)" />
@@ -225,19 +227,18 @@
             <blockpin signalname="Unsigned" name="Unsigned" />
             <blockpin signalname="XLXN_43(2:0)" name="PCSource(2:0)" />
             <blockpin signalname="XLXN_44(1:0)" name="CP0Dst(1:0)" />
-            <blockpin signalname="XLXN_45(1:0)" name="Cause(1:0)" />
+            <blockpin signalname="Cause(2:0)" name="Cause(2:0)" />
             <blockpin signalname="XLXN_46(2:0)" name="DatatoCP0(2:0)" />
             <blockpin signalname="XLXN_49(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="Data_in(31:0)" name="data2CPU(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
-        <branch name="INT">
-            <wire x2="880" y1="352" y2="352" x1="640" />
+        <branch name="INT_KBD">
+            <wire x2="880" y1="352" y2="352" x1="688" />
             <wire x2="880" y1="352" y2="704" x1="880" />
             <wire x2="1216" y1="704" y2="704" x1="880" />
         </branch>
-        <iomarker fontsize="28" x="640" y="352" name="INT" orien="R180" />
         <iomarker fontsize="28" x="640" y="512" name="reset" orien="R180" />
         <instance x="2032" y="368" name="XLXI_4" orien="R0" />
         <branch name="neg_MemRead">
@@ -351,13 +352,6 @@
             <wire x2="2656" y1="624" y2="624" x1="1168" />
             <wire x2="2656" y1="624" y2="704" x1="2656" />
         </branch>
-        <branch name="XLXN_34">
-            <wire x2="2688" y1="656" y2="656" x1="1200" />
-            <wire x2="2688" y1="656" y2="896" x1="2688" />
-            <wire x2="1200" y1="656" y2="1472" x1="1200" />
-            <wire x2="1216" y1="1472" y2="1472" x1="1200" />
-            <wire x2="2688" y1="896" y2="896" x1="2656" />
-        </branch>
         <iomarker fontsize="28" x="2944" y="2144" name="state_out(4:0)" orien="R0" />
         <iomarker fontsize="28" x="2960" y="2080" name="CPU_MIO" orien="R0" />
         <branch name="inst_out(31:0)">
@@ -380,7 +374,7 @@
         <branch name="XLXN_44(1:0)">
             <wire x2="2128" y1="1712" y2="1712" x1="1696" />
         </branch>
-        <branch name="XLXN_45(1:0)">
+        <branch name="Cause(2:0)">
             <wire x2="2128" y1="1776" y2="1776" x1="1696" />
         </branch>
         <branch name="XLXN_46(2:0)">
@@ -394,6 +388,20 @@
         </branch>
         <branch name="XLXN_49(2:0)">
             <wire x2="2128" y1="1904" y2="1904" x1="1696" />
+        </branch>
+        <iomarker fontsize="28" x="688" y="352" name="INT_KBD" orien="R180" />
+        <branch name="INT_CNT">
+            <wire x2="1200" y1="400" y2="400" x1="688" />
+            <wire x2="1200" y1="400" y2="800" x1="1200" />
+            <wire x2="1216" y1="800" y2="800" x1="1200" />
+        </branch>
+        <iomarker fontsize="28" x="688" y="400" name="INT_CNT" orien="R180" />
+        <branch name="overflow">
+            <wire x2="1152" y1="640" y2="1472" x1="1152" />
+            <wire x2="1216" y1="1472" y2="1472" x1="1152" />
+            <wire x2="2672" y1="640" y2="640" x1="1152" />
+            <wire x2="2672" y1="640" y2="896" x1="2672" />
+            <wire x2="2672" y1="896" y2="896" x1="2656" />
         </branch>
     </sheet>
 </drawing>
