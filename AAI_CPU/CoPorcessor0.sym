@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="CoPorcessor0">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-10-25T9:54:6</timestamp>
+    <timestamp>2015-11-17T5:50:18</timestamp>
     <attr value="CoPorcessor0" name="VeriModel" />
     <pin polarity="Input" x="0" y="-352" name="clk" />
     <pin polarity="Input" x="0" y="-288" name="rst" />
@@ -9,9 +9,9 @@
     <pin polarity="Input" x="0" y="-160" name="R_addr(4:0)" />
     <pin polarity="Input" x="0" y="-96" name="Wt_addr(4:0)" />
     <pin polarity="Input" x="0" y="-32" name="Wt_data(31:0)" />
-    <pin polarity="Output" x="432" y="-352" name="rdata_(31:0)" />
+    <pin polarity="Output" x="432" y="-352" name="rdata(31:0)" />
     <graph>
-        <rect style="fillcolor:rgb(0,255,0);fillstyle:Solid" width="304" x="64" y="-384" height="384" />
+        <rect style="fillcolor:rgb(0,255,0);fillstyle:Solid" width="304" x="64" y="-376" height="376" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-352" type="pin clk" />
         <line x2="0" y1="-352" y2="-352" x1="64" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-288" type="pin rst" />
@@ -27,7 +27,7 @@
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin Wt_data(31:0)" />
         <rect width="64" x="0" y="-44" height="24" />
         <line x2="0" y1="-32" y2="-32" x1="64" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-352" type="pin rdata_(31:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="360" y="-352" type="pin rdata(31:0)" />
         <rect width="64" x="368" y="-364" height="24" />
         <line x2="432" y1="-352" y2="-352" x1="368" />
         <attrtext style="alignment:BCENTER;fontsize:32;fontname:Arial" attrname="SymbolName" x="256" y="-244" type="symbol" />

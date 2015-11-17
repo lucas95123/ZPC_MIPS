@@ -30,17 +30,20 @@
         <signal name="clk" />
         <signal name="reset" />
         <signal name="MIO_ready" />
-        <signal name="XLXN_33" />
+        <signal name="zero" />
         <signal name="inst_out(31:0)" />
         <signal name="state(4:0)" />
-        <signal name="XLXN_43(2:0)" />
-        <signal name="XLXN_44(1:0)" />
+        <signal name="PC_Source(2:0)" />
+        <signal name="CP0Dst(1:0)" />
         <signal name="Cause(2:0)" />
-        <signal name="XLXN_46(2:0)" />
+        <signal name="DatatoCP0(2:0)" />
         <signal name="Data_in(31:0)" />
-        <signal name="XLXN_49(2:0)" />
+        <signal name="ALU_operation(2:0)" />
         <signal name="INT_CNT" />
         <signal name="overflow" />
+        <signal name="CP0_out(31:0)" />
+        <signal name="CP0_addr(4:0)" />
+        <signal name="CP0_WData(31:0)" />
         <port polarity="Input" name="INT_KBD" />
         <port polarity="Output" name="mem_w" />
         <port polarity="Output" name="PC_out(31:0)" />
@@ -117,7 +120,7 @@
             <line x2="64" y1="-48" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="Data_path">
-            <timestamp>2015-11-3T2:15:6</timestamp>
+            <timestamp>2015-11-17T7:29:1</timestamp>
             <line x2="0" y1="-992" y2="-992" x1="64" />
             <line x2="0" y1="-928" y2="-928" x1="64" />
             <line x2="0" y1="-864" y2="-864" x1="64" />
@@ -136,7 +139,6 @@
             <line x2="528" y1="-224" y2="-224" x1="464" />
             <rect width="64" x="464" y="-44" height="24" />
             <line x2="528" y1="-32" y2="-32" x1="464" />
-            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="68" y="-1032" height="1328" />
             <line x2="64" y1="-480" y2="-480" x1="0" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
@@ -159,6 +161,13 @@
             <line x2="0" y1="208" y2="208" x1="64" />
             <rect width="64" x="0" y="260" height="24" />
             <line x2="0" y1="272" y2="272" x1="64" />
+            <line x2="468" y1="128" y2="128" x1="528" />
+            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1332" />
+            <rect width="64" x="464" y="116" height="24" />
+            <rect width="64" x="464" y="212" height="24" />
+            <line x2="464" y1="224" y2="224" x1="528" />
+            <rect width="64" x="464" y="276" height="24" />
+            <line x2="464" y1="288" y2="288" x1="528" />
         </blockdef>
         <block symbolname="inv" name="XLXI_4">
             <blockpin signalname="MemRead" name="I" />
@@ -187,16 +196,16 @@
             <blockpin signalname="ALUSrcB(1:0)" name="ALUSrcB(1:0)" />
             <blockpin signalname="clk" name="clk" />
             <blockpin signalname="reset" name="reset" />
-            <blockpin signalname="XLXN_33" name="zero" />
+            <blockpin signalname="zero" name="zero" />
             <blockpin signalname="overflow" name="overflow" />
             <blockpin signalname="MIO_ready" name="MIO_ready" />
             <blockpin signalname="inst_out(31:0)" name="Inst_in(31:0)" />
             <blockpin signalname="INT_KBD" name="INT_KBD" />
-            <blockpin signalname="XLXN_43(2:0)" name="PCSource(2:0)" />
-            <blockpin signalname="XLXN_44(1:0)" name="CP0Dst(1:0)" />
+            <blockpin signalname="PC_Source(2:0)" name="PCSource(2:0)" />
+            <blockpin signalname="CP0Dst(1:0)" name="CP0Dst(1:0)" />
             <blockpin signalname="Cause(2:0)" name="Cause(2:0)" />
-            <blockpin signalname="XLXN_46(2:0)" name="DatatoCP0(2:0)" />
-            <blockpin signalname="XLXN_49(2:0)" name="ALU_operation(2:0)" />
+            <blockpin signalname="DatatoCP0(2:0)" name="DatatoCP0(2:0)" />
+            <blockpin signalname="ALU_operation(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="state(4:0)" name="state_out(4:0)" />
             <blockpin signalname="INT_CNT" name="INT_CNT" />
         </block>
@@ -210,7 +219,7 @@
             <blockpin signalname="RegWrite" name="RegWrite" />
             <blockpin signalname="ALUSrcA" name="ALUSrcA" />
             <blockpin signalname="PCWrite" name="PCWrite" />
-            <blockpin signalname="XLXN_33" name="zero" />
+            <blockpin signalname="zero" name="zero" />
             <blockpin signalname="overflow" name="overflow" />
             <blockpin signalname="PC_out(31:0)" name="PC_Current(31:0)" />
             <blockpin signalname="inst_out(31:0)" name="Inst(31:0)" />
@@ -223,12 +232,15 @@
             <blockpin signalname="MemtoReg(2:0)" name="MemtoReg(2:0)" />
             <blockpin signalname="ALUSrcB(1:0)" name="ALUSrcB(1:0)" />
             <blockpin signalname="Unsigned" name="Unsigned" />
-            <blockpin signalname="XLXN_43(2:0)" name="PCSource(2:0)" />
-            <blockpin signalname="XLXN_44(1:0)" name="CP0Dst(1:0)" />
+            <blockpin signalname="PC_Source(2:0)" name="PCSource(2:0)" />
+            <blockpin signalname="CP0Dst(1:0)" name="CP0Dst(1:0)" />
             <blockpin signalname="Cause(2:0)" name="Cause(2:0)" />
-            <blockpin signalname="XLXN_46(2:0)" name="DatatoCP0(2:0)" />
-            <blockpin signalname="XLXN_49(2:0)" name="ALU_operation(2:0)" />
+            <blockpin signalname="DatatoCP0(2:0)" name="DatatoCP0(2:0)" />
+            <blockpin signalname="ALU_operation(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="Data_in(31:0)" name="data2CPU(31:0)" />
+            <blockpin signalname="CP0_out(31:0)" name="CP0_out(31:0)" />
+            <blockpin signalname="CP0_addr(4:0)" name="CP0_addr(4:0)" />
+            <blockpin signalname="CP0_WData(31:0)" name="CP0_WData(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -344,7 +356,7 @@
             <wire x2="832" y1="576" y2="1664" x1="832" />
             <wire x2="1216" y1="1664" y2="1664" x1="832" />
         </branch>
-        <branch name="XLXN_33">
+        <branch name="zero">
             <wire x2="1168" y1="624" y2="1280" x1="1168" />
             <wire x2="1216" y1="1280" y2="1280" x1="1168" />
             <wire x2="2656" y1="624" y2="624" x1="1168" />
@@ -366,16 +378,16 @@
             <wire x2="1760" y1="1968" y2="2144" x1="1760" />
             <wire x2="2944" y1="2144" y2="2144" x1="1760" />
         </branch>
-        <branch name="XLXN_43(2:0)">
+        <branch name="PC_Source(2:0)">
             <wire x2="2128" y1="1648" y2="1648" x1="1696" />
         </branch>
-        <branch name="XLXN_44(1:0)">
+        <branch name="CP0Dst(1:0)">
             <wire x2="2128" y1="1712" y2="1712" x1="1696" />
         </branch>
         <branch name="Cause(2:0)">
             <wire x2="2128" y1="1776" y2="1776" x1="1696" />
         </branch>
-        <branch name="XLXN_46(2:0)">
+        <branch name="DatatoCP0(2:0)">
             <wire x2="2128" y1="1840" y2="1840" x1="1696" />
         </branch>
         <iomarker fontsize="28" x="608" y="448" name="clk" orien="R180" />
@@ -384,7 +396,7 @@
             <wire x2="2128" y1="1968" y2="1968" x1="1824" />
             <wire x2="1824" y1="1968" y2="2128" x1="1824" />
         </branch>
-        <branch name="XLXN_49(2:0)">
+        <branch name="ALU_operation(2:0)">
             <wire x2="2128" y1="1904" y2="1904" x1="1696" />
         </branch>
         <iomarker fontsize="28" x="688" y="352" name="INT_KBD" orien="R180" />
@@ -400,6 +412,15 @@
             <wire x2="2672" y1="640" y2="640" x1="1152" />
             <wire x2="2672" y1="640" y2="896" x1="2672" />
             <wire x2="2672" y1="896" y2="896" x1="2656" />
+        </branch>
+        <branch name="CP0_out(31:0)">
+            <wire x2="2992" y1="1824" y2="1824" x1="2656" />
+        </branch>
+        <branch name="CP0_addr(4:0)">
+            <wire x2="2992" y1="1920" y2="1920" x1="2656" />
+        </branch>
+        <branch name="CP0_WData(31:0)">
+            <wire x2="2992" y1="1984" y2="1984" x1="2656" />
         </branch>
     </sheet>
 </drawing>

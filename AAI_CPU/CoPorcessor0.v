@@ -21,14 +21,14 @@
 module CoPorcessor0(input clk, rst, we,
 input [4:0] R_addr,Wt_addr,
 input [31:0] Wt_data,
-output [31:0] rdata_
+output [31:0] rdata
 );
-reg[31:0] register [1:31]; // r1 -r31
+reg[31:0] register [0:31]; // r1 -r31
 integer i;
 assign rdata=register[R_addr];// read
 always @(posedge clk or posedge rst)
-begin if (rst==1) for (i=1; i<32; i=i+1) register[i] <= 0;// reset
-else if ((Wt_addr!= 0) && (we == 1))
+begin if (rst==1) for (i=0; i<32; i=i+1) register[i] <= 0;// reset
+else if (we == 1)
 register[Wt_addr] <= Wt_data; // write
 end
 endmodule

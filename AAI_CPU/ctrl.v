@@ -54,7 +54,7 @@ module ctrl(input INT_KBD,
 	 parameter IF = 5'b00000, ID=5'b00001, EX_R= 5'b00010, EX_Mem=5'b00011, EX_I= 5'b00100,
     WB_Lui=5'b00101, EX_beq=5'b00110, EX_bne= 5'b00111, EX_jr= 5'b01000, EX_jal=5'b01001,
     EX_j= 5'b01010, MEM_RD=5'b01011, MEM_WD= 5'b01100, WB_R= 5'b01101, WB_I=5'b01110, WB_LW=5'b01111, 
-	 CP0_RD=5'b10000,CP0_WD=5'b10001,INT_WEPC=5'b10010,INT_WCAUSE=5'b10011,INT_WSHIFT=5'b10100,INT_JHANDLER=5'b10101,Error=5'b11111;
+	 CP0_RD=5'b10000,CP0_WD=5'b10001,INT_WEPC=5'b10010,INT_WCAUSE=5'b10011,INT_WSHIFT=5'b10100,INT_JHANDLER=5'b10101,INT_RET=5'b10110,Error=5'b11111;
     parameter AND=3'b000, OR=3'b001, ADD=3'b010, SUB=3'b110, NOR=3'b100, SLT=3'b111, XOR=3'b011, SRL=3'b101;
 	 
     wire [5:0] opcode;
@@ -73,7 +73,8 @@ module ctrl(input INT_KBD,
 	  end//12821
     else if(INT_KBD|INT_CNT)
 	  begin
-	   `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h143; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=INT_WEPC; //INT_KBD OR INT_CNT
+	   if(state_out==IF)
+		 `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=INT_WEPC; //INT_KBD OR INT_CNT
 	  end
 	 else
      case(state_out)
@@ -93,7 +94,7 @@ module ctrl(input INT_KBD,
 					   begin 
 					    case(funct)
 							6'h8: begin `CPU_ctrl_signals<=19'h40010; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=EX_jr; end //jr
-							6'hc: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h143; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_SYS<=1'b1; end //syscall
+							6'hc: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_SYS<=1'b1; end //syscall
 						   default:
 							 begin
 							 `CPU_ctrl_signals<=19'h00010; `CP0_ctrl_signals<=9'h000; Unsigned<=0; Branch<=0; 
@@ -145,6 +146,15 @@ module ctrl(input INT_KBD,
 									5'h4:begin 
 										`CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h100; Unsigned<=0; Branch<=0; ALU_operation<= ADD;state_out<=CP0_WD; //mtc0
 											end
+									default:
+									   case(funct)
+											6'h18:begin
+											`CPU_ctrl_signals<=19'h40200; `CP0_ctrl_signals<=9'h040; Unsigned<=0; Branch<=0; ALU_operation<= ADD;state_out<=INT_RET; //eret
+													 end
+											default:begin
+											`CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_UNIMPL<=1'b1;
+														end
+										endcase							
 								endcase
 					  6'hc: begin 
 							`CPU_ctrl_signals<=19'h00050; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<= AND;state_out<=EX_I;   //andi
@@ -197,14 +207,16 @@ module ctrl(input INT_KBD,
 						`CPU_ctrl_signals<=19'h00000; state_out<=INT_WCAUSE;
 						if(INT_KBD) `CP0_ctrl_signals<=9'h180;
 						else if(INT_CNT) `CP0_ctrl_signals<=9'h1a0;
-						else if(INT_SYS) begin `CP0_ctrl_signals<=9'h188; INT_SYS=1'b0; end 
-						else if(INT_UNIMPL) begin `CP0_ctrl_signals<=9'h190; INT_UNIMPL=1'b0; ends
+						else if(INT_SYS) begin `CP0_ctrl_signals<=9'h188; INT_SYS<=1'b0; end 
+						else if(INT_UNIMPL) begin `CP0_ctrl_signals<=9'h190; INT_UNIMPL<=1'b0; end
 						else if(overflow) `CP0_ctrl_signals<=9'h198;
 						else `CP0_ctrl_signals<=9'h000;
 				    end
 		INT_WCAUSE: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h1c1; state_out<=INT_WSHIFT;end
-		INT_WSHIFT: begin `CPU_ctrl_signals<=19'h40200; `CP0_ctrl_signals<=9'h040; state_out<=INT_JHANDLER;end
+		INT_WSHIFT: begin `CPU_ctrl_signals<=19'h40280; `CP0_ctrl_signals<=9'h000; state_out<=INT_JHANDLER;end
 		INT_JHANDLER: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;end
-		Error: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h143; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_UNIMPL<=1'b1; end
+		INT_RET: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;end
+		Error: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_UNIMPL<=1'b1; end
+		endcase
 endmodule
 

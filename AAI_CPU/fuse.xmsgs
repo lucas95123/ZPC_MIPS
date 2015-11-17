@@ -5,28 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.vf" Line 379: Port <arg fmt="%s" index="1">CP0Src</arg> is not connected to this instance
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/AAI_CPU/MIO_BUS.v" Line 90: Concatenation with unsized literal; will interpret as 32 bits
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/AAI_CPU/MIO_BUS.v" Line 90: Concatenation with unsized literal; will interpret as 32 bits
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/Users/AAI_CPU/VGA_controller.v" Line 34: Port <arg fmt="%s" index="1">p_tick</arg> is not connected to this instance
-</msg>
-
-<msg type="warning" file="Simulator" num="0" delta="unknown" >Unable to copy libPortabilityNOSH.dll to the simulation executable directory: <arg fmt="%s" index="1">boost::filesystem::copy_file: ￏﾵￍﾳￕￒﾲﾻﾵﾽￖﾸﾶﾨﾵￄￂﾷﾾﾶﾡﾣ, &quot;isim\Top_SCPU_IOBUS_App_isim_beh.exe.sim\libPortability.dll&quot;</arg>.
+<msg type="warning" file="Simulator" num="0" delta="unknown" >Unable to copy libPortabilityNOSH.dll to the simulation executable directory: <arg fmt="%s" index="1">boost::filesystem::copy_file: ￏﾵￍﾳￕￒﾲﾻﾵﾽￖﾸﾶﾨﾵￄￂﾷﾾﾶﾡﾣ, &quot;isim\Muliti_CPU_isim_beh.exe.sim\libPortability.dll&quot;</arg>.
 </msg>
 
 </messages>
