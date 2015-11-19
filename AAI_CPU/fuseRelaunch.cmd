@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU_isim_beh.exe" -prj "D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU_beh.prj" "work.Muliti_CPU" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_isim_beh.exe" -prj "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_beh.prj" "work.Top_SCPU_IOBUS_App" "work.glbl" 

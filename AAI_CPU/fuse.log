@@ -1,4 +1,4 @@
-Running: D:\XilinxIse\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU_isim_beh.exe -prj D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU_beh.prj work.Muliti_CPU work.glbl 
+Running: D:\XilinxIse\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_isim_beh.exe -prj D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_beh.prj work.Top_SCPU_IOBUS_App work.glbl 
 ISim P.68d (signature 0x7708f090)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
@@ -22,12 +22,31 @@ Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Ext_32_Unsigned.v" into librar
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Ext_32.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/CoPorcessor0.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ALU.vf" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/vga_sync.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/pixel_generation.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Data_path.vf" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ctrl.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/VGA_controller.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.vf" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" into library work
+WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 90: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/led_Dev_IO.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/keyboard_buffer.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir/VRAM.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir/RAM_B.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Counter_3channel.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/clk_div.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Anti_jitter.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" into library work
 Analyzing Verilog file "D:/XilinxIse/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.vf" Line 379: Port CP0Src is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" Line 367: Port CP0Src is not connected to this instance
+WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 90: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
+WARNING:HDLCompiler:1016 - "D:/Users/ZPC_MIPS/AAI_CPU/VGA_controller.v" Line 34: Port p_tick is not connected to this instance
 Completed static elaboration
 Compiling module ctrl
 Compiling module REG32
@@ -56,12 +75,30 @@ Compiling module Ext_32_Unsigned
 Compiling module PCNext
 Compiling module CoPorcessor0
 Compiling module Data_path
-Compiling module Muliti_CPU
+Compiling module Muliti_CPU_MUSER_Top_SCPU_IOBUS_...
+Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
+Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
+Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
+Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="spart...
+Compiling module RAM_B
+Compiling module MIO_BUS
+Compiling module clk_div
+Compiling module Anti_jitter
+Compiling module Counter_x
+Compiling module led_Dev_IO
+Compiling module vga_sync
+Compiling module pixel_generation
+Compiling module VGA_controller
+Compiling module ps2key
+Compiling module keyboard_buffer
+Compiling module DIST_MEM_GEN_V7_2(C_FAMILY="spar...
+Compiling module VRAM
+Compiling module Top_SCPU_IOBUS_App
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 14 sub-compilation(s) to finish...
-WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: 系统找不到指定的路径。, "isim\Muliti_CPU_isim_beh.exe.sim\libPortability.dll".
-Compiled 29 Verilog Units
-Built simulation executable D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU_isim_beh.exe
-Fuse Memory Usage: 29936 KB
-Fuse CPU Usage: 656 ms
+Waiting for 22 sub-compilation(s) to finish...
+WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: 系统找不到指定的路径。, "isim\Top_SCPU_IOBUS_App_isim_beh.exe.sim\libPortability.dll".
+Compiled 47 Verilog Units
+Built simulation executable D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_isim_beh.exe
+Fuse Memory Usage: 34784 KB
+Fuse CPU Usage: 983 ms

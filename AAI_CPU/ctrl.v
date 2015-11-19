@@ -71,9 +71,8 @@ module ctrl(input INT_KBD,
 	  begin //reset pushed
 		`CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<= IF; 
 	  end//12821
-    else if(INT_KBD|INT_CNT)
+    else if((INT_KBD|INT_CNT)&&state_out==IF)
 	  begin
-	   if(state_out==IF)
 		 `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=INT_WEPC; //INT_KBD OR INT_CNT
 	  end
 	 else
@@ -205,11 +204,11 @@ module ctrl(input INT_KBD,
 		WB_Lui: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; end
 		INT_WEPC: begin 
 						`CPU_ctrl_signals<=19'h00000; state_out<=INT_WCAUSE;
-						if(INT_KBD) `CP0_ctrl_signals<=9'h180;
-						else if(INT_CNT) `CP0_ctrl_signals<=9'h1a0;
-						else if(INT_SYS) begin `CP0_ctrl_signals<=9'h188; INT_SYS<=1'b0; end 
-						else if(INT_UNIMPL) begin `CP0_ctrl_signals<=9'h190; INT_UNIMPL<=1'b0; end
-						else if(overflow) `CP0_ctrl_signals<=9'h198;
+						if(INT_KBD) `CP0_ctrl_signals<=9'h181;
+						else if(INT_CNT) `CP0_ctrl_signals<=9'h1a1;
+						else if(INT_SYS) begin `CP0_ctrl_signals<=9'h189; INT_SYS<=1'b0; end 
+						else if(INT_UNIMPL) begin `CP0_ctrl_signals<=9'h191; INT_UNIMPL<=1'b0; end
+						else if(overflow) `CP0_ctrl_signals<=9'h199;
 						else `CP0_ctrl_signals<=9'h000;
 				    end
 		INT_WCAUSE: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h1c1; state_out<=INT_WSHIFT;end

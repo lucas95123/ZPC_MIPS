@@ -56,8 +56,7 @@
         <signal name="Inst(15:0)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,N0" />
         <signal name="Imm_32(31:0)" />
-        <signal name="CP0_out(31:0)">
-        </signal>
+        <signal name="CP0_out(31:0)" />
         <signal name="PC_Current(31:28),Inst(25:0),N0,N0" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,V5,N0,N0,N0" />
         <signal name="Inst(15:11)" />
@@ -68,8 +67,7 @@
         <signal name="N0,V5,V5,V5,N0" />
         <signal name="N0,V5,V5,N0,V5" />
         <signal name="N0,V5,V5,N0,N0" />
-        <signal name="CP0_addr(4:0)">
-        </signal>
+        <signal name="CP0_addr(4:0)" />
         <signal name="CP0_WData(31:0)" />
         <signal name="CP0_out(27:0),N0,N0,N0,N0" />
         <signal name="N0,N0,N0,N0,CP0_out(31:4)" />

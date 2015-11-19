@@ -25,7 +25,7 @@ static const char *ng0 = "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf";
 
 
 
-static void Cont_493_0(char *t0)
+static void Cont_483_0(char *t0)
 {
     char t3[8];
     char *t1;
@@ -60,7 +60,7 @@ LAB0:    t1 = (t0 + 8448U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(493, ng0);
+LAB2:    xsi_set_current_line(483, ng0);
     t2 = (t0 + 7288U);
     t4 = *((char **)t2);
     memset(t3, 0, 8);
@@ -104,7 +104,7 @@ LAB1:    return;
 
 extern void work_m_00000000000631248060_3450143967_init()
 {
-	static char *pe[] = {(void *)Cont_493_0};
+	static char *pe[] = {(void *)Cont_483_0};
 	xsi_register_didat("work_m_00000000000631248060_3450143967", "isim/Top_SCPU_IOBUS_App_isim_beh.exe.sim/work/m_00000000000631248060_3450143967.didat");
 	xsi_register_executes(pe);
 }

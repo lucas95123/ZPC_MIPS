@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Data_path.vf
-// /___/   /\     Timestamp : 11/17/2015 16:53:21
+// /___/   /\     Timestamp : 11/18/2015 20:24:07
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -109,8 +109,6 @@ module Data_path(ALUSrcA,
                  RegWrite, 
                  reset, 
                  Unsigned, 
-                 CP0_addr, 
-                 CP0_out, 
                  data_out, 
                  Inst, 
                  M_addr, 
@@ -139,8 +137,6 @@ module Data_path(ALUSrcA,
     input RegWrite;
     input reset;
     input Unsigned;
-   output [4:0] CP0_addr;
-   output [31:0] CP0_out;
    output [31:0] data_out;
    output [31:0] Inst;
    output [31:0] M_addr;
@@ -149,6 +145,8 @@ module Data_path(ALUSrcA,
    output zero;
    
    wire [31:0] ALU_Out;
+   wire [4:0] CP0_addr;
+   wire [31:0] CP0_out;
    wire [31:0] CP0_WData;
    wire [31:0] Imm_32;
    wire N0;
@@ -172,12 +170,8 @@ module Data_path(ALUSrcA,
    wire [31:0] PC_Current_DUMMY;
    wire zero_DUMMY;
    wire [31:0] Inst_DUMMY;
-   wire [4:0] CP0_addr_DUMMY;
    wire [31:0] data_out_DUMMY;
-   wire [31:0] CP0_out_DUMMY;
    
-   assign CP0_addr[4:0] = CP0_addr_DUMMY[4:0];
-   assign CP0_out[31:0] = CP0_out_DUMMY[31:0];
    assign data_out[31:0] = data_out_DUMMY[31:0];
    assign Inst[31:0] = Inst_DUMMY[31:0];
    assign PC_Current[31:0] = PC_Current_DUMMY[31:0];
@@ -269,7 +263,7 @@ module Data_path(ALUSrcA,
                        .x2({Inst_DUMMY[15:0], N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0}), 
                        .x3(PC_Current_DUMMY[31:0]), 
-                       .x4(CP0_out_DUMMY[31:0]), 
+                       .x4(CP0_out[31:0]), 
                        .x5(), 
                        .x6(), 
                        .x7(), 
@@ -280,7 +274,7 @@ module Data_path(ALUSrcA,
                        .x2({PC_Current_DUMMY[31:28], Inst_DUMMY[25:0], N0, 
          N0}), 
                        .x3(ALU_Out[31:0]), 
-                       .x4(CP0_out_DUMMY[31:0]), 
+                       .x4(CP0_out[31:0]), 
                        .x5({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, V5, N0, V5, N0, 
          N0, N0}), 
@@ -292,7 +286,7 @@ module Data_path(ALUSrcA,
                       .c({N0, V5, V5, N0, V5}), 
                       .d({N0, V5, V5, V5, N0}), 
                       .sel(CP0Dst[1:0]), 
-                      .o(CP0_addr_DUMMY[4:0]));
+                      .o(CP0_addr[4:0]));
    PCNext  XLXI_55 (.inPCCurrent(PC_Current_DUMMY[31:0]), 
                    .outPCNext(PC_next[31:0]));
    mux8to1_32  XLXI_56 (.sel(DatatoCP0[2:0]), 
@@ -300,8 +294,8 @@ module Data_path(ALUSrcA,
                        .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          Cause[2:0]}), 
-                       .x2({CP0_out_DUMMY[27:0], N0, N0, N0, N0}), 
-                       .x3({N0, N0, N0, N0, CP0_out_DUMMY[31:4]}), 
+                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
+                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
                        .x4(PC_Current_DUMMY[31:0]), 
                        .x5(PC_next[31:0]), 
                        .x6(), 
@@ -309,9 +303,9 @@ module Data_path(ALUSrcA,
                        .o(CP0_WData[31:0]));
    CoPorcessor0  XLXI_57 (.clk(clk), 
                          .rst(reset), 
-                         .R_addr(CP0_addr_DUMMY[4:0]), 
+                         .R_addr(CP0_addr[4:0]), 
                          .we(CP0Write), 
-                         .Wt_addr(CP0_addr_DUMMY[4:0]), 
+                         .Wt_addr(CP0_addr[4:0]), 
                          .Wt_data(CP0_WData[31:0]), 
-                         .rdata(CP0_out_DUMMY[31:0]));
+                         .rdata(CP0_out[31:0]));
 endmodule

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="Data_path">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-11-17T7:29:1</timestamp>
+    <timestamp>2015-11-18T10:32:42</timestamp>
     <attr value="data_path" name="VeriModel" />
     <pin polarity="Input" x="0" y="-992" name="clk" />
     <pin polarity="Input" x="0" y="-928" name="reset" />
@@ -30,9 +30,6 @@
     <pin polarity="Input" x="0" y="144" name="DatatoCP0(2:0)" />
     <pin polarity="Input" x="0" y="208" name="ALU_operation(2:0)" />
     <pin polarity="Input" x="0" y="272" name="data2CPU(31:0)" />
-    <pin polarity="Output" x="528" y="128" name="CP0_out(31:0)" />
-    <pin polarity="Output" x="528" y="224" name="CP0_addr(4:0)" />
-    <pin polarity="Output" x="528" y="288" name="CP0_WData(31:0)" />
     <graph>
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-992" type="pin clk" />
         <line x2="0" y1="-992" y2="-992" x1="64" />
@@ -102,15 +99,6 @@
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="272" type="pin data2CPU(31:0)" />
         <rect width="64" x="0" y="260" height="24" />
         <line x2="0" y1="272" y2="272" x1="64" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="440" y="128" type="pin CP0_out(31:0)" />
-        <line x2="468" y1="128" y2="128" x1="528" />
-        <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1332" />
-        <rect width="64" x="464" y="116" height="24" />
-        <rect width="64" x="464" y="212" height="24" />
-        <line x2="464" y1="224" y2="224" x1="528" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="460" y="224" type="pin CP0_addr(4:0)" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="460" y="288" type="pin CP0_WData(31:0)" />
-        <rect width="64" x="464" y="276" height="24" />
-        <line x2="464" y1="288" y2="288" x1="528" />
+        <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1320" />
     </graph>
 </symbol>

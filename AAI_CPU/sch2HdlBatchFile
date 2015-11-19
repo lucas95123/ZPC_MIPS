@@ -1,2 +1,0 @@
-sch2hdl,-sympath,D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir,-intstyle,ise,-family,spartan3e,-verilog,D:/Users/ZPC_MIPS/AAI_CPU/Data_path.vf,-w,D:/Users/ZPC_MIPS/AAI_CPU/Data_path.sch
-sch2hdl,-sympath,D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir,-intstyle,ise,-family,spartan3e,-verilog,D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.vf,-w,D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.sch

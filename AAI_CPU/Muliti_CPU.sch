@@ -41,9 +41,6 @@
         <signal name="ALU_operation(2:0)" />
         <signal name="INT_CNT" />
         <signal name="overflow" />
-        <signal name="CP0_out(31:0)" />
-        <signal name="CP0_addr(4:0)" />
-        <signal name="CP0_WData(31:0)" />
         <port polarity="Input" name="INT_KBD" />
         <port polarity="Output" name="mem_w" />
         <port polarity="Output" name="PC_out(31:0)" />
@@ -120,7 +117,7 @@
             <line x2="64" y1="-48" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="Data_path">
-            <timestamp>2015-11-17T7:29:1</timestamp>
+            <timestamp>2015-11-18T10:32:42</timestamp>
             <line x2="0" y1="-992" y2="-992" x1="64" />
             <line x2="0" y1="-928" y2="-928" x1="64" />
             <line x2="0" y1="-864" y2="-864" x1="64" />
@@ -161,13 +158,7 @@
             <line x2="0" y1="208" y2="208" x1="64" />
             <rect width="64" x="0" y="260" height="24" />
             <line x2="0" y1="272" y2="272" x1="64" />
-            <line x2="468" y1="128" y2="128" x1="528" />
-            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1332" />
-            <rect width="64" x="464" y="116" height="24" />
-            <rect width="64" x="464" y="212" height="24" />
-            <line x2="464" y1="224" y2="224" x1="528" />
-            <rect width="64" x="464" y="276" height="24" />
-            <line x2="464" y1="288" y2="288" x1="528" />
+            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1320" />
         </blockdef>
         <block symbolname="inv" name="XLXI_4">
             <blockpin signalname="MemRead" name="I" />
@@ -238,9 +229,6 @@
             <blockpin signalname="DatatoCP0(2:0)" name="DatatoCP0(2:0)" />
             <blockpin signalname="ALU_operation(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="Data_in(31:0)" name="data2CPU(31:0)" />
-            <blockpin signalname="CP0_out(31:0)" name="CP0_out(31:0)" />
-            <blockpin signalname="CP0_addr(4:0)" name="CP0_addr(4:0)" />
-            <blockpin signalname="CP0_WData(31:0)" name="CP0_WData(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -412,15 +400,6 @@
             <wire x2="2672" y1="640" y2="640" x1="1152" />
             <wire x2="2672" y1="640" y2="896" x1="2672" />
             <wire x2="2672" y1="896" y2="896" x1="2656" />
-        </branch>
-        <branch name="CP0_out(31:0)">
-            <wire x2="2992" y1="1824" y2="1824" x1="2656" />
-        </branch>
-        <branch name="CP0_addr(4:0)">
-            <wire x2="2992" y1="1920" y2="1920" x1="2656" />
-        </branch>
-        <branch name="CP0_WData(31:0)">
-            <wire x2="2992" y1="1984" y2="1984" x1="2656" />
         </branch>
     </sheet>
 </drawing>

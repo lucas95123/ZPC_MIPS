@@ -77,7 +77,7 @@ output reg [8:0] vram_addr;
                    end
                 16'hffff://IO address (0xffff_0100~0xffff_ffff) device input/output 
 					 case(addr_bus[15:12])
-                4'h0: 
+                4'h0://PS2,Keyboard, Switch, Button IO address 0xffff_000~0xffff_0fff
 					     case(addr_bus[11:8]) //device ID 
 						   4'h1:   // PS2 device
 							 begin
@@ -90,10 +90,16 @@ output reg [8:0] vram_addr;
 								   1'b0:begin Cpu_data4bus<={{28{0}},SW[3:0]};end //Switch ID
                            1'b1:begin Cpu_data4bus<={{28{0}},BTN}; end // Button ID
 								 endcase
-                      endcase								  
-					     endcase
-					  4'h1: //vram_addr ffff_1000~ffff_11ff 512Byte
-						  begin GPIOffff1000_we <= mem_w; //data_ram read|write enable
+                       endcase
+							4'h3:
+							 begin
+							 	counter_we = mem_w;				//counter write signal
+								Peripheral_in = Cpu_data2bus;	//write data into counter
+								Cpu_data4bus = counter_out;	//read data from counter
+							 end
+					      endcase
+					  4'h1: //vram_addr ffff_1000~ffff_1fff 512Byte
+						  begin GPIOffff1000_we <= mem_w; //video_ram read|write enable
 									vram_addr<=addr_bus[8:0];
 									Peripheral_in<=Cpu_data2bus;
 									Cpu_data4bus<=vram_data_out; end
