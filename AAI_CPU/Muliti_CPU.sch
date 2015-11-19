@@ -41,6 +41,7 @@
         <signal name="ALU_operation(2:0)" />
         <signal name="INT_CNT" />
         <signal name="overflow" />
+        <signal name="XLXN_1" />
         <port polarity="Input" name="INT_KBD" />
         <port polarity="Output" name="mem_w" />
         <port polarity="Output" name="PC_out(31:0)" />
@@ -350,21 +351,20 @@
             <wire x2="2656" y1="624" y2="624" x1="1168" />
             <wire x2="2656" y1="624" y2="704" x1="2656" />
         </branch>
-        <iomarker fontsize="28" x="2944" y="2144" name="state(4:0)" orien="R0" />
         <iomarker fontsize="28" x="2960" y="2080" name="CPU_MIO" orien="R0" />
         <branch name="inst_out(31:0)">
             <wire x2="1216" y1="1856" y2="1856" x1="1168" />
-            <wire x2="1168" y1="1856" y2="2112" x1="1168" />
-            <wire x2="2704" y1="2112" y2="2112" x1="1168" />
+            <wire x2="1168" y1="1856" y2="2208" x1="1168" />
+            <wire x2="2704" y1="2208" y2="2208" x1="1168" />
             <wire x2="2704" y1="1280" y2="1280" x1="2656" />
             <wire x2="2944" y1="1280" y2="1280" x1="2704" />
-            <wire x2="2704" y1="1280" y2="2112" x1="2704" />
+            <wire x2="2704" y1="1280" y2="2208" x1="2704" />
         </branch>
         <iomarker fontsize="28" x="816" y="2128" name="Data_in(31:0)" orien="R180" />
         <branch name="state(4:0)">
-            <wire x2="1760" y1="1968" y2="1968" x1="1696" />
-            <wire x2="1760" y1="1968" y2="2144" x1="1760" />
-            <wire x2="2944" y1="2144" y2="2144" x1="1760" />
+            <wire x2="1712" y1="1968" y2="1968" x1="1696" />
+            <wire x2="1712" y1="1968" y2="2160" x1="1712" />
+            <wire x2="2960" y1="2160" y2="2160" x1="1712" />
         </branch>
         <branch name="PC_Source(2:0)">
             <wire x2="2128" y1="1648" y2="1648" x1="1696" />
@@ -401,5 +401,6 @@
             <wire x2="2672" y1="640" y2="896" x1="2672" />
             <wire x2="2672" y1="896" y2="896" x1="2656" />
         </branch>
+        <iomarker fontsize="28" x="2960" y="2160" name="state(4:0)" orien="R0" />
     </sheet>
 </drawing>

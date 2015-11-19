@@ -1,0 +1,8 @@
+[Inputs]
+=PC_Next[31:0]=
+[Outputs]
+=PC_Previous[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel PC_Minus_4
+

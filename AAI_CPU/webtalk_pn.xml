@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pn" timeStamp="Wed Nov 18 18:48:59 2015">
+<application name="pn" timeStamp="Thu Nov 19 13:53:51 2015">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="433B2E64D9BA4D12963AAD3BE741C1E4" type="project"/>
-<property name="ProjectIteration" value="25" type="project"/>
+<property name="ProjectIteration" value="26" type="project"/>
 <property name="ProjectFile" value="D:/Users/ZPC_MIPS/AAI_CPU/Project4.xise" type="project"/>
 <property name="ProjectCreationTimestamp" value="2015-06-12T16:13:01" type="project"/>
 </section>
@@ -18,7 +18,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_LastAppliedStrategy" value="strategy1;D:/XilinxIse/14.6/ISE_DS/ISE/spartan3/data/spartan3_power_strategy1.xds" type="design"/>
 <property name="PROP_ManualCompileOrderImp" value="false" type="design"/>
 <property name="PROP_PropSpecInProjFile" value="Store all values" type="design"/>
-<property name="PROP_SelectedInstanceHierarchicalPath" value="/Top_SCPU_IOBUS_App" type="process"/>
+<property name="PROP_SelectedInstanceHierarchicalPath" value="/Top_SCPU_IOBUS_App/U1/U1_2/XLXI_60" type="process"/>
 <property name="PROP_Simulator" value="ISim (VHDL/Verilog)" type="design"/>
 <property name="PROP_SynthOpt" value="Area" type="process"/>
 <property name="PROP_SynthOptEffort" value="High" type="process"/>
@@ -29,10 +29,10 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PROP_UserConstraintEditorPreference" value="Text Editor" type="process"/>
 <property name="PROP_intProjectCreationTimestamp" value="2015-06-12T16:13:01" type="design"/>
 <property name="PROP_intWbtProjectID" value="433B2E64D9BA4D12963AAD3BE741C1E4" type="design"/>
-<property name="PROP_intWbtProjectIteration" value="25" type="process"/>
+<property name="PROP_intWbtProjectIteration" value="26" type="process"/>
 <property name="PROP_intWorkingDirLocWRTProjDir" value="Same" type="design"/>
 <property name="PROP_intWorkingDirUsed" value="No" type="design"/>
-<property name="PROP_selectedSimRootSourceNode_behav" value="work.Top_SCPU_IOBUS_App" type="process"/>
+<property name="PROP_selectedSimRootSourceNode_behav" value="work.PC_Minus_4" type="process"/>
 <property name="PROP_xilxPARplacerEffortLevel" value="High" type="process"/>
 <property name="PROP_xilxPARrouterEffortLevel" value="High" type="process"/>
 <property name="PROP_xstAutoBRAMPacking" value="true" type="process"/>

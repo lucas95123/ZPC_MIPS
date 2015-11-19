@@ -170,11 +170,11 @@ design.  To avoid this warning, provide at least one of the following:
 </msg>
 
 <msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">Clk_CPU</arg> may have excessive skew because 
-   <arg fmt="%d" index="2">23</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
+   <arg fmt="%d" index="2">48</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
-<msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> may have excessive skew because 
-   <arg fmt="%d" index="2">0</arg> CLK pins and <arg fmt="%d" index="3">45</arg> NON_CLK pins failed to route using a CLK template.
+<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">0</arg> CLK pins and <arg fmt="%d" index="3">13</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
 <msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">clkdiv&lt;7&gt;</arg> may have excessive skew because 

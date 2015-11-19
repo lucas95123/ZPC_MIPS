@@ -70,11 +70,11 @@ module ctrl(input INT_KBD,
     always @ (posedge clk or posedge reset)
     if (reset==1) 
 	  begin //reset pushed
-		`CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<= IF; 
+		`CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<= IF; Int_status<=0; INT_SYS<=0; INT_UNIMPL<=0;
 	  end//12821
     else if((INT_KBD|INT_CNT)&&state_out==IF&&Int_status==0)
 	  begin
-		 `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=INT_WEPC; Int_status=1;//INT_KBD OR INT_CNT
+		 `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h145; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=INT_WEPC; Int_status=1;//INT_KBD OR INT_CNT
 	  end
 	 else
      case(state_out)
@@ -216,7 +216,7 @@ module ctrl(input INT_KBD,
 		INT_WSHIFT: begin `CPU_ctrl_signals<=19'h40280; `CP0_ctrl_signals<=9'h000; state_out<=INT_JHANDLER;end
 		INT_JHANDLER: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF;end
 		INT_RET: begin `CPU_ctrl_signals<=19'h4A021; `CP0_ctrl_signals<=9'h000; Branch<=0; Unsigned<=0; ALU_operation<=ADD; state_out<=IF; Int_status=0;end
-		Error: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_UNIMPL<=1'b1; end
+		Error: begin `CPU_ctrl_signals<=19'h00000; `CP0_ctrl_signals<=9'h144; Branch<=0; Unsigned<=0; ALU_operation<=ADD;state_out<=INT_WEPC; INT_UNIMPL<=1'b1; end//UNIMPL
 		endcase
 endmodule
 

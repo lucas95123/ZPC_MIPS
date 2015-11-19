@@ -70,8 +70,13 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PCNext.prj"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="PCNext.spl"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="PCNext.stx"/>
-    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="PCNext.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="PCNext.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PC_Minus_4.prj"/>
+    <file xil_pn:fileType="FILE_SPL" xil_pn:name="PC_Minus_4.spl"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="PC_Minus_4.stx"/>
+    <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="PC_Minus_4.sym" xil_pn:origination="imported"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="PC_Minus_4.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="PC_Minus_4_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="REG32.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="REG32.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="REG32.xst"/>
@@ -235,11 +240,11 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1447743474" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1447743474">
+    <transform xil_pn:end_ts="1447914309" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1447914309">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1447850190" xil_pn:in_ck="6646920456268042299" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1447850190">
+    <transform xil_pn:end_ts="1447914309" xil_pn:in_ck="1230871882536761050" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1447914309">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ADC32.v"/>
@@ -249,7 +254,7 @@
       <outfile xil_pn:name="Ext_32.v"/>
       <outfile xil_pn:name="Ext_32_Unsigned.v"/>
       <outfile xil_pn:name="MIO_BUS.v"/>
-      <outfile xil_pn:name="PCNext.v"/>
+      <outfile xil_pn:name="PC_Minus_4.v"/>
       <outfile xil_pn:name="REG32.v"/>
       <outfile xil_pn:name="Regs.v"/>
       <outfile xil_pn:name="SignalExt_32.v"/>
@@ -272,11 +277,11 @@
       <outfile xil_pn:name="vga_sync.v"/>
       <outfile xil_pn:name="xor32.v"/>
     </transform>
-    <transform xil_pn:end_ts="1447850206" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8139010083995447707" xil_pn:start_ts="1447850206">
+    <transform xil_pn:end_ts="1447914309" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-8139010083995447707" xil_pn:start_ts="1447914309">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1447850209" xil_pn:in_ck="-4431015034039509471" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="4009568737309019623" xil_pn:start_ts="1447850206">
+    <transform xil_pn:end_ts="1447914311" xil_pn:in_ck="-4431015034039509471" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="4009568737309019623" xil_pn:start_ts="1447914309">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALU.vf"/>
@@ -284,7 +289,7 @@
       <outfile xil_pn:name="Muliti_CPU.vf"/>
       <outfile xil_pn:name="Top_SCPU_IOBUS_App.vf"/>
     </transform>
-    <transform xil_pn:end_ts="1447846461" xil_pn:in_ck="-8357276928766242747" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="3895523839594410221" xil_pn:start_ts="1447846461">
+    <transform xil_pn:end_ts="1447914311" xil_pn:in_ck="-8357276928766242747" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="3895523839594410221" xil_pn:start_ts="1447914311">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/RAM_B.ngc"/>
@@ -292,7 +297,7 @@
       <outfile xil_pn:name="ipcore_dir/VRAM.ngc"/>
       <outfile xil_pn:name="ipcore_dir/VRAM.v"/>
     </transform>
-    <transform xil_pn:end_ts="1447850193" xil_pn:in_ck="5651481355196197905" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1447850192">
+    <transform xil_pn:end_ts="1447914311" xil_pn:in_ck="-5123018281097989072" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1447914311">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ADC32.v"/>
@@ -305,7 +310,7 @@
       <outfile xil_pn:name="Ext_32_Unsigned.v"/>
       <outfile xil_pn:name="MIO_BUS.v"/>
       <outfile xil_pn:name="Muliti_CPU.vf"/>
-      <outfile xil_pn:name="PCNext.v"/>
+      <outfile xil_pn:name="PC_Minus_4.v"/>
       <outfile xil_pn:name="REG32.v"/>
       <outfile xil_pn:name="Regs.v"/>
       <outfile xil_pn:name="SignalExt_32.v"/>
@@ -331,7 +336,7 @@
       <outfile xil_pn:name="vga_sync.v"/>
       <outfile xil_pn:name="xor32.v"/>
     </transform>
-    <transform xil_pn:end_ts="1447850213" xil_pn:in_ck="5651481355196197905" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5633868233385158571" xil_pn:start_ts="1447850209">
+    <transform xil_pn:end_ts="1447914315" xil_pn:in_ck="-5123018281097989072" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5633868233385158571" xil_pn:start_ts="1447914311">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -343,7 +348,7 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1447850214" xil_pn:in_ck="-2334980111491116906" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7010645120269071662" xil_pn:start_ts="1447850213">
+    <transform xil_pn:end_ts="1447914315" xil_pn:in_ck="-5926415698245550026" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7010645120269071662" xil_pn:start_ts="1447914315">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -356,7 +361,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1447842786" xil_pn:in_ck="-4431015034039509471" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-3802268313563078617" xil_pn:start_ts="1447842783">
+    <transform xil_pn:end_ts="1447912305" xil_pn:in_ck="-4431015034039509471" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-3802268313563078617" xil_pn:start_ts="1447912302">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -368,7 +373,7 @@
       <outfile xil_pn:name="Muliti_CPU.vf"/>
       <outfile xil_pn:name="Top_SCPU_IOBUS_App.vf"/>
     </transform>
-    <transform xil_pn:end_ts="1447750403" xil_pn:in_ck="-8357276928766242747" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="3895523839594410221" xil_pn:start_ts="1447750402">
+    <transform xil_pn:end_ts="1447912306" xil_pn:in_ck="-8357276928766242747" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="3895523839594410221" xil_pn:start_ts="1447912305">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
@@ -398,7 +403,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
-    <transform xil_pn:end_ts="1447842832" xil_pn:in_ck="-6747030254297839926" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-6919417848881724296" xil_pn:start_ts="1447842786">
+    <transform xil_pn:end_ts="1447912411" xil_pn:in_ck="-2651050590825813751" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="-6919417848881724296" xil_pn:start_ts="1447912365">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -406,96 +411,72 @@
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
       <status xil_pn:value="OutputRemoved"/>
-      <outfile xil_pn:name=".lso"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.jhd"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.lso"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.ngc"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.ngr"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.prj"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.stx"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.syr"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.xst"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_xst.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
     </transform>
     <transform xil_pn:end_ts="1445067113" xil_pn:in_ck="126434668282414473" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="540767658745808272" xil_pn:start_ts="1445067113">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
-    <transform xil_pn:end_ts="1447843727" xil_pn:in_ck="-6588800925842633440" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="3942616033144895920" xil_pn:start_ts="1447843716">
+    <transform xil_pn:end_ts="1447912420" xil_pn:in_ck="-6588800925842633440" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="3942616033144895920" xil_pn:start_ts="1447912411">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.bld"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.ngd"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_ngdbuild.xrpt"/>
-      <outfile xil_pn:name="_ngo"/>
-      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-    </transform>
-    <transform xil_pn:end_ts="1447843739" xil_pn:in_ck="-3832447319960613410" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5849673150125579957" xil_pn:start_ts="1447843727">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.pcf"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_map.map"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_map.mrp"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_map.ncd"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_map.ngm"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_map.xrpt"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_summary.xml"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_usage.xml"/>
-      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-    </transform>
-    <transform xil_pn:end_ts="1447843814" xil_pn:in_ck="2833723930342988791" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="994012547557731707" xil_pn:start_ts="1447843739">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.ncd"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.pad"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.par"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.ptwx"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.unroutes"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.xpi"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_pad.csv"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_pad.txt"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App_par.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-    </transform>
-    <transform xil_pn:end_ts="1445430684" xil_pn:in_ck="-2478021222149303535" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1445430660">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1447912431" xil_pn:in_ck="-3832447319960613410" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5849673150125579957" xil_pn:start_ts="1447912420">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1447912508" xil_pn:in_ck="2833723930342988791" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="994012547557731707" xil_pn:start_ts="1447912431">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
+    </transform>
+    <transform xil_pn:end_ts="1447912540" xil_pn:in_ck="-2478021222149303535" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1447912511">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1445430689" xil_pn:in_ck="-8449298938844885445" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="5582947192412673156" xil_pn:start_ts="1445430684">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1447843814" xil_pn:in_ck="-3832447319960613542" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1447843808">
+    <transform xil_pn:end_ts="1447912508" xil_pn:in_ck="-3832447319960613542" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1447912502">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.twr"/>
-      <outfile xil_pn:name="Top_SCPU_IOBUS_App.twx"/>
-      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
   </transforms>
 

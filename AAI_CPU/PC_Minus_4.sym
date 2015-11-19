@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="PC_Minus_4">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2015-11-19T6:14:58</timestamp>
+    <attr value="PC_Minus_4" name="VeriModel" />
+    <pin polarity="Input" x="288" y="-32" name="PC_Next(31:0)" />
+    <pin polarity="Output" x="432" y="-32" name="PC_Previous(31:0)" />
+    <graph>
+        <attrtext style="alignment:BCENTER;fontsize:24;fontname:Arial" attrname="SymbolName" x="364" y="-16" type="symbol" />
+        <rect width="144" x="288" y="-44" height="24" />
+    </graph>
+</symbol>

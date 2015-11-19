@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Muliti_CPU.vf
-// /___/   /\     Timestamp : 11/18/2015 20:24:07
+// /___/   /\     Timestamp : 11/19/2015 14:16:05
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -150,7 +150,7 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
    wire [31:0] CP0_WData;
    wire [31:0] Imm_32;
    wire N0;
-   wire [31:0] PC_next;
+   wire [31:0] PC_Previous;
    wire V5;
    wire [4:0] Wt_addr;
    wire [31:0] Wt_data;
@@ -287,20 +287,6 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
                       .d({N0, V5, V5, V5, N0}), 
                       .sel(CP0Dst[1:0]), 
                       .o(CP0_addr[4:0]));
-   PCNext  XLXI_55 (.inPCCurrent(PC_Current_DUMMY[31:0]), 
-                   .outPCNext(PC_next[31:0]));
-   mux8to1_32  XLXI_56 (.sel(DatatoCP0[2:0]), 
-                       .x0(data_out_DUMMY[31:0]), 
-                       .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         Cause[2:0]}), 
-                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
-                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
-                       .x4(PC_Current_DUMMY[31:0]), 
-                       .x5(PC_next[31:0]), 
-                       .x6(), 
-                       .x7(), 
-                       .o(CP0_WData[31:0]));
    CoPorcessor0  XLXI_57 (.clk(clk), 
                          .rst(reset), 
                          .R_addr(CP0_addr[4:0]), 
@@ -308,6 +294,20 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
                          .Wt_addr(CP0_addr[4:0]), 
                          .Wt_data(CP0_WData[31:0]), 
                          .rdata(CP0_out[31:0]));
+   mux8to1_32  XLXI_61 (.sel(DatatoCP0[2:0]), 
+                       .x0(data_out_DUMMY[31:0]), 
+                       .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         Cause[2:0]}), 
+                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
+                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
+                       .x4(PC_Current_DUMMY[31:0]), 
+                       .x5(PC_Previous[31:0]), 
+                       .x6(), 
+                       .x7(), 
+                       .o(CP0_WData[31:0]));
+   PC_Minus_4  XLXI_62 (.PC_Next(PC_Current_DUMMY[31:0]), 
+                       .PC_Previous(PC_Previous[31:0]));
 endmodule
 `timescale 1ns / 1ps
 

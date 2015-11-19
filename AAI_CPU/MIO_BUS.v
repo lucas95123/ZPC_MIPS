@@ -93,9 +93,9 @@ output reg [8:0] vram_addr;
                        endcase
 							4'h3:
 							 begin
-							 	counter_we = mem_w;				//counter write signal
-								Peripheral_in = Cpu_data2bus;	//write data into counter
-								Cpu_data4bus = counter_out;	//read data from counter
+							 	counter_we <= mem_w;				//counter write signal
+								Peripheral_in <= Cpu_data2bus;	//write data into counter
+								Cpu_data4bus <= counter_out;	//read data from counter
 							 end
 					      endcase
 					  4'h1: //vram_addr ffff_1000~ffff_1fff 512Byte

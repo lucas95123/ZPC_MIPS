@@ -10,25 +10,25 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Wed Nov 18 18:48:48 2015
+Mapped Date    : Thu Nov 19 13:53:42 2015
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    4
 Logic Utilization:
-  Total Number Slice Registers:       2,445 out of   9,312   26%
-    Number used as Flip Flops:        2,404
+  Total Number Slice Registers:       2,455 out of   9,312   26%
+    Number used as Flip Flops:        2,414
     Number used as Latches:              41
-  Number of 4 input LUTs:             6,313 out of   9,312   67%
+  Number of 4 input LUTs:             6,404 out of   9,312   68%
 Logic Distribution:
-  Number of occupied Slices:          4,288 out of   4,656   92%
-    Number of Slices containing only related logic:   4,288 out of   4,288 100%
-    Number of Slices containing unrelated logic:          0 out of   4,288   0%
+  Number of occupied Slices:          4,327 out of   4,656   92%
+    Number of Slices containing only related logic:   4,327 out of   4,327 100%
+    Number of Slices containing unrelated logic:          0 out of   4,327   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       6,467 out of   9,312   69%
-    Number used as logic:             4,265
-    Number used as a route-thru:        154
+  Total Number of 4 input LUTs:       6,531 out of   9,312   70%
+    Number used as logic:             4,356
+    Number used as a route-thru:        127
     Number used for Dual Port RAMs:   2,048
       (Two LUTs used per Dual Port RAM)
 
@@ -39,10 +39,10 @@ Logic Distribution:
   Number of RAMB16s:                      2 out of      20   10%
   Number of BUFGMUXs:                     3 out of      24   12%
 
-Average Fanout of Non-Clock Nets:                3.95
+Average Fanout of Non-Clock Nets:                3.96
 
 Peak Memory Usage:  371 MB
-Total REAL time to MAP completion:  9 secs 
+Total REAL time to MAP completion:  8 secs 
 Total CPU time to MAP completion:   6 secs 
 
 NOTES:
@@ -117,9 +117,9 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 145 block(s) removed
-  51 block(s) optimized away
- 149 signal(s) removed
+ 105 block(s) removed
+  11 block(s) optimized away
+ 105 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -211,60 +211,6 @@ The signal "U9/pulse" is sourceless and has been removed.
  Sourceless block "U9/pulse_rstpot1" (ROM) removed.
   The signal "U9/pulse_rstpot1" is sourceless and has been removed.
    Sourceless block "U9/pulse" (FF) removed.
-The signal "U10/M0_and0000" is sourceless and has been removed.
-The signal "U10/counter0_Lock_not0001" is sourceless and has been removed.
- Sourceless block "U10/M0_and00001" (ROM) removed.
-The signal "U10/counter_Ctrl_not0001" is sourceless and has been removed.
-The signal "U10/clr0_and0000" is sourceless and has been removed.
- Sourceless block "U10/clr0" (FF) removed.
-  The signal "U10/clr0" is sourceless and has been removed.
-The signal "U10/sq0_cmp_eq0000" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_22_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_21_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_20_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_19_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_18_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_17_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_14_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_16_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_15_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_13_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_12_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_11_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_10_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_9_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_8_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_7_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_6_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_5_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_4_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_3_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_2_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_1_mux0000_3" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_0_mux0000_3" is sourceless and has been removed.
-The signal "U10/counter0_0_mux0002" is sourceless and has been removed.
-The signal "U10/Mmux_counter0_32_mux0000_3" is sourceless and has been removed.
-The signal "U10/N196" is sourceless and has been removed.
-The signal "U10/clr0_and00001" is sourceless and has been removed.
- Sourceless block "U10/clr0_and0000_f5" (MUX) removed.
-The signal "U10/Mmux_counter0_31_mux0000_4_SW0" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_30_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_29_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_28_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_27_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_26_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_25_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_24_mux0000_3/O" is sourceless and has been
-removed.
-The signal "U10/Mmux_counter0_23_mux0000_3/O" is sourceless and has been
-removed.
 The signal
 "XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<31>" is
 sourceless and has been removed.
@@ -457,26 +403,6 @@ sourceless and has been removed.
 The signal
 "XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<0>" is
 sourceless and has been removed.
-
-The trimmed logic reported below is either:
-   1. part of a cycle
-   2. part of disabled logic
-   3. a side-effect of other trimmed logic
-
-The signal "XLXI_15/counter_set<0>" is unused and has been removed.
- Unused block "XLXI_15/counter_set_0" (FF) removed.
-The signal "XLXI_15/counter_set<1>" is unused and has been removed.
- Unused block "XLXI_15/counter_set_1" (FF) removed.
-Unused block "U10/Mmux_counter0_23_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_24_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_25_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_26_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_27_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_28_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_29_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_30_mux0000_3" (ROM) removed.
-Unused block "U10/clr0_and00001" (ROM) removed.
-Unused block "U10/counter0_0_mux00021" (ROM) removed.
 Unused block "U9/SW_OK_4" (FF) removed.
 Unused block "U9/SW_OK_5" (FF) removed.
 Unused block "U9/SW_OK_6" (FF) removed.
@@ -674,116 +600,11 @@ Unused block
 "XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_9" (FF)
 removed.
 Unused block "U8/Mcount_clkdiv_cy<24>" (MUX) removed.
-Unused block "U10/Mmux_counter0_0_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_10_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_11_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_12_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_13_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_14_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_15_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_16_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_17_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_18_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_19_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_1_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_20_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_21_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_22_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_2_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_31_mux0000_2_f5_SW0_G" (ROM) removed.
-Unused block "U10/Mmux_counter0_32_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_3_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_4_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_5_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_6_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_7_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_8_mux0000_3" (ROM) removed.
-Unused block "U10/Mmux_counter0_9_mux0000_3" (ROM) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
-FDE 		U10/M0
-   optimized to 0
-LUT3 		U10/M0_and0000111
-   optimized to 0
-LUT3 		U10/Mmux_counter0_31_mux0000_4_SW01
-   optimized to 0
 GND 		U10/XST_GND
 VCC 		U10/XST_VCC
-FDCE 		U10/counter0_Lock_0
-   optimized to 0
-FDCE 		U10/counter0_Lock_1
-   optimized to 0
-FDCE 		U10/counter0_Lock_10
-   optimized to 0
-FDCE 		U10/counter0_Lock_11
-   optimized to 0
-FDCE 		U10/counter0_Lock_12
-   optimized to 0
-FDCE 		U10/counter0_Lock_13
-   optimized to 0
-FDCE 		U10/counter0_Lock_14
-   optimized to 0
-FDCE 		U10/counter0_Lock_15
-   optimized to 0
-FDCE 		U10/counter0_Lock_16
-   optimized to 0
-FDCE 		U10/counter0_Lock_17
-   optimized to 0
-FDCE 		U10/counter0_Lock_18
-   optimized to 0
-FDCE 		U10/counter0_Lock_19
-   optimized to 0
-FDCE 		U10/counter0_Lock_2
-   optimized to 0
-FDCE 		U10/counter0_Lock_20
-   optimized to 0
-FDCE 		U10/counter0_Lock_21
-   optimized to 0
-FDCE 		U10/counter0_Lock_22
-   optimized to 0
-FDCE 		U10/counter0_Lock_23
-   optimized to 0
-FDCE 		U10/counter0_Lock_24
-   optimized to 0
-FDCE 		U10/counter0_Lock_25
-   optimized to 0
-FDCE 		U10/counter0_Lock_26
-   optimized to 0
-FDCE 		U10/counter0_Lock_27
-   optimized to 0
-FDCE 		U10/counter0_Lock_28
-   optimized to 0
-FDCE 		U10/counter0_Lock_29
-   optimized to 0
-FDCE 		U10/counter0_Lock_3
-   optimized to 0
-FDCE 		U10/counter0_Lock_30
-   optimized to 0
-FDCE 		U10/counter0_Lock_31
-   optimized to 0
-FDCE 		U10/counter0_Lock_4
-   optimized to 0
-FDCE 		U10/counter0_Lock_5
-   optimized to 0
-FDCE 		U10/counter0_Lock_6
-   optimized to 0
-FDCE 		U10/counter0_Lock_7
-   optimized to 0
-FDCE 		U10/counter0_Lock_8
-   optimized to 0
-FDCE 		U10/counter0_Lock_9
-   optimized to 0
-FDCE 		U10/counter_Ctrl_1
-   optimized to 0
-FDCE 		U10/counter_Ctrl_2
-   optimized to 0
-LUT3 		U10/counter_Ctrl_not00011
-   optimized to 0
-FDCE 		U10/sq0
-   optimized to 0
-LUT2 		U10/sq0_cmp_eq00001
-   optimized to 0
 GND 		U3/XST_GND
 VCC 		U3/XST_VCC
 GND 		U8/XST_GND

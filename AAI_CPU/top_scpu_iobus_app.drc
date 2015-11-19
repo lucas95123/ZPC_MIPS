@@ -1,16 +1,16 @@
 Release 14.6 Drc P.68d (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Oct 21 20:31:03 2015
+Thu Nov 19 13:55:14 2015
 
 drc -z Top_SCPU_IOBUS_App.ncd Top_SCPU_IOBUS_App.pcf
 
-WARNING:PhysDesignRules:372 - Gated clock. Clock net U4/vram_addr_cmp_eq0001 is
-   sourced by a combinatorial pin. This is not good design practice. Use the CE
-   pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net Clk_CPU is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net U4/vram_addr_cmp_eq0001 is
+   sourced by a combinatorial pin. This is not good design practice. Use the CE
+   pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:812 - Dangling pin <DOA7> on
    block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
    amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.

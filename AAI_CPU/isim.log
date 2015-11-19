@@ -14,19 +14,7 @@ WARNING: This core is supplied with a behavioral model. To model cycle-accurate 
 Finished circuit initialization process.
 # isim force add /Top_SCPU_IOBUS_App/clk_50mhz 1 -radix bin -value 0 -radix bin -time 10 ns -repeat 20 ns
 # isim force add /Top_SCPU_IOBUS_App/Clk_CPU 1 -radix bin -value 0 -radix bin -time 10 ns -repeat 20 ns
-# run 20ns
-# isim force add /Top_SCPU_IOBUS_App/rst 1 -radix hex
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
+# isim force add /Top_SCPU_IOBUS_App/rst 1 -radix bin
 # run 20ns
 # isim force add /Top_SCPU_IOBUS_App/rst 0 -radix bin
 # run 20ns
@@ -79,7 +67,45 @@ Finished circuit initialization process.
 # run 20ns
 # run 20ns
 # run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
 # isim force add /Top_SCPU_IOBUS_App/counter0_out 1 -radix bin
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# isim force add /Top_SCPU_IOBUS_App/counter0_out 0 -radix bin
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# run 20ns
+# isim force add /Top_SCPU_IOBUS_App/counter0_out 1 -radix bin
+# run 20ns
 # run 20ns
 # run 20ns
 # run 20ns
@@ -94,18 +120,12 @@ Finished circuit initialization process.
 # run 20ns
 # run 20ns
 # isim force add /Top_SCPU_IOBUS_App/counter0_out 0 -radix bin
-# isim force add /Top_SCPU_IOBUS_App/counter0_out 1 -radix bin
 # run 20ns
 # run 20ns
 # run 20ns
 # run 20ns
 # run 20ns
 # run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# run 20ns
-# isim force add /Top_SCPU_IOBUS_App/counter_we 0 -radix bin
 # run 20ns
 # run 20ns
 # run 20ns

@@ -1,0 +1,6 @@
+vhdtdtfi -lib work D:/Users/ZPC_MIPS/AAI_CPU/PC_Minus_4.v -lang verilog -prj Project4 -o PC_Minus_4.spl -module PC_Minus_4 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e PC_Minus_4.spl D:/Users/ZPC_MIPS/AAI_CPU/PC_Minus_4.sym 
+vhdtdtfi -lib work D:/Users/ZPC_MIPS/AAI_CPU/PC_Minus_4.v -lang verilog -prj Project4 -o PC_Minus_4.spl -module PC_Minus_4 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e PC_Minus_4.spl D:/Users/ZPC_MIPS/AAI_CPU/PC_Minus_4.sym 
+vhdtdtfi -lib work D:/Users/ZPC_MIPS/AAI_CPU/PC_Minus_4.v -lang verilog -prj Project4 -o PC_Minus_4.spl -module PC_Minus_4 -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e PC_Minus_4.spl D:/Users/ZPC_MIPS/AAI_CPU/PC_Minus_4.sym 
