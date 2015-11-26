@@ -56,8 +56,7 @@
         <signal name="Inst(15:0)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,N0" />
         <signal name="Imm_32(31:0)" />
-        <signal name="CP0_out(31:0)">
-        </signal>
+        <signal name="CP0_out(31:0)" />
         <signal name="PC_Current(31:28),Inst(25:0),N0,N0" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,V5,N0,V5,N0,N0,N0" />
         <signal name="Inst(15:11)" />
@@ -68,13 +67,12 @@
         <signal name="N0,V5,V5,V5,N0" />
         <signal name="N0,V5,V5,N0,V5" />
         <signal name="N0,V5,V5,N0,N0" />
-        <signal name="CP0_addr(4:0)">
-        </signal>
+        <signal name="CP0_addr(4:0)" />
         <signal name="CP0_WData(31:0)" />
         <signal name="CP0_out(27:0),N0,N0,N0,N0" />
         <signal name="N0,N0,N0,N0,CP0_out(31:4)" />
-        <signal name="PC_next(31:0)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" />
+        <signal name="PC_Previous(31:0)" />
         <port polarity="Output" name="Inst(31:0)" />
         <port polarity="Input" name="clk" />
         <port polarity="Input" name="IRWrite" />
@@ -277,9 +275,9 @@
             <rect width="44" x="64" y="-548" height="120" />
             <line x2="128" y1="-496" y2="-496" x1="108" />
         </blockdef>
-        <blockdef name="PCNext">
-            <timestamp>2015-10-26T16:34:44</timestamp>
-            <rect width="124" x="68" y="-64" height="28" />
+        <blockdef name="PC_Minus_4">
+            <timestamp>2015-11-19T6:14:58</timestamp>
+            <rect width="144" x="288" y="-44" height="24" />
         </blockdef>
         <block symbolname="Regs" name="U2">
             <blockpin signalname="clk" name="clk" />
@@ -432,22 +430,6 @@
             <blockpin signalname="N0,V5,V5,V5,N0" name="d(4:0)" />
             <blockpin signalname="CP0Dst(1:0)" name="sel(1:0)" />
         </block>
-        <block symbolname="PCNext" name="XLXI_55">
-            <blockpin signalname="PC_next(31:0)" name="outPCNext(31:0)" />
-            <blockpin signalname="PC_Current(31:0)" name="inPCCurrent(31:0)" />
-        </block>
-        <block symbolname="mux8to1_32" name="XLXI_56">
-            <blockpin signalname="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" name="x1(31:0)" />
-            <blockpin signalname="data_out(31:0)" name="x0(31:0)" />
-            <blockpin signalname="CP0_out(27:0),N0,N0,N0,N0" name="x2(31:0)" />
-            <blockpin signalname="N0,N0,N0,N0,CP0_out(31:4)" name="x3(31:0)" />
-            <blockpin signalname="PC_Current(31:0)" name="x4(31:0)" />
-            <blockpin signalname="PC_next(31:0)" name="x5(31:0)" />
-            <blockpin name="x6(31:0)" />
-            <blockpin name="x7(31:0)" />
-            <blockpin signalname="DatatoCP0(2:0)" name="sel(2:0)" />
-            <blockpin signalname="CP0_WData(31:0)" name="o(31:0)" />
-        </block>
         <block symbolname="CoPorcessor0" name="XLXI_57">
             <blockpin signalname="clk" name="clk" />
             <blockpin signalname="reset" name="rst" />
@@ -456,6 +438,22 @@
             <blockpin signalname="CP0_addr(4:0)" name="Wt_addr(4:0)" />
             <blockpin signalname="CP0_WData(31:0)" name="Wt_data(31:0)" />
             <blockpin signalname="CP0_out(31:0)" name="rdata(31:0)" />
+        </block>
+        <block symbolname="mux8to1_32" name="XLXI_61">
+            <blockpin signalname="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" name="x1(31:0)" />
+            <blockpin signalname="data_out(31:0)" name="x0(31:0)" />
+            <blockpin signalname="CP0_out(27:0),N0,N0,N0,N0" name="x2(31:0)" />
+            <blockpin signalname="N0,N0,N0,N0,CP0_out(31:4)" name="x3(31:0)" />
+            <blockpin signalname="PC_Current(31:0)" name="x4(31:0)" />
+            <blockpin signalname="PC_Previous(31:0)" name="x5(31:0)" />
+            <blockpin name="x6(31:0)" />
+            <blockpin name="x7(31:0)" />
+            <blockpin signalname="DatatoCP0(2:0)" name="sel(2:0)" />
+            <blockpin signalname="CP0_WData(31:0)" name="o(31:0)" />
+        </block>
+        <block symbolname="PC_Minus_4" name="XLXI_62">
+            <blockpin signalname="PC_Current(31:0)" name="PC_Next(31:0)" />
+            <blockpin signalname="PC_Previous(31:0)" name="PC_Previous(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -714,30 +712,8 @@
             <wire x2="608" y1="1312" y2="1360" x1="608" />
             <wire x2="608" y1="1360" y2="1440" x1="608" />
             <wire x2="608" y1="1440" y2="1808" x1="608" />
-            <wire x2="608" y1="1808" y2="1824" x1="608" />
-            <wire x2="608" y1="1824" y2="2240" x1="608" />
+            <wire x2="608" y1="1808" y2="2240" x1="608" />
             <wire x2="3264" y1="2240" y2="2240" x1="608" />
-        </branch>
-        <branch name="PC_Current(31:0)">
-            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1008" y="2176" type="branch" />
-            <wire x2="832" y1="1648" y2="1648" x1="768" />
-            <wire x2="768" y1="1648" y2="2176" x1="768" />
-            <wire x2="1008" y1="2176" y2="2176" x1="768" />
-            <wire x2="1520" y1="2176" y2="2176" x1="1008" />
-            <wire x2="2944" y1="2176" y2="2176" x1="1520" />
-            <wire x2="2944" y1="2176" y2="2576" x1="2944" />
-            <wire x2="2944" y1="2576" y2="2624" x1="2944" />
-            <wire x2="1632" y1="1232" y2="1232" x1="1520" />
-            <wire x2="1520" y1="1232" y2="2176" x1="1520" />
-            <wire x2="1584" y1="2512" y2="2512" x1="1552" />
-            <wire x2="1552" y1="2512" y2="2576" x1="1552" />
-            <wire x2="2944" y1="2576" y2="2576" x1="1552" />
-            <wire x2="2944" y1="2624" y2="2624" x1="1984" />
-            <wire x2="2944" y1="192" y2="192" x1="2768" />
-            <wire x2="2944" y1="192" y2="880" x1="2944" />
-            <wire x2="3008" y1="880" y2="880" x1="2944" />
-            <wire x2="2944" y1="880" y2="2176" x1="2944" />
-            <wire x2="3216" y1="192" y2="192" x1="2944" />
         </branch>
         <instance x="784" y="2144" name="XLXI_33" orien="R0" />
         <branch name="CP0_out(31:0)">
@@ -811,14 +787,8 @@
             <wire x2="1584" y1="2496" y2="2496" x1="1536" />
         </branch>
         <iomarker fontsize="28" x="176" y="1872" name="Unsigned" orien="R180" />
-        <instance x="1536" y="2992" name="XLXI_56" orien="R0" />
         <branch name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)">
             <wire x2="1584" y1="2464" y2="2464" x1="1536" />
-        </branch>
-        <branch name="PC_next(31:0)">
-            <wire x2="1584" y1="2528" y2="2528" x1="1568" />
-            <wire x2="1568" y1="2528" y2="2624" x1="1568" />
-            <wire x2="1856" y1="2624" y2="2624" x1="1568" />
         </branch>
         <instance x="48" y="2144" name="XLXI_27" orien="R0" />
         <iomarker fontsize="28" x="192" y="2464" name="Cause(2:0)" orien="R180" />
@@ -876,11 +846,8 @@
         <instance x="2624" y="320" name="PC" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="64" y="-192" type="instance" />
         </instance>
-        <instance x="1792" y="2672" name="XLXI_55" orien="R0">
-        </instance>
         <branch name="CP0Dst(1:0)">
-            <wire x2="224" y1="1984" y2="1984" x1="208" />
-            <wire x2="1824" y1="1984" y2="1984" x1="224" />
+            <wire x2="1824" y1="1984" y2="1984" x1="208" />
             <wire x2="1824" y1="1984" y2="2000" x1="1824" />
         </branch>
         <branch name="Inst(15:11)">
@@ -907,5 +874,38 @@
         <instance x="976" y="1936" name="XLXI_29" orien="R0">
         </instance>
         <iomarker fontsize="28" x="3264" y="2240" name="Inst(31:0)" orien="R0" />
+        <branch name="PC_Previous(31:0)">
+            <wire x2="1584" y1="2528" y2="2528" x1="1552" />
+            <wire x2="1552" y1="2528" y2="2656" x1="1552" />
+            <wire x2="2368" y1="2656" y2="2656" x1="1552" />
+            <wire x2="2368" y1="2544" y2="2544" x1="2288" />
+            <wire x2="2368" y1="2544" y2="2656" x1="2368" />
+        </branch>
+        <branch name="PC_Current(31:0)">
+            <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="1008" y="2176" type="branch" />
+            <wire x2="832" y1="1648" y2="1648" x1="768" />
+            <wire x2="768" y1="1648" y2="2176" x1="768" />
+            <wire x2="1008" y1="2176" y2="2176" x1="768" />
+            <wire x2="1520" y1="2176" y2="2176" x1="1008" />
+            <wire x2="2944" y1="2176" y2="2176" x1="1520" />
+            <wire x2="2944" y1="2176" y2="2576" x1="2944" />
+            <wire x2="2944" y1="2576" y2="2608" x1="2944" />
+            <wire x2="1632" y1="1232" y2="1232" x1="1520" />
+            <wire x2="1520" y1="1232" y2="2176" x1="1520" />
+            <wire x2="1584" y1="2512" y2="2512" x1="1536" />
+            <wire x2="1536" y1="2512" y2="2608" x1="1536" />
+            <wire x2="2944" y1="2608" y2="2608" x1="1536" />
+            <wire x2="2144" y1="2544" y2="2544" x1="2080" />
+            <wire x2="2080" y1="2544" y2="2576" x1="2080" />
+            <wire x2="2944" y1="2576" y2="2576" x1="2080" />
+            <wire x2="2944" y1="192" y2="192" x1="2768" />
+            <wire x2="2944" y1="192" y2="880" x1="2944" />
+            <wire x2="3008" y1="880" y2="880" x1="2944" />
+            <wire x2="2944" y1="880" y2="2176" x1="2944" />
+            <wire x2="3216" y1="192" y2="192" x1="2944" />
+        </branch>
+        <instance x="1536" y="2992" name="XLXI_61" orien="R0" />
+        <instance x="1856" y="2576" name="XLXI_62" orien="R0">
+        </instance>
     </sheet>
 </drawing>

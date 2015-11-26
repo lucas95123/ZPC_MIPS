@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Muliti_CPU.vf
-// /___/   /\     Timestamp : 11/19/2015 14:16:05
+// /___/   /\     Timestamp : 11/26/2015 21:23:53
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -321,6 +321,8 @@ module Muliti_CPU(clk,
                   CPU_MIO, 
                   Data_out, 
                   inst_out, 
+                  Intr, 
+                  INT_STATE, 
                   mem_w, 
                   PC_out, 
                   state);
@@ -335,6 +337,8 @@ module Muliti_CPU(clk,
    output CPU_MIO;
    output [31:0] Data_out;
    output [31:0] inst_out;
+   output Intr;
+   output INT_STATE;
    output mem_w;
    output [31:0] PC_out;
    output [4:0] state;
@@ -381,6 +385,8 @@ module Muliti_CPU(clk,
               .CP0Dst(CP0Dst[1:0]), 
               .CP0Write(CP0Write), 
               .DatatoCP0(DatatoCP0[2:0]), 
+              .Intr(Intr), 
+              .Int_status(INT_STATE), 
               .IorD(IorD), 
               .IRWrite(IRWrite), 
               .MemRead(MemRead), 

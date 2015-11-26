@@ -32,7 +32,6 @@
         <signal name="MIO_ready" />
         <signal name="zero" />
         <signal name="inst_out(31:0)" />
-        <signal name="state(4:0)" />
         <signal name="PC_Source(2:0)" />
         <signal name="CP0Dst(1:0)" />
         <signal name="Cause(2:0)" />
@@ -41,7 +40,8 @@
         <signal name="ALU_operation(2:0)" />
         <signal name="INT_CNT" />
         <signal name="overflow" />
-        <signal name="CP0_out(31:0)" />
+        <signal name="Intr" />
+        <signal name="state(4:0)" />
         <port polarity="Input" name="INT_KBD" />
         <port polarity="Output" name="mem_w" />
         <port polarity="Output" name="PC_out(31:0)" />
@@ -52,11 +52,12 @@
         <port polarity="Input" name="reset" />
         <port polarity="Input" name="MIO_ready" />
         <port polarity="Output" name="inst_out(31:0)" />
-        <port polarity="Output" name="state(4:0)" />
         <port polarity="Input" name="Data_in(31:0)" />
         <port polarity="Input" name="INT_CNT" />
+        <port polarity="Output" name="Intr" />
+        <port polarity="Output" name="state(4:0)" />
         <blockdef name="ctrl">
-            <timestamp>2015-11-3T2:17:6</timestamp>
+            <timestamp>2015-11-19T8:34:49</timestamp>
             <line x2="480" y1="-992" y2="-992" x1="416" />
             <line x2="480" y1="-928" y2="-928" x1="416" />
             <line x2="480" y1="-864" y2="-864" x1="416" />
@@ -75,7 +76,7 @@
             <line x2="480" y1="-176" y2="-176" x1="416" />
             <rect width="64" x="416" y="-124" height="24" />
             <line x2="480" y1="-112" y2="-112" x1="416" />
-            <rect style="fillcolor:rgb(255,170,255);fillstyle:Solid" width="352" x="64" y="-1012" height="1312" />
+            <rect style="fillcolor:rgb(255,170,255);fillstyle:Solid" width="352" x="64" y="-1012" height="1364" />
             <line x2="0" y1="-800" y2="-800" x1="64" />
             <line x2="0" y1="-608" y2="-608" x1="64" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
@@ -97,6 +98,7 @@
             <line x2="416" y1="80" y2="80" x1="480" />
             <line x2="416" y1="144" y2="144" x1="480" />
             <line x2="64" y1="-896" y2="-896" x1="0" />
+            <line x2="416" y1="336" y2="336" x1="480" />
         </blockdef>
         <blockdef name="inv">
             <timestamp>2000-1-1T10:10:10</timestamp>
@@ -118,7 +120,7 @@
             <line x2="64" y1="-48" y2="-144" x1="64" />
         </blockdef>
         <blockdef name="Data_path">
-            <timestamp>2015-11-17T5:57:31</timestamp>
+            <timestamp>2015-11-18T10:32:42</timestamp>
             <line x2="0" y1="-992" y2="-992" x1="64" />
             <line x2="0" y1="-928" y2="-928" x1="64" />
             <line x2="0" y1="-864" y2="-864" x1="64" />
@@ -159,9 +161,7 @@
             <line x2="0" y1="208" y2="208" x1="64" />
             <rect width="64" x="0" y="260" height="24" />
             <line x2="0" y1="272" y2="272" x1="64" />
-            <line x2="468" y1="128" y2="128" x1="528" />
-            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1328" />
-            <rect width="64" x="464" y="116" height="24" />
+            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="400" x="64" y="-1024" height="1320" />
         </blockdef>
         <block symbolname="inv" name="XLXI_4">
             <blockpin signalname="MemRead" name="I" />
@@ -202,6 +202,7 @@
             <blockpin signalname="ALU_operation(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="state(4:0)" name="state_out(4:0)" />
             <blockpin signalname="INT_CNT" name="INT_CNT" />
+            <blockpin signalname="Intr" name="Intr" />
         </block>
         <block symbolname="Data_path" name="U1_2">
             <attr value="Data_path" name="VeriModel" />
@@ -232,7 +233,6 @@
             <blockpin signalname="DatatoCP0(2:0)" name="DatatoCP0(2:0)" />
             <blockpin signalname="ALU_operation(2:0)" name="ALU_operation(2:0)" />
             <blockpin signalname="Data_in(31:0)" name="data2CPU(31:0)" />
-            <blockpin signalname="CP0_out(31:0)" name="CP0_out(31:0)" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="3520" height="2720">
@@ -354,22 +354,16 @@
             <wire x2="2656" y1="624" y2="624" x1="1168" />
             <wire x2="2656" y1="624" y2="704" x1="2656" />
         </branch>
-        <iomarker fontsize="28" x="2944" y="2144" name="state(4:0)" orien="R0" />
         <iomarker fontsize="28" x="2960" y="2080" name="CPU_MIO" orien="R0" />
         <branch name="inst_out(31:0)">
             <wire x2="1216" y1="1856" y2="1856" x1="1168" />
-            <wire x2="1168" y1="1856" y2="2112" x1="1168" />
-            <wire x2="2704" y1="2112" y2="2112" x1="1168" />
+            <wire x2="1168" y1="1856" y2="2208" x1="1168" />
+            <wire x2="2704" y1="2208" y2="2208" x1="1168" />
             <wire x2="2704" y1="1280" y2="1280" x1="2656" />
             <wire x2="2944" y1="1280" y2="1280" x1="2704" />
-            <wire x2="2704" y1="1280" y2="2112" x1="2704" />
+            <wire x2="2704" y1="1280" y2="2208" x1="2704" />
         </branch>
         <iomarker fontsize="28" x="816" y="2128" name="Data_in(31:0)" orien="R180" />
-        <branch name="state(4:0)">
-            <wire x2="1760" y1="1968" y2="1968" x1="1696" />
-            <wire x2="1760" y1="1968" y2="2144" x1="1760" />
-            <wire x2="2944" y1="2144" y2="2144" x1="1760" />
-        </branch>
         <branch name="PC_Source(2:0)">
             <wire x2="2128" y1="1648" y2="1648" x1="1696" />
         </branch>
@@ -405,8 +399,16 @@
             <wire x2="2672" y1="640" y2="896" x1="2672" />
             <wire x2="2672" y1="896" y2="896" x1="2656" />
         </branch>
-        <branch name="CP0_out(31:0)">
-            <wire x2="2992" y1="1824" y2="1824" x1="2656" />
+        <iomarker fontsize="28" x="2960" y="2160" name="state(4:0)" orien="R0" />
+        <branch name="Intr">
+            <wire x2="1712" y1="2032" y2="2032" x1="1696" />
+            <wire x2="2960" y1="2032" y2="2032" x1="1712" />
+        </branch>
+        <iomarker fontsize="28" x="2960" y="2032" name="Intr" orien="R0" />
+        <branch name="state(4:0)">
+            <wire x2="1760" y1="1968" y2="1968" x1="1696" />
+            <wire x2="1760" y1="1968" y2="2160" x1="1760" />
+            <wire x2="2960" y1="2160" y2="2160" x1="1760" />
         </branch>
     </sheet>
 </drawing>

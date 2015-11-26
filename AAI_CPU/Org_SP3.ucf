@@ -17,14 +17,14 @@ NET "SW[2]" loc = "L14" | IOSTANDARD = LVTTL | PULLUP;#CPU单步时钟1,全速时钟0
 NET "SW[1]" loc = "H18" | IOSTANDARD = LVTTL | PULLUP;#高位1，低位0
 NET "SW[0]" loc = "N17" | IOSTANDARD = LVTTL | PULLUP;#文本模式1,图形模式0
 
-NET "LED[7]" loc = "F9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[6]" loc = "E9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[5]" loc = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[4]" loc = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[3]" loc = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[2]" loc = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[1]" loc = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
-NET "LED[0]" loc = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "LED[7]" loc = "F9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "LED[6]" loc = "E9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "LED[5]" loc = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "LED[4]" loc = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "LED[3]" loc = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "INT_STATE" loc = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+NET "INT_KBD" loc = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
+#NET "INT_KBD" loc = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 4;
 
 NET "BTN[3]" loc = "V4" | IOSTANDARD = LVTTL | PULLDOWN;#reset
 NET "BTN[2]" loc = "D18" | IOSTANDARD = LVTTL | PULLDOWN;
@@ -37,6 +37,10 @@ NET "vga_rgb<1>" LOC = "H15" | IOSTANDARD = LVTTL;
 NET "vga_rgb<0>" LOC = "H14" | IOSTANDARD = LVTTL;
 NET "vga_vs" LOC = "F14" | IOSTANDARD = LVTTL;
 NET "vga_hs" LOC = "F15" | IOSTANDARD = LVTTL;
+
+#PS2
+NET "PS2_clk" LOC = "G14" | IOSTANDARD = LVCMOS33 | PULLUP;  #Bank = 1, Pin name = IO_L39P_M1A3,                      Sch name = PIC-SDI1
+NET "PS2_Data" LOC = "G13" |  IOSTANDARD = LVCMOS33 | PULLUP;  #Bank = 1, Pin name = IO_L39P_M1A3,                      Sch name = PIC-SDI1
 # Constraints for 'picoblaze_dac_control'.
 #
 # Revision C of the Spartan-3E Starter Kit.

@@ -73,9 +73,6 @@
         <signal name="N0,N0,N0,N0,CP0_out(31:4)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" />
         <signal name="PC_Previous(31:0)" />
-        <signal name="XLXN_108(31:0)" />
-        <signal name="XLXN_109(31:0)" />
-        <signal name="XLXN_110(31:0)" />
         <port polarity="Output" name="Inst(31:0)" />
         <port polarity="Input" name="clk" />
         <port polarity="Input" name="IRWrite" />

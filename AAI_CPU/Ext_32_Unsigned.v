@@ -23,6 +23,6 @@ module Ext_32_Unsigned(imm_16,imm_32);
 input [15:0] imm_16;
 output [31:0] imm_32;
 
-assign imm_32 = {{16{imm_16[15]}}, imm_16};
+assign imm_32 = {{16{1'b0}}, imm_16};
 
 endmodule

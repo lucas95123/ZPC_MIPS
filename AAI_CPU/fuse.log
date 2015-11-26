@@ -1,4 +1,4 @@
-Running: D:\XilinxIse\14.6\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_isim_beh.exe -prj D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_beh.prj work.Top_SCPU_IOBUS_App work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_isim_beh.exe" -prj "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_beh.prj" "work.Top_SCPU_IOBUS_App" "work.glbl" 
 ISim P.68d (signature 0x7708f090)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
@@ -27,13 +27,13 @@ Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/pixel_generation.v" into libra
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Data_path.vf" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ctrl.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/VGA_controller.v" into library work
+Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ps2_keyboard.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Muliti_CPU.vf" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" into library work
 WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits
 WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 90: Concatenation with unsized literal; will interpret as 32 bits
 WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/led_Dev_IO.v" into library work
-Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/keyboard_buffer.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir/VRAM.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/ipcore_dir/RAM_B.v" into library work
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Counter_3channel.v" into library work
@@ -42,7 +42,7 @@ Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Anti_jitter.v" into library wo
 Analyzing Verilog file "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" into library work
 Analyzing Verilog file "D:/XilinxIse/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" Line 367: Port CP0Src is not connected to this instance
+WARNING:HDLCompiler:1016 - "D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" Line 371: Port CP0Src is not connected to this instance
 WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits
 WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 90: Concatenation with unsized literal; will interpret as 32 bits
 WARNING:HDLCompiler:327 - "D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
@@ -89,16 +89,15 @@ Compiling module led_Dev_IO
 Compiling module vga_sync
 Compiling module pixel_generation
 Compiling module VGA_controller
-Compiling module ps2key
-Compiling module keyboard_buffer
 Compiling module DIST_MEM_GEN_V7_2(C_FAMILY="spar...
 Compiling module VRAM
+Compiling module ps2_keyboard
 Compiling module Top_SCPU_IOBUS_App
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 26 sub-compilation(s) to finish...
+Waiting for 7 sub-compilation(s) to finish...
 WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: 系统找不到指定的路径。, "isim\Top_SCPU_IOBUS_App_isim_beh.exe.sim\libPortability.dll".
-Compiled 47 Verilog Units
+Compiled 46 Verilog Units
 Built simulation executable D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App_isim_beh.exe
-Fuse Memory Usage: 34388 KB
-Fuse CPU Usage: 921 ms
+Fuse Memory Usage: 34600 KB
+Fuse CPU Usage: 1031 ms

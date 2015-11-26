@@ -8,28 +8,10 @@
 <msg type="internal" file="Portability" num="0" delta="new" srcfile="Port_MsgStreamImp.c" srcline="468" srcrcs="1.20" >Unable to delete requested message stream.
 </msg>
 
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;0&gt;</arg> has invalid Bank assignment
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">INT_KBD</arg> has invalid Bank assignment
 </msg>
 
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;1&gt;</arg> has invalid Bank assignment
-</msg>
-
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;2&gt;</arg> has invalid Bank assignment
-</msg>
-
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;3&gt;</arg> has invalid Bank assignment
-</msg>
-
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;4&gt;</arg> has invalid Bank assignment
-</msg>
-
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;5&gt;</arg> has invalid Bank assignment
-</msg>
-
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;6&gt;</arg> has invalid Bank assignment
-</msg>
-
-<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">LED&lt;7&gt;</arg> has invalid Bank assignment
+<msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">INT_STATE</arg> has invalid Bank assignment
 </msg>
 
 <msg type="warning" file="Power" num="1582" delta="old" >output IO <arg fmt="%s" index="1">vga_hs</arg> has invalid Bank assignment
@@ -95,12 +77,6 @@
 <msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">Clk_CPU</arg>&quot; is zero.
 </msg>
 
-<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF</arg>&quot; is zero.
-</msg>
-
-<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF1</arg>&quot; is zero.
-</msg>
-
 <msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/Cpu_data4bus_not0001</arg>&quot; is zero.
 </msg>
 
@@ -135,12 +111,6 @@ design.  To avoid this warning, provide at least one of the following:
 <msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">Clk_CPU</arg>&quot; is zero.
 </msg>
 
-<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF</arg>&quot; is zero.
-</msg>
-
-<msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">PS2_clk_IBUF1</arg>&quot; is zero.
-</msg>
-
 <msg type="warning" file="Power" num="1337" delta="old" >Clock frequency for clock net &quot;<arg fmt="%s" index="1">U4/Cpu_data4bus_not0001</arg>&quot; is zero.
 </msg>
 
@@ -169,12 +139,12 @@ design.  To avoid this warning, provide at least one of the following:
      XPower Analyzer GUI and then applying &quot;Update Power Analysis&quot;
 </msg>
 
-<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">Clk_CPU</arg> may have excessive skew because 
-   <arg fmt="%d" index="2">48</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
+<msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">Clk_CPU</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">24</arg> CLK pins and <arg fmt="%d" index="3">0</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
-<msg type="warning" file="Route" num="455" delta="new" >CLK Net:<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> may have excessive skew because 
-   <arg fmt="%d" index="2">0</arg> CLK pins and <arg fmt="%d" index="3">13</arg> NON_CLK pins failed to route using a CLK template.
+<msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> may have excessive skew because 
+   <arg fmt="%d" index="2">0</arg> CLK pins and <arg fmt="%d" index="3">12</arg> NON_CLK pins failed to route using a CLK template.
 </msg>
 
 <msg type="warning" file="Route" num="455" delta="old" >CLK Net:<arg fmt="%s" index="1">clkdiv&lt;7&gt;</arg> may have excessive skew because 

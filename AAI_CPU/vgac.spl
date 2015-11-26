@@ -1,0 +1,17 @@
+[Inputs]
+vga_clk
+clrn
+=d_in[7:0]=
+[Outputs]
+rdn
+hs
+vs
+=row_addr[8:0]=
+=col_addr[9:0]=
+=r[2:0]=
+=g[2:0]=
+=b[1:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel vgac
+

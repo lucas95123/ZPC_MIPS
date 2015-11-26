@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="ctrl">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-11-3T2:17:6</timestamp>
+    <timestamp>2015-11-25T15:49:16</timestamp>
     <attr value="ctrl" name="VeriModel" />
     <pin polarity="Output" x="480" y="-992" name="MemRead" />
     <pin polarity="Output" x="480" y="-928" name="MemWrite" />
@@ -32,6 +32,8 @@
     <pin polarity="Output" x="480" y="208" name="ALU_operation(2:0)" />
     <pin polarity="Output" x="480" y="272" name="state_out(4:0)" />
     <pin polarity="Input" x="0" y="-896" name="INT_CNT" />
+    <pin polarity="Output" x="480" y="336" name="Intr" />
+    <pin polarity="Output" x="480" y="384" name="Int_status" />
     <graph>
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-992" type="pin MemRead" />
         <line x2="480" y1="-992" y2="-992" x1="416" />
@@ -66,7 +68,6 @@
         <line x2="480" y1="-112" y2="-112" x1="416" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-112" type="pin ALUSrcB(1:0)" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="-176" type="pin MemtoReg(2:0)" />
-        <rect style="fillcolor:rgb(255,170,255);fillstyle:Solid" width="352" x="64" y="-1012" height="1312" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-800" type="pin clk" />
         <line x2="0" y1="-800" y2="-800" x1="64" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-608" type="pin reset" />
@@ -103,5 +104,10 @@
         <line x2="416" y1="144" y2="144" x1="480" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="68" y="-896" type="pin INT_CNT" />
         <line x2="64" y1="-896" y2="-896" x1="0" />
+        <line x2="416" y1="336" y2="336" x1="480" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="408" y="336" type="pin Intr" />
+        <line x2="420" y1="384" y2="384" x1="480" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="412" y="384" type="pin Int_status" />
+        <rect style="fillcolor:rgb(255,170,255);fillstyle:Solid" width="352" x="64" y="-1012" height="1412" />
     </graph>
 </symbol>

@@ -21,10 +21,8 @@
         <signal name="ram_data_in(31:0)" />
         <signal name="mem_w" />
         <signal name="Cpu_data2bus(31:0)" />
-        <signal name="ram_data_out(31:0)" />
         <signal name="counter_out(31:0)" />
         <signal name="ram_addr(9:0)" />
-        <signal name="counter0_out" />
         <signal name="counter1_out" />
         <signal name="counter2_out" />
         <signal name="clkdiv(10)" />
@@ -48,15 +46,33 @@
         <signal name="XLXN_191(0:0)" />
         <signal name="vram_addr(8:0)" />
         <signal name="vram_data_out(31:0)" />
+        <signal name="intr" />
+        <signal name="ram_data_out(31:0)" />
+        <signal name="XLXN_193" />
+        <signal name="INT_STATE" />
+        <signal name="XLXN_198" />
+        <signal name="INT_KBD" />
+        <signal name="XLXN_201" />
+        <signal name="XLXN_210" />
+        <signal name="XLXN_211" />
+        <signal name="XLXN_212" />
+        <signal name="XLXN_213" />
+        <signal name="XLXN_214(31:0)" />
+        <signal name="XLXN_215(31:0)" />
+        <signal name="XLXN_216" />
+        <signal name="XLXN_217" />
+        <signal name="XLXN_218" />
+        <signal name="INT_CNT" />
         <port polarity="Input" name="BTN(3:0)" />
         <port polarity="Input" name="SW(7:0)" />
         <port polarity="Input" name="clk_50mhz" />
-        <port polarity="Output" name="LED(7:0)" />
         <port polarity="Input" name="PS2_clk" />
         <port polarity="Input" name="PS2_Data" />
         <port polarity="Output" name="vga_hs" />
         <port polarity="Output" name="vga_vs" />
         <port polarity="Output" name="vga_rgb(2:0)" />
+        <port polarity="Output" name="INT_STATE" />
+        <port polarity="Output" name="INT_KBD" />
         <blockdef name="Anti_jitter">
             <timestamp>2015-5-19T15:46:0</timestamp>
             <rect style="linecolor:rgb(0,0,0);fillcolor:rgb(170,255,255);fillstyle:Solid" width="304" x="64" y="-192" height="192" />
@@ -184,7 +200,7 @@
             <line x2="544" y1="144" y2="144" style="linewidth:W" x1="576" />
         </blockdef>
         <blockdef name="Muliti_CPU">
-            <timestamp>2015-11-3T2:20:21</timestamp>
+            <timestamp>2015-11-25T15:54:40</timestamp>
             <rect width="64" x="-80" y="-124" height="24" />
             <line x2="-80" y1="-112" y2="-112" x1="-16" />
             <line x2="-80" y1="-512" y2="-512" x1="-16" />
@@ -203,20 +219,12 @@
             <line x2="432" y1="-304" y2="-304" x1="368" />
             <line x2="-76" y1="-288" y2="-288" x1="-12" />
             <line x2="-16" y1="-208" y2="-208" x1="-80" />
-            <rect style="linewidth:W;linecolor:rgb(0,0,255);fillcolor:rgb(255,170,255);fillstyle:Solid" width="384" x="-16" y="-560" height="556" />
-        </blockdef>
-        <blockdef name="keyboard_buffer">
-            <timestamp>2015-10-16T7:9:15</timestamp>
-            <line x2="0" y1="-224" y2="-224" x1="64" />
-            <line x2="0" y1="-160" y2="-160" x1="64" />
-            <line x2="0" y1="-96" y2="-96" x1="64" />
-            <line x2="0" y1="-32" y2="-32" x1="64" />
-            <rect width="64" x="320" y="-236" height="24" />
-            <line x2="384" y1="-224" y2="-224" x1="320" />
-            <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="256" x="64" y="-260" height="256" />
+            <rect style="linewidth:W;linecolor:rgb(0,0,255);fillcolor:rgb(255,170,255);fillstyle:Solid" width="384" x="-16" y="-560" height="640" />
+            <line x2="368" y1="16" y2="16" x1="432" />
+            <line x2="372" y1="64" y2="64" x1="432" />
         </blockdef>
         <blockdef name="VRAM">
-            <timestamp>2015-10-20T11:45:0</timestamp>
+            <timestamp>2015-11-25T14:49:39</timestamp>
             <rect width="224" x="32" y="32" height="512" />
             <line x2="32" y1="80" y2="80" style="linewidth:W" x1="0" />
             <line x2="32" y1="112" y2="112" style="linewidth:W" x1="0" />
@@ -239,6 +247,19 @@
             <rect width="64" x="0" y="-76" height="24" />
             <line x2="0" y1="-64" y2="-64" x1="64" />
             <rect style="fillcolor:rgb(0,255,255);fillstyle:Solid" width="256" x="64" y="-200" height="252" />
+        </blockdef>
+        <blockdef name="ps2_keyboard">
+            <timestamp>2015-11-19T8:25:52</timestamp>
+            <rect style="fillcolor:rgb(0,128,0);fillstyle:Solid" width="256" x="64" y="-320" height="320" />
+            <line x2="0" y1="-288" y2="-288" x1="64" />
+            <line x2="0" y1="-224" y2="-224" x1="64" />
+            <line x2="0" y1="-160" y2="-160" x1="64" />
+            <line x2="0" y1="-96" y2="-96" x1="64" />
+            <line x2="0" y1="-32" y2="-32" x1="64" />
+            <line x2="384" y1="-288" y2="-288" x1="320" />
+            <line x2="384" y1="-160" y2="-160" x1="320" />
+            <rect width="64" x="320" y="-44" height="24" />
+            <line x2="384" y1="-32" y2="-32" x1="320" />
         </blockdef>
         <block symbolname="Anti_jitter" name="U9">
             <blockpin signalname="clk_50mhz" name="clk" />
@@ -268,7 +289,7 @@
             <blockpin signalname="counter_we" name="counter_we" />
             <blockpin signalname="Peripheral_in(31:0)" name="counter_val(31:0)" />
             <blockpin signalname="counter_set(1:0)" name="counter_ch(1:0)" />
-            <blockpin signalname="counter0_out" name="counter0_OUT" />
+            <blockpin signalname="INT_CNT" name="counter0_OUT" />
             <blockpin signalname="counter1_out" name="counter1_OUT" />
             <blockpin signalname="counter2_out" name="counter2_OUT" />
             <blockpin signalname="counter_out(31:0)" name="counter_out(31:0)" />
@@ -292,7 +313,7 @@
             <blockpin signalname="clk_50mhz" name="clk" />
             <blockpin signalname="rst" name="rst" />
             <blockpin signalname="mem_w" name="mem_w" />
-            <blockpin signalname="counter0_out" name="counter0_out" />
+            <blockpin signalname="INT_CNT" name="counter0_out" />
             <blockpin signalname="counter1_out" name="counter1_out" />
             <blockpin signalname="counter2_out" name="counter2_out" />
             <blockpin signalname="button_out(3:0)" name="BTN(3:0)" />
@@ -316,7 +337,7 @@
         </block>
         <block symbolname="Muliti_CPU" name="U1">
             <blockpin signalname="Clk_CPU" name="clk" />
-            <blockpin signalname="counter0_out" name="INT_CNT" />
+            <blockpin name="INT_CNT" />
             <blockpin name="inst_out(31:0)" />
             <blockpin signalname="rst" name="reset" />
             <blockpin signalname="V5" name="MIO_ready" />
@@ -327,7 +348,9 @@
             <blockpin signalname="Addr_out(31:0)" name="Addr_out(31:0)" />
             <blockpin signalname="Cpu_data2bus(31:0)" name="Data_out(31:0)" />
             <blockpin name="state(4:0)" />
-            <blockpin name="INT_KBD" />
+            <blockpin signalname="INT_KBD" name="INT_KBD" />
+            <blockpin signalname="intr" name="Intr" />
+            <blockpin signalname="INT_STATE" name="INT_STATE" />
         </block>
         <block symbolname="led_Dev_IO" name="XLXI_15">
             <blockpin signalname="XLXN_55" name="clk" />
@@ -347,13 +370,6 @@
             <blockpin signalname="vram_addr_ctr(8:0)" name="pixel_addr(8:0)" />
             <blockpin signalname="vram_to_ctr(31:0)" name="VRAM_in(31:0)" />
         </block>
-        <block symbolname="keyboard_buffer" name="XLXI_20">
-            <blockpin signalname="PS2_Data" name="ps2d" />
-            <blockpin signalname="PS2_clk" name="ps2c" />
-            <blockpin signalname="clk_50mhz" name="clk_50mhz" />
-            <blockpin signalname="rst" name="reset" />
-            <blockpin signalname="keyboard_in(7:0)" name="key_out(7:0)" />
-        </block>
         <block symbolname="VRAM" name="XLXI_24">
             <blockpin signalname="vram_addr(8:0)" name="a(8:0)" />
             <blockpin signalname="Peripheral_in(31:0)" name="d(31:0)" />
@@ -362,6 +378,20 @@
             <blockpin signalname="clk_50mhz" name="clk" />
             <blockpin signalname="vram_data_out(31:0)" name="spo(31:0)" />
             <blockpin signalname="vram_to_ctr(31:0)" name="dpo(31:0)" />
+        </block>
+        <block symbolname="ps2_keyboard" name="XLXI_25">
+            <blockpin signalname="clk_50mhz" name="clk" />
+            <blockpin signalname="XLXN_193" name="clrn" />
+            <blockpin signalname="PS2_clk" name="ps2_clk" />
+            <blockpin signalname="PS2_Data" name="ps2_data" />
+            <blockpin signalname="intr" name="rdn" />
+            <blockpin signalname="INT_KBD" name="ready" />
+            <blockpin name="overflow" />
+            <blockpin signalname="keyboard_in(7:0)" name="data(7:0)" />
+        </block>
+        <block symbolname="inv" name="XLXI_27">
+            <blockpin signalname="rst" name="I" />
+            <blockpin signalname="XLXN_193" name="O" />
         </block>
     </netlist>
     <sheet sheetnum="1" width="5440" height="3520">
@@ -409,13 +439,7 @@
             <wire x2="2256" y1="1344" y2="1760" x1="2256" />
         </branch>
         <branch name="Cpu_data2bus(31:0)">
-            <wire x2="1600" y1="1280" y2="1280" x1="896" />
-            <wire x2="1616" y1="1280" y2="1280" x1="1600" />
-        </branch>
-        <branch name="ram_data_out(31:0)">
-            <wire x2="1600" y1="1984" y2="1984" x1="1056" />
-            <wire x2="1616" y1="1344" y2="1344" x1="1600" />
-            <wire x2="1600" y1="1344" y2="1984" x1="1600" />
+            <wire x2="1616" y1="1280" y2="1280" x1="880" />
         </branch>
         <branch name="ram_addr(9:0)">
             <wire x2="2272" y1="1728" y2="1728" x1="432" />
@@ -472,48 +496,24 @@
         </branch>
         <instance x="1616" y="1504" name="U4" orien="R0">
         </instance>
-        <branch name="PS2_Data">
-            <wire x2="2112" y1="2816" y2="2816" x1="288" />
-        </branch>
         <branch name="PS2_clk">
-            <wire x2="2112" y1="2880" y2="2880" x1="272" />
+            <wire x2="1712" y1="2880" y2="2880" x1="272" />
         </branch>
-        <iomarker fontsize="28" x="288" y="2816" name="PS2_Data" orien="R180" />
         <branch name="mem_w">
-            <wire x2="1600" y1="928" y2="928" x1="896" />
+            <wire x2="1600" y1="928" y2="928" x1="880" />
             <wire x2="1616" y1="832" y2="832" x1="1600" />
             <wire x2="1600" y1="832" y2="928" x1="1600" />
         </branch>
         <branch name="V5">
             <wire x2="240" y1="80" y2="1344" x1="240" />
-            <wire x2="384" y1="1344" y2="1344" x1="240" />
             <wire x2="240" y1="1344" y2="1616" x1="240" />
             <wire x2="2800" y1="1616" y2="1616" x1="240" />
             <wire x2="2800" y1="1616" y2="2080" x1="2800" />
             <wire x2="2816" y1="2080" y2="2080" x1="2800" />
-        </branch>
-        <branch name="counter0_out">
-            <wire x2="384" y1="1104" y2="1104" x1="336" />
-            <wire x2="336" y1="1104" y2="1552" x1="336" />
-            <wire x2="1328" y1="1552" y2="1552" x1="336" />
-            <wire x2="1328" y1="1552" y2="1856" x1="1328" />
-            <wire x2="2176" y1="1856" y2="1856" x1="1328" />
-            <wire x2="2176" y1="1856" y2="2016" x1="2176" />
-            <wire x2="1616" y1="896" y2="896" x1="1328" />
-            <wire x2="1328" y1="896" y2="1552" x1="1328" />
-            <wire x2="2176" y1="2016" y2="2016" x1="2128" />
-        </branch>
-        <branch name="Clk_CPU">
-            <wire x2="1088" y1="752" y2="752" x1="368" />
-            <wire x2="368" y1="752" y2="880" x1="368" />
-            <wire x2="384" y1="880" y2="880" x1="368" />
-            <wire x2="1088" y1="496" y2="496" x1="1072" />
-            <wire x2="1632" y1="496" y2="496" x1="1088" />
-            <wire x2="1088" y1="496" y2="752" x1="1088" />
+            <wire x2="368" y1="1344" y2="1344" x1="240" />
         </branch>
         <branch name="Addr_out(31:0)">
-            <wire x2="1600" y1="1216" y2="1216" x1="896" />
-            <wire x2="1616" y1="1216" y2="1216" x1="1600" />
+            <wire x2="1616" y1="1216" y2="1216" x1="880" />
         </branch>
         <branch name="clk_50mhz">
             <wire x2="208" y1="704" y2="704" x1="96" />
@@ -521,12 +521,12 @@
             <wire x2="96" y1="704" y2="2112" x1="96" />
             <wire x2="112" y1="2112" y2="2112" x1="96" />
             <wire x2="96" y1="2112" y2="2544" x1="96" />
-            <wire x2="96" y1="2544" y2="2944" x1="96" />
-            <wire x2="2112" y1="2944" y2="2944" x1="96" />
             <wire x2="2528" y1="2544" y2="2544" x1="96" />
             <wire x2="2528" y1="2544" y2="2960" x1="2528" />
             <wire x2="2800" y1="2960" y2="2960" x1="2528" />
             <wire x2="2832" y1="2960" y2="2960" x1="2800" />
+            <wire x2="96" y1="2544" y2="2752" x1="96" />
+            <wire x2="1712" y1="2752" y2="2752" x1="96" />
             <wire x2="208" y1="368" y2="368" x1="176" />
             <wire x2="576" y1="368" y2="368" x1="208" />
             <wire x2="688" y1="368" y2="368" x1="576" />
@@ -537,11 +537,11 @@
             <wire x2="2800" y1="2592" y2="2960" x1="2800" />
         </branch>
         <branch name="keyboard_in(7:0)">
-            <wire x2="1616" y1="1536" y2="1536" x1="1568" />
-            <wire x2="1568" y1="1536" y2="1648" x1="1568" />
-            <wire x2="2576" y1="1648" y2="1648" x1="1568" />
-            <wire x2="2576" y1="1648" y2="2816" x1="2576" />
-            <wire x2="2576" y1="2816" y2="2816" x1="2496" />
+            <wire x2="1616" y1="1536" y2="1536" x1="1600" />
+            <wire x2="1600" y1="1536" y2="1712" x1="1600" />
+            <wire x2="2160" y1="1712" y2="1712" x1="1600" />
+            <wire x2="2160" y1="1712" y2="3008" x1="2160" />
+            <wire x2="2160" y1="3008" y2="3008" x1="2096" />
         </branch>
         <branch name="counter_out(31:0)">
             <wire x2="1616" y1="1472" y2="1472" x1="1584" />
@@ -559,7 +559,6 @@
         </branch>
         <iomarker fontsize="28" x="192" y="192" name="BTN(3:0)" orien="R180" />
         <iomarker fontsize="28" x="176" y="240" name="SW(7:0)" orien="R180" />
-        <iomarker fontsize="28" x="3440" y="2128" name="LED(7:0)" orien="R90" />
         <branch name="Peripheral_in(31:0)">
             <wire x2="1616" y1="2400" y2="2400" x1="1552" />
             <wire x2="1552" y1="2400" y2="2528" x1="1552" />
@@ -570,29 +569,11 @@
             <wire x2="2816" y1="2400" y2="2528" x1="2816" />
             <wire x2="2960" y1="2400" y2="2400" x1="2816" />
         </branch>
-        <instance x="464" y="1392" name="U1" orien="R0">
-        </instance>
         <iomarker fontsize="28" x="176" y="368" name="clk_50mhz" orien="R180" />
         <instance x="480" y="1840" name="U3" orien="R0">
         </instance>
-        <branch name="Data_in(31:0)">
-            <wire x2="384" y1="1280" y2="1280" x1="304" />
-            <wire x2="304" y1="1280" y2="1632" x1="304" />
-            <wire x2="2240" y1="1632" y2="1632" x1="304" />
-            <wire x2="2192" y1="1072" y2="1072" x1="2176" />
-            <wire x2="2240" y1="1072" y2="1072" x1="2192" />
-            <wire x2="2240" y1="1072" y2="1632" x1="2240" />
-        </branch>
         <instance x="2816" y="2176" name="XLXI_15" orien="R0">
         </instance>
-        <branch name="PC_out(31:0)">
-            <wire x2="944" y1="1008" y2="1008" x1="896" />
-            <wire x2="944" y1="592" y2="1008" x1="944" />
-            <wire x2="2768" y1="592" y2="592" x1="944" />
-            <wire x2="2768" y1="592" y2="2144" x1="2768" />
-            <wire x2="2800" y1="2144" y2="2144" x1="2768" />
-            <wire x2="2816" y1="2144" y2="2144" x1="2800" />
-        </branch>
         <branch name="LED(7:0)">
             <wire x2="1616" y1="1408" y2="1408" x1="1552" />
             <wire x2="1552" y1="1408" y2="1680" x1="1552" />
@@ -601,36 +582,12 @@
             <wire x2="3440" y1="2048" y2="2128" x1="3440" />
             <wire x2="3440" y1="2048" y2="2048" x1="3328" />
         </branch>
-        <branch name="rst">
-            <wire x2="336" y1="576" y2="928" x1="336" />
-            <wire x2="384" y1="928" y2="928" x1="336" />
-            <wire x2="576" y1="576" y2="576" x1="336" />
-            <wire x2="1504" y1="576" y2="576" x1="576" />
-            <wire x2="1504" y1="576" y2="768" x1="1504" />
-            <wire x2="1616" y1="768" y2="768" x1="1504" />
-            <wire x2="576" y1="432" y2="576" x1="576" />
-            <wire x2="688" y1="432" y2="432" x1="576" />
-            <wire x2="1504" y1="144" y2="144" x1="1104" />
-            <wire x2="1504" y1="144" y2="576" x1="1504" />
-            <wire x2="1136" y1="768" y2="2080" x1="1136" />
-            <wire x2="1616" y1="2080" y2="2080" x1="1136" />
-            <wire x2="1136" y1="2080" y2="2592" x1="1136" />
-            <wire x2="2752" y1="2592" y2="2592" x1="1136" />
-            <wire x2="2752" y1="2592" y2="3008" x1="2752" />
-            <wire x2="2832" y1="3008" y2="3008" x1="2752" />
-            <wire x2="1136" y1="2592" y2="3008" x1="1136" />
-            <wire x2="2112" y1="3008" y2="3008" x1="1136" />
-            <wire x2="1504" y1="768" y2="768" x1="1136" />
-            <wire x2="2816" y1="2016" y2="2016" x1="2752" />
-            <wire x2="2752" y1="2016" y2="2592" x1="2752" />
-        </branch>
         <branch name="vram_to_ctr(31:0)">
             <wire x2="2768" y1="2848" y2="3056" x1="2768" />
             <wire x2="2832" y1="3056" y2="3056" x1="2768" />
             <wire x2="3264" y1="2848" y2="2848" x1="2768" />
             <wire x2="3264" y1="2432" y2="2432" x1="3248" />
-            <wire x2="3264" y1="2432" y2="2480" x1="3264" />
-            <wire x2="3264" y1="2480" y2="2848" x1="3264" />
+            <wire x2="3264" y1="2432" y2="2848" x1="3264" />
         </branch>
         <branch name="vga_hs">
             <wire x2="3440" y1="2960" y2="2960" x1="3216" />
@@ -671,8 +628,6 @@
             <wire x2="2560" y1="1504" y2="2368" x1="2560" />
             <wire x2="2960" y1="2368" y2="2368" x1="2560" />
         </branch>
-        <instance x="2112" y="3040" name="XLXI_20" orien="R0">
-        </instance>
         <branch name="vram_data_out(31:0)">
             <wire x2="1616" y1="1584" y2="1584" x1="1456" />
             <wire x2="1456" y1="1584" y2="1840" x1="1456" />
@@ -682,5 +637,95 @@
         </branch>
         <instance x="2960" y="2288" name="XLXI_24" orien="R0">
         </instance>
+        <branch name="PS2_Data">
+            <wire x2="1712" y1="2944" y2="2944" x1="288" />
+        </branch>
+        <iomarker fontsize="28" x="288" y="2944" name="PS2_Data" orien="R180" />
+        <instance x="1712" y="3040" name="XLXI_25" orien="R0">
+        </instance>
+        <branch name="ram_data_out(31:0)">
+            <wire x2="1312" y1="1984" y2="1984" x1="1056" />
+            <wire x2="1616" y1="1344" y2="1344" x1="1312" />
+            <wire x2="1312" y1="1344" y2="1984" x1="1312" />
+        </branch>
+        <instance x="1328" y="2848" name="XLXI_27" orien="R0" />
+        <branch name="XLXN_193">
+            <wire x2="1712" y1="2816" y2="2816" x1="1552" />
+        </branch>
+        <iomarker fontsize="28" x="1648" y="3088" name="INT_STATE" orien="R0" />
+        <branch name="INT_STATE">
+            <wire x2="1248" y1="1456" y2="1456" x1="880" />
+            <wire x2="1248" y1="1456" y2="3088" x1="1248" />
+            <wire x2="1648" y1="3088" y2="3088" x1="1248" />
+        </branch>
+        <branch name="intr">
+            <wire x2="1280" y1="1408" y2="1408" x1="880" />
+            <wire x2="1280" y1="1408" y2="3008" x1="1280" />
+            <wire x2="1712" y1="3008" y2="3008" x1="1280" />
+        </branch>
+        <branch name="PC_out(31:0)">
+            <wire x2="960" y1="1008" y2="1008" x1="880" />
+            <wire x2="960" y1="1008" y2="1648" x1="960" />
+            <wire x2="2144" y1="1648" y2="1648" x1="960" />
+            <wire x2="2144" y1="1648" y2="2144" x1="2144" />
+            <wire x2="2816" y1="2144" y2="2144" x1="2144" />
+        </branch>
+        <branch name="Data_in(31:0)">
+            <wire x2="368" y1="1280" y2="1280" x1="352" />
+            <wire x2="352" y1="1280" y2="1632" x1="352" />
+            <wire x2="2336" y1="1632" y2="1632" x1="352" />
+            <wire x2="2336" y1="1072" y2="1072" x1="2176" />
+            <wire x2="2336" y1="1072" y2="1632" x1="2336" />
+        </branch>
+        <branch name="INT_KBD">
+            <wire x2="368" y1="1184" y2="1184" x1="32" />
+            <wire x2="32" y1="1184" y2="2560" x1="32" />
+            <wire x2="2112" y1="2560" y2="2560" x1="32" />
+            <wire x2="2112" y1="2560" y2="2752" x1="2112" />
+            <wire x2="2272" y1="2752" y2="2752" x1="2112" />
+            <wire x2="2272" y1="2752" y2="2976" x1="2272" />
+            <wire x2="2112" y1="2752" y2="2752" x1="2096" />
+        </branch>
+        <branch name="rst">
+            <wire x2="336" y1="576" y2="928" x1="336" />
+            <wire x2="368" y1="928" y2="928" x1="336" />
+            <wire x2="576" y1="576" y2="576" x1="336" />
+            <wire x2="1504" y1="576" y2="576" x1="576" />
+            <wire x2="1504" y1="576" y2="768" x1="1504" />
+            <wire x2="1616" y1="768" y2="768" x1="1504" />
+            <wire x2="576" y1="432" y2="576" x1="576" />
+            <wire x2="688" y1="432" y2="432" x1="576" />
+            <wire x2="1504" y1="144" y2="144" x1="1104" />
+            <wire x2="1504" y1="144" y2="576" x1="1504" />
+            <wire x2="1136" y1="768" y2="2080" x1="1136" />
+            <wire x2="1616" y1="2080" y2="2080" x1="1136" />
+            <wire x2="1136" y1="2080" y2="2592" x1="1136" />
+            <wire x2="2752" y1="2592" y2="2592" x1="1136" />
+            <wire x2="2752" y1="2592" y2="3008" x1="2752" />
+            <wire x2="2832" y1="3008" y2="3008" x1="2752" />
+            <wire x2="1136" y1="2592" y2="2816" x1="1136" />
+            <wire x2="1328" y1="2816" y2="2816" x1="1136" />
+            <wire x2="1504" y1="768" y2="768" x1="1136" />
+            <wire x2="2816" y1="2016" y2="2016" x1="2752" />
+            <wire x2="2752" y1="2016" y2="2592" x1="2752" />
+        </branch>
+        <branch name="Clk_CPU">
+            <wire x2="304" y1="752" y2="880" x1="304" />
+            <wire x2="368" y1="880" y2="880" x1="304" />
+            <wire x2="1088" y1="752" y2="752" x1="304" />
+            <wire x2="1088" y1="496" y2="496" x1="1072" />
+            <wire x2="1632" y1="496" y2="496" x1="1088" />
+            <wire x2="1088" y1="496" y2="752" x1="1088" />
+        </branch>
+        <instance x="448" y="1392" name="U1" orien="R0">
+        </instance>
+        <iomarker fontsize="28" x="2272" y="2976" name="INT_KBD" orien="R90" />
+        <branch name="INT_CNT">
+            <wire x2="1520" y1="576" y2="896" x1="1520" />
+            <wire x2="1616" y1="896" y2="896" x1="1520" />
+            <wire x2="2192" y1="576" y2="576" x1="1520" />
+            <wire x2="2192" y1="576" y2="2016" x1="2192" />
+            <wire x2="2192" y1="2016" y2="2016" x1="2128" />
+        </branch>
     </sheet>
 </drawing>

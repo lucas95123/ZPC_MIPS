@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Top_SCPU_IOBUS_App.vf
-// /___/   /\     Timestamp : 11/19/2015 13:08:37
+// /___/   /\     Timestamp : 11/26/2015 00:19:02
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -150,7 +150,7 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
    wire [31:0] CP0_WData;
    wire [31:0] Imm_32;
    wire N0;
-   wire [31:0] PC_next;
+   wire [31:0] PC_Previous;
    wire V5;
    wire [4:0] Wt_addr;
    wire [31:0] Wt_data;
@@ -287,20 +287,6 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
                       .d({N0, V5, V5, V5, N0}), 
                       .sel(CP0Dst[1:0]), 
                       .o(CP0_addr[4:0]));
-   PCNext  XLXI_55 (.inPCCurrent(PC_Current_DUMMY[31:0]), 
-                   .outPCNext(PC_next[31:0]));
-   mux8to1_32  XLXI_56 (.sel(DatatoCP0[2:0]), 
-                       .x0(data_out_DUMMY[31:0]), 
-                       .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
-         Cause[2:0]}), 
-                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
-                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
-                       .x4(PC_Current_DUMMY[31:0]), 
-                       .x5(PC_next[31:0]), 
-                       .x6(), 
-                       .x7(), 
-                       .o(CP0_WData[31:0]));
    CoPorcessor0  XLXI_57 (.clk(clk), 
                          .rst(reset), 
                          .R_addr(CP0_addr[4:0]), 
@@ -308,6 +294,20 @@ module Data_path_MUSER_Top_SCPU_IOBUS_App(ALUSrcA,
                          .Wt_addr(CP0_addr[4:0]), 
                          .Wt_data(CP0_WData[31:0]), 
                          .rdata(CP0_out[31:0]));
+   mux8to1_32  XLXI_61 (.sel(DatatoCP0[2:0]), 
+                       .x0(data_out_DUMMY[31:0]), 
+                       .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
+         Cause[2:0]}), 
+                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
+                       .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
+                       .x4(PC_Current_DUMMY[31:0]), 
+                       .x5(PC_Previous[31:0]), 
+                       .x6(), 
+                       .x7(), 
+                       .o(CP0_WData[31:0]));
+   PC_Minus_4  XLXI_62 (.PC_Next(PC_Current_DUMMY[31:0]), 
+                       .PC_Previous(PC_Previous[31:0]));
 endmodule
 `timescale 1ns / 1ps
 
@@ -321,6 +321,8 @@ module Muliti_CPU_MUSER_Top_SCPU_IOBUS_App(clk,
                                            CPU_MIO, 
                                            Data_out, 
                                            inst_out, 
+                                           Intr, 
+                                           INT_STATE, 
                                            mem_w, 
                                            PC_out, 
                                            state);
@@ -335,6 +337,8 @@ module Muliti_CPU_MUSER_Top_SCPU_IOBUS_App(clk,
    output CPU_MIO;
    output [31:0] Data_out;
    output [31:0] inst_out;
+   output Intr;
+   output INT_STATE;
    output mem_w;
    output [31:0] PC_out;
    output [4:0] state;
@@ -381,6 +385,8 @@ module Muliti_CPU_MUSER_Top_SCPU_IOBUS_App(clk,
               .CP0Dst(CP0Dst[1:0]), 
               .CP0Write(CP0Write), 
               .DatatoCP0(DatatoCP0[2:0]), 
+              .Intr(Intr), 
+              .Int_status(INT_STATE), 
               .IorD(IorD), 
               .IRWrite(IRWrite), 
               .MemRead(MemRead), 
@@ -433,7 +439,8 @@ module Top_SCPU_IOBUS_App(BTN,
                           PS2_clk, 
                           PS2_Data, 
                           SW, 
-                          LED, 
+                          INT_KBD, 
+                          INT_STATE, 
                           vga_hs, 
                           vga_rgb, 
                           vga_vs);
@@ -443,7 +450,8 @@ module Top_SCPU_IOBUS_App(BTN,
     input PS2_clk;
     input PS2_Data;
     input [7:0] SW;
-   output [7:0] LED;
+   output INT_KBD;
+   output INT_STATE;
    output vga_hs;
    output [2:0] vga_rgb;
    output vga_vs;
@@ -456,13 +464,15 @@ module Top_SCPU_IOBUS_App(BTN,
    wire [31:0] counter_out;
    wire [1:0] counter_set;
    wire counter_we;
-   wire counter0_out;
    wire counter1_out;
    wire counter2_out;
    wire [31:0] Cpu_data2bus;
    wire [31:0] Data_in;
    wire GPIOffff1000_we;
+   wire intr;
+   wire INT_CNT;
    wire [7:0] keyboard_in;
+   wire [7:0] LED;
    wire mem_w;
    wire [31:0] PC_out;
    wire [31:0] Peripheral_in;
@@ -478,13 +488,14 @@ module Top_SCPU_IOBUS_App(BTN,
    wire V5;
    wire XLXN_55;
    wire [0:0] XLXN_191;
-   wire [7:0] LED_DUMMY;
+   wire XLXN_193;
+   wire INT_KBD_DUMMY;
    
-   assign LED[7:0] = LED_DUMMY[7:0];
+   assign INT_KBD = INT_KBD_DUMMY;
    Muliti_CPU_MUSER_Top_SCPU_IOBUS_App  U1 (.clk(Clk_CPU), 
                                            .Data_in(Data_in[31:0]), 
-                                           .INT_CNT(counter0_out), 
-                                           .INT_KBD(), 
+                                           .INT_CNT(), 
+                                           .INT_KBD(INT_KBD_DUMMY), 
                                            .MIO_ready(V5), 
                                            .reset(rst), 
                                            .state(), 
@@ -492,6 +503,8 @@ module Top_SCPU_IOBUS_App(BTN,
                                            .CPU_MIO(), 
                                            .Data_out(Cpu_data2bus[31:0]), 
                                            .inst_out(), 
+                                           .Intr(intr), 
+                                           .INT_STATE(INT_STATE), 
                                            .mem_w(mem_w), 
                                            .PC_out(PC_out[31:0]));
    RAM_B  U3 (.addra(ram_addr[9:0]), 
@@ -503,12 +516,12 @@ module Top_SCPU_IOBUS_App(BTN,
                .BTN(button_out[3:0]), 
                .clk(clk_50mhz), 
                .counter_out(counter_out[31:0]), 
-               .counter0_out(counter0_out), 
+               .counter0_out(INT_CNT), 
                .counter1_out(counter1_out), 
                .counter2_out(counter2_out), 
                .Cpu_data2bus(Cpu_data2bus[31:0]), 
                .keyboard_in(keyboard_in[7:0]), 
-               .led_out(LED_DUMMY[7:0]), 
+               .led_out(LED[7:0]), 
                .mem_w(mem_w), 
                .ram_data_out(ram_data_out[31:0]), 
                .rst(rst), 
@@ -544,7 +557,7 @@ module Top_SCPU_IOBUS_App(BTN,
                   .counter_we(counter_we), 
                   .rst(rst), 
                   .counter_out(counter_out[31:0]), 
-                  .counter0_OUT(counter0_out), 
+                  .counter0_OUT(INT_CNT), 
                   .counter1_OUT(counter1_out), 
                   .counter2_OUT(counter2_out));
    VCC  XLXI_3 (.P(V5));
@@ -558,7 +571,7 @@ module Top_SCPU_IOBUS_App(BTN,
                        .rst(rst), 
                        .counter_set(counter_set[1:0]), 
                        .GPIOf0(), 
-                       .led_out(LED_DUMMY[7:0]));
+                       .led_out(LED[7:0]));
    VGA_controller  XLXI_17 (.clk(clk_50mhz), 
                            .reset(rst), 
                            .VRAM_in(vram_to_ctr[31:0]), 
@@ -566,11 +579,6 @@ module Top_SCPU_IOBUS_App(BTN,
                            .pixel_addr(vram_addr_ctr[8:0]), 
                            .rgb(vga_rgb[2:0]), 
                            .vsync(vga_vs));
-   keyboard_buffer  XLXI_20 (.clk_50mhz(clk_50mhz), 
-                            .ps2c(PS2_clk), 
-                            .ps2d(PS2_Data), 
-                            .reset(rst), 
-                            .key_out(keyboard_in[7:0]));
    VRAM  XLXI_24 (.a(vram_addr[8:0]), 
                  .clk(clk_50mhz), 
                  .d(Peripheral_in[31:0]), 
@@ -578,4 +586,14 @@ module Top_SCPU_IOBUS_App(BTN,
                  .we(GPIOffff1000_we), 
                  .dpo(vram_to_ctr[31:0]), 
                  .spo(vram_data_out[31:0]));
+   ps2_keyboard  XLXI_25 (.clk(clk_50mhz), 
+                         .clrn(XLXN_193), 
+                         .ps2_clk(PS2_clk), 
+                         .ps2_data(PS2_Data), 
+                         .rdn(intr), 
+                         .data(keyboard_in[7:0]), 
+                         .overflow(), 
+                         .ready(INT_KBD_DUMMY));
+   INV  XLXI_27 (.I(rst), 
+                .O(XLXN_193));
 endmodule

@@ -1,0 +1,2 @@
+vhdtdtfi -lib work D:/Users/ZPC_MIPS/AAI_CPU/vgac.v -lang verilog -prj Project4 -o vgac.spl -module vgac -template D:/XilinxIse/14.6/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e vgac.spl D:/Users/ZPC_MIPS/AAI_CPU/vgac.sym 

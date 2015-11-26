@@ -14,7 +14,7 @@
 <msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 91: Concatenation with unsized literal; will interpret as 32 bits
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" Line 367: Port <arg fmt="%s" index="1">CP0Src</arg> is not connected to this instance
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"D:/Users/ZPC_MIPS/AAI_CPU/Top_SCPU_IOBUS_App.vf" Line 371: Port <arg fmt="%s" index="1">CP0Src</arg> is not connected to this instance
 </msg>
 
 <msg type="warning" file="HDLCompiler" num="327" delta="unknown" >"D:/Users/ZPC_MIPS/AAI_CPU/MIO_BUS.v" Line 84: Concatenation with unsized literal; will interpret as 32 bits

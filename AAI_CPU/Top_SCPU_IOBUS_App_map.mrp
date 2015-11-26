@@ -10,39 +10,39 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Thu Nov 19 13:53:42 2015
+Mapped Date    : Thu Nov 26 22:47:55 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    4
+Number of warnings:    6
 Logic Utilization:
-  Total Number Slice Registers:       2,455 out of   9,312   26%
-    Number used as Flip Flops:        2,414
+  Total Number Slice Registers:       2,451 out of   9,312   26%
+    Number used as Flip Flops:        2,410
     Number used as Latches:              41
-  Number of 4 input LUTs:             6,404 out of   9,312   68%
+  Number of 4 input LUTs:             6,548 out of   9,312   70%
 Logic Distribution:
-  Number of occupied Slices:          4,327 out of   4,656   92%
-    Number of Slices containing only related logic:   4,327 out of   4,327 100%
-    Number of Slices containing unrelated logic:          0 out of   4,327   0%
+  Number of occupied Slices:          4,386 out of   4,656   94%
+    Number of Slices containing only related logic:   4,386 out of   4,386 100%
+    Number of Slices containing unrelated logic:          0 out of   4,386   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       6,531 out of   9,312   70%
-    Number used as logic:             4,356
-    Number used as a route-thru:        127
-    Number used for Dual Port RAMs:   2,048
+  Total Number of 4 input LUTs:       6,668 out of   9,312   71%
+    Number used as logic:             4,484
+    Number used as a route-thru:        120
+    Number used for Dual Port RAMs:   2,064
       (Two LUTs used per Dual Port RAM)
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 28 out of     232   12%
+  Number of bonded IOBs:                 22 out of     232    9%
   Number of RAMB16s:                      2 out of      20   10%
-  Number of BUFGMUXs:                     3 out of      24   12%
+  Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                3.96
+Average Fanout of Non-Clock Nets:                3.98
 
-Peak Memory Usage:  371 MB
-Total REAL time to MAP completion:  8 secs 
+Peak Memory Usage:  418 MB
+Total REAL time to MAP completion:  6 secs 
 Total CPU time to MAP completion:   6 secs 
 
 NOTES:
@@ -84,6 +84,12 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
+WARNING:Pack:266 - The function generator U1/U1_1/Int_status_and00001 failed to
+   merge with F5 multiplexer U1/U1_1/Unsigned_mux000037_f5.  There is a conflict
+   for the FXMUX.  The design will exhibit suboptimal timing.
+WARNING:Pack:266 - The function generator U1/U1_1/Int_status_and00001 failed to
+   merge with F5 multiplexer U1/U1_1/PCWrite_mux000051_f5.  There is a conflict
+   for the FXMUX.  The design will exhibit suboptimal timing.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net Clk_CPU is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
@@ -99,14 +105,14 @@ WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
 
 Section 3 - Informational
 -------------------------
-INFO:LIT:243 - Logical network U9/button_pulse<3> has no load.
-INFO:LIT:395 - The above info message is repeated 71 more times for the
+INFO:LIT:243 - Logical network XLXI_25/Mram_fifo8/SPO has no load.
+INFO:LIT:395 - The above info message is repeated 79 more times for the
    following (max. 5 shown):
-   U9/button_pulse<2>,
-   U9/button_pulse<1>,
-   U9/button_pulse<0>,
-   U9/SW_OK<7>,
-   U9/SW_OK<6>
+   XLXI_25/Mram_fifo7/SPO,
+   XLXI_25/Mram_fifo6/SPO,
+   XLXI_25/Mram_fifo5/SPO,
+   XLXI_25/Mram_fifo4/SPO,
+   XLXI_25/Mram_fifo3/SPO
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:159 - Net Timing constraints on signal clk_50mhz are pushed forward
@@ -629,16 +635,10 @@ Section 6 - IOB Properties
 | BTN<1>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
 | BTN<2>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
 | BTN<3>                             | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLDOWN | 0 / 0    |
-| LED<0>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<1>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<2>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<3>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<4>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<5>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<6>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| LED<7>                             | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
-| PS2_Data                           | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
-| PS2_clk                            | IBUF             | INPUT     | LVCMOS25             |       |          |      |              |          | 0 / 0    |
+| INT_KBD                            | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| INT_STATE                          | IOB              | OUTPUT    | LVTTL                |       | 4        | SLOW |              |          | 0 / 0    |
+| PS2_Data                           | IBUF             | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   | 0 / 0    |
+| PS2_clk                            | IBUF             | INPUT     | LVCMOS33             |       |          |      |              | PULLUP   | 0 / 0    |
 | SW<0>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
 | SW<1>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
 | SW<2>                              | IBUF             | INPUT     | LVTTL                |       |          |      |              | PULLUP   | 0 / 0    |
