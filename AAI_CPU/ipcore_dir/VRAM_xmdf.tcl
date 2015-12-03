@@ -35,15 +35,15 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount type logical_library
 utilities_xmdf::xmdfSetData $instance FileSet $fcount logical_library unisim
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/dist_mem_gen_v7_2_readme.txt
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/blk_mem_gen_v7_3_readme.txt
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/doc/dist_mem_gen_v7_2_vinfo.html
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/doc/blk_mem_gen_v7_3_vinfo.html
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/doc/pg063-dist-mem-gen.pdf
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/doc/pg058-blk-mem-gen.pdf
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
@@ -59,7 +59,7 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/example
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/example_design/VRAM_prod_exdes.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/example_design/VRAM_prod.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
@@ -68,14 +68,6 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
 utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/implement/implement.sh
-utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
-incr fcount
-
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/implement/implement_synplify.bat
-utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
-incr fcount
-
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/implement/implement_synplify.sh
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
@@ -99,35 +91,39 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/impleme
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_synth.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
 utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_agen.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/addr_gen.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_checker.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/bmg_stim_gen.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_dgen.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/bmg_tb_pkg.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_pkg.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/checker.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_rng.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/data_gen.vhd
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_stim_gen.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/simcmds.tcl
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/VRAM_tb_synth.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/simulate_isim.bat
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
@@ -143,6 +139,42 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulat
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/simulate_ncsim.sh
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/simulate_vcs.sh
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/ucli_commands.key
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/vcs_session.tcl
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/wave_mti.do
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/functional/wave_ncsim.sv
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/random.vhd
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/simcmds.tcl
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/simulate_isim.bat
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
 utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/simulate_mti.bat
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
@@ -155,12 +187,32 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulat
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM.asy
-utilities_xmdf::xmdfSetData $instance FileSet $fcount type asy
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/simulate_ncsim.sh
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
 incr fcount
 
-utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM.mif
-utilities_xmdf::xmdfSetData $instance FileSet $fcount type AnyView
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/simulate_vcs.sh
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/ucli_commands.key
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/vcs_session.tcl
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/wave_mti.do
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM/simulation/timing/wave_ncsim.sv
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type Ignore
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM.asy
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type asy
 incr fcount
 
 utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM.ngc
@@ -184,6 +236,10 @@ utilities_xmdf::xmdfSetData $instance FileSet $fcount type coregen_ip
 incr fcount
 
 utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path VRAM_xmdf.tcl
+utilities_xmdf::xmdfSetData $instance FileSet $fcount type AnyView
+incr fcount
+
+utilities_xmdf::xmdfSetData $instance FileSet $fcount relative_path summary.log
 utilities_xmdf::xmdfSetData $instance FileSet $fcount type AnyView
 incr fcount
 

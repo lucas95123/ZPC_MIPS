@@ -44,7 +44,6 @@
 # THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS
 # PART OF THIS FILE AT ALL TIMES.
 #--------------------------------------------------------------------------------
-cp ../../../VRAM.mif .
  vlib work 
 vmap work work
 
@@ -54,13 +53,13 @@ vcom -work work ../../example_design/VRAM_exdes.vhd
 
 echo "Compiling Test Bench Files"
 
-vcom -work work    ../VRAM_tb_pkg.vhd
-vcom -work work    ../VRAM_tb_rng.vhd
-vcom -work work    ../VRAM_tb_dgen.vhd
-vcom -work work    ../VRAM_tb_agen.vhd
-vcom -work work    ../VRAM_tb_checker.vhd
-vcom -work work    ../VRAM_tb_stim_gen.vhd
-vcom -work work    ../VRAM_tb_synth.vhd 
+vcom -work work    ../bmg_tb_pkg.vhd
+vcom -work work    ../random.vhd
+vcom -work work    ../data_gen.vhd
+vcom -work work    ../addr_gen.vhd
+vcom -work work    ../checker.vhd
+vcom -work work    ../bmg_stim_gen.vhd
+vcom -work work    ../VRAM_synth.vhd 
 vcom -work work    ../VRAM_tb.vhd
 
 

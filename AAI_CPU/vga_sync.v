@@ -22,15 +22,16 @@ module vga_sync
 (
 input wire clk, reset,
 output wire hsync,vsync,video_on,p_tick,
-output wire [9:0] pixel_x, pixel_y
+output wire [9:0] pixel_x,
+output wire [9:0] pixel_y
 );
 // c o n s t a n t  d e c l a r a t i o n
 // VGA 640-by-480 sync parameters
-localparam HD = 640; // h o r i z o n t a l d i s p l a y a r e a
+localparam HD = 1024; // h o r i z o n t a l d i s p l a y a r e a
 localparam HF = 48 ; // h . f r o n t ( l e f t ) border
 localparam HB = 16 ; // h . back ( r i g h t ) border
 localparam HR = 96 ; // h . r e t r a c e
-localparam VD = 480; // v e r t i c a l d i s p l a y a r e a
+localparam VD = 1024; // v e r t i c a l d i s p l a y a r e a
 localparam VF = 33; // v . f r o n t ( t o p ) border
 localparam VB = 10; // v . back ( b o t t o m ) b o r d e r
 localparam VR = 2; // v . r e t r a c e

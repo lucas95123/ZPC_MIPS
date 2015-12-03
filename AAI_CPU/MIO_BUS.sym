@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="MIO_BUS">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2015-10-20T11:56:52</timestamp>
+    <timestamp>2015-12-3T15:19:31</timestamp>
     <attr value="MIO_BUS" name="VeriModel" />
     <pin polarity="Input" x="0" y="-800" name="clk" />
     <pin polarity="Input" x="0" y="-736" name="rst" />
@@ -18,14 +18,14 @@
     <pin polarity="Output" x="560" y="-512" name="counter_we" />
     <pin polarity="Output" x="560" y="-160" name="ram_data_in(31:0)" />
     <pin polarity="Output" x="560" y="-48" name="data_ram_we" />
-    <pin polarity="Output" x="560" y="-96" name="ram_addr(9:0)" />
+    <pin polarity="Output" x="560" y="-96" name="ram_addr(12:0)" />
     <pin polarity="Output" x="560" y="-432" name="Cpu_data4bus(31:0)" />
     <pin polarity="Output" x="560" y="-272" name="Peripheral_in(31:0)" />
     <pin polarity="Input" x="0" y="-224" name="Cpu_data2bus(31:0)" />
     <pin polarity="Input" x="0" y="-288" name="addr_bus(31:0)" />
     <pin polarity="Input" x="0" y="32" name="keyboard_in(7:0)" />
     <pin polarity="Output" x="560" y="-784" name="GPIOffff1000_we" />
-    <pin polarity="Output" x="560" y="0" name="vram_addr(8:0)" />
+    <pin polarity="Output" x="560" y="0" name="vram_addr(11:0)" />
     <pin polarity="Input" x="0" y="80" name="vram_data_out(31:0)" />
     <graph>
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-800" type="pin clk" />
@@ -81,16 +81,16 @@
         <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial;textcolor:rgb(255,0,0)" attrname="SymbolName" x="316" y="-336" type="symbol" />
         <line x2="492" y1="-784" y2="-784" x1="560" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="484" y="-784" type="pin GPIOffff1000_we" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-96" type="pin ram_addr(9:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-96" type="pin ram_addr(12:0)" />
         <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="488" y="-272" type="pin Peripheral_in(31:0)" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-352" type="pin SW(7:0)" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-544" type="pin counter1_out" />
-        <rect style="fillcolor:rgb(255,255,127);fillstyle:Solid" width="440" x="60" y="-852" height="956" />
-        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="472" y="0" type="pin vram_addr(8:0)" />
+        <rect style="fillcolor:rgb(255,255,127);fillstyle:Solid" width="440" x="60" y="-852" height="964" />
         <rect width="60" x="500" y="-12" height="24" />
         <line x2="500" y1="0" y2="0" x1="560" />
         <rect width="60" x="0" y="68" height="24" />
         <line x2="60" y1="80" y2="80" x1="0" />
         <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="80" type="pin vram_data_out(31:0)" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="492" y="0" type="pin vram_addr(11:0)" />
     </graph>
 </symbol>

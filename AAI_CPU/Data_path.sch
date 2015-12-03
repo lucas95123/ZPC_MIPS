@@ -6,7 +6,7 @@
         <trait edittrait="all:0" />
     </attr>
     <netlist>
-        <signal name="XLXN_3(31:0)" />
+        <signal name="Data_in(31:0)" />
         <signal name="Inst(31:0)" />
         <signal name="Inst(25:21)" />
         <signal name="clk" />
@@ -69,7 +69,7 @@
         <signal name="N0,V5,V5,N0,N0" />
         <signal name="CP0_addr(4:0)" />
         <signal name="CP0_WData(31:0)" />
-        <signal name="CP0_out(27:0),N0,N0,N0,N0" />
+        <signal name="CP0_out(31:1),V5" />
         <signal name="N0,N0,N0,N0,CP0_out(31:4)" />
         <signal name="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" />
         <signal name="PC_Previous(31:0)" />
@@ -302,7 +302,7 @@
             <blockpin signalname="V5" name="CE" />
             <blockpin signalname="N0" name="rst" />
             <blockpin signalname="clk" name="clk" />
-            <blockpin signalname="XLXN_3(31:0)" name="Q(31:0)" />
+            <blockpin signalname="Data_in(31:0)" name="Q(31:0)" />
         </block>
         <block symbolname="REG32" name="ALUOut">
             <blockpin signalname="XLXN_42(31:0)" name="D(31:0)" />
@@ -399,7 +399,7 @@
             <blockpin signalname="Imm_32(31:0)" name="o(31:0)" />
         </block>
         <block symbolname="mux8to1_32" name="XLXI_33">
-            <blockpin signalname="XLXN_3(31:0)" name="x1(31:0)" />
+            <blockpin signalname="Data_in(31:0)" name="x1(31:0)" />
             <blockpin signalname="ALU_Out(31:0)" name="x0(31:0)" />
             <blockpin signalname="Inst(15:0),N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0" name="x2(31:0)" />
             <blockpin signalname="PC_Current(31:0)" name="x3(31:0)" />
@@ -442,7 +442,7 @@
         <block symbolname="mux8to1_32" name="XLXI_61">
             <blockpin signalname="N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,N0,Cause(2:0)" name="x1(31:0)" />
             <blockpin signalname="data_out(31:0)" name="x0(31:0)" />
-            <blockpin signalname="CP0_out(27:0),N0,N0,N0,N0" name="x2(31:0)" />
+            <blockpin signalname="CP0_out(31:1),V5" name="x2(31:0)" />
             <blockpin signalname="N0,N0,N0,N0,CP0_out(31:4)" name="x3(31:0)" />
             <blockpin signalname="PC_Current(31:0)" name="x4(31:0)" />
             <blockpin signalname="PC_Previous(31:0)" name="x5(31:0)" />
@@ -460,8 +460,9 @@
         <instance x="992" y="1632" name="U2" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="144" y="-400" type="instance" />
         </instance>
-        <branch name="XLXN_3(31:0)">
-            <wire x2="832" y1="1616" y2="1616" x1="560" />
+        <branch name="Data_in(31:0)">
+            <wire x2="640" y1="1616" y2="1616" x1="560" />
+            <wire x2="832" y1="1616" y2="1616" x1="640" />
         </branch>
         <instance x="416" y="1360" name="IR" orien="R0">
             <attrtext style="fontsize:28;fontname:Arial" attrname="InstName" x="64" y="-208" type="instance" />
@@ -780,7 +781,7 @@
             <wire x2="1936" y1="2128" y2="2128" x1="1904" />
             <wire x2="1904" y1="2128" y2="2496" x1="1904" />
         </branch>
-        <branch name="CP0_out(27:0),N0,N0,N0,N0">
+        <branch name="CP0_out(31:1),V5">
             <wire x2="1584" y1="2480" y2="2480" x1="1536" />
         </branch>
         <branch name="N0,N0,N0,N0,CP0_out(31:4)">
@@ -852,11 +853,11 @@
         </branch>
         <branch name="Inst(15:11)">
             <attrtext style="alignment:SOFT-BCENTER;fontsize:28;fontname:Arial" attrname="Name" x="736" y="1440" type="branch" />
-            <wire x2="720" y1="1440" y2="1440" x1="704" />
-            <wire x2="736" y1="1440" y2="1440" x1="720" />
-            <wire x2="832" y1="1440" y2="1440" x1="736" />
-            <wire x2="720" y1="1440" y2="2016" x1="720" />
-            <wire x2="1792" y1="2016" y2="2016" x1="720" />
+            <wire x2="736" y1="1440" y2="1440" x1="704" />
+            <wire x2="752" y1="1440" y2="1440" x1="736" />
+            <wire x2="832" y1="1440" y2="1440" x1="752" />
+            <wire x2="752" y1="1440" y2="2016" x1="752" />
+            <wire x2="1792" y1="2016" y2="2016" x1="752" />
         </branch>
         <instance x="1776" y="2128" name="XLXI_42" orien="R0">
         </instance>

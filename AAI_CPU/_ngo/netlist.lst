@@ -1,7 +1,8 @@
-D:\Users\ZPC_MIPS\AAI_CPU\Top_SCPU_IOBUS_App.ngc 1448549265
-ipcore_dir/RAM_B.ngc 1448549204
+D:\Users\ZPC_MIPS\AAI_CPU\Top_SCPU_IOBUS_App.ngc 1449159063
+ipcore_dir/RAM_B.ngc 1449155874
 D:\Users\ZPC_MIPS\AAI_CPU/clk_div.ngc 1426146000
 D:\Users\ZPC_MIPS\AAI_CPU/Anti_jitter.ngc 1432212960
 D:\Users\ZPC_MIPS\AAI_CPU/Counter_x.ngc 1432050480
-ipcore_dir/VRAM.ngc 1448462978
+ipcore_dir/VRAM.ngc 1449154756
+ipcore_dir/Font_Table.ngc 1449158639
 OK

@@ -10,40 +10,40 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Thu Nov 26 22:47:55 2015
+Mapped Date    : Fri Dec 04 00:11:12 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    6
+Number of warnings:    4
 Logic Utilization:
-  Total Number Slice Registers:       2,451 out of   9,312   26%
-    Number used as Flip Flops:        2,410
-    Number used as Latches:              41
-  Number of 4 input LUTs:             6,548 out of   9,312   70%
+  Total Number Slice Registers:       2,445 out of   9,312   26%
+    Number used as Flip Flops:        2,401
+    Number used as Latches:              44
+  Number of 4 input LUTs:             3,390 out of   9,312   36%
 Logic Distribution:
-  Number of occupied Slices:          4,386 out of   4,656   94%
-    Number of Slices containing only related logic:   4,386 out of   4,386 100%
-    Number of Slices containing unrelated logic:          0 out of   4,386   0%
+  Number of occupied Slices:          2,804 out of   4,656   60%
+    Number of Slices containing only related logic:   2,804 out of   2,804 100%
+    Number of Slices containing unrelated logic:          0 out of   2,804   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       6,668 out of   9,312   71%
-    Number used as logic:             4,484
-    Number used as a route-thru:        120
-    Number used for Dual Port RAMs:   2,064
+  Total Number of 4 input LUTs:       3,501 out of   9,312   37%
+    Number used as logic:             3,374
+    Number used as a route-thru:        111
+    Number used for Dual Port RAMs:      16
       (Two LUTs used per Dual Port RAM)
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 22 out of     232    9%
-  Number of RAMB16s:                      2 out of      20   10%
+  Number of RAMB16s:                     20 out of      20  100%
   Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                3.98
+Average Fanout of Non-Clock Nets:                3.60
 
-Peak Memory Usage:  418 MB
-Total REAL time to MAP completion:  6 secs 
-Total CPU time to MAP completion:   6 secs 
+Peak Memory Usage:  395 MB
+Total REAL time to MAP completion:  5 secs 
+Total CPU time to MAP completion:   4 secs 
 
 NOTES:
 
@@ -88,7 +88,7 @@ WARNING:Pack:266 - The function generator U1/U1_1/Int_status_and00001 failed to
    merge with F5 multiplexer U1/U1_1/Unsigned_mux000037_f5.  There is a conflict
    for the FXMUX.  The design will exhibit suboptimal timing.
 WARNING:Pack:266 - The function generator U1/U1_1/Int_status_and00001 failed to
-   merge with F5 multiplexer U1/U1_1/PCWrite_mux000051_f5.  There is a conflict
+   merge with F5 multiplexer U1/U1_1/PCWrite_mux000018_f5.  There is a conflict
    for the FXMUX.  The design will exhibit suboptimal timing.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net Clk_CPU is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
@@ -96,23 +96,17 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net Clk_CPU is sourced by a
 WARNING:PhysDesignRules:372 - Gated clock. Clock net U4/vram_addr_cmp_eq0001 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:812 - Dangling pin <DOA7> on
-   block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
-   amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.
-WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
-   block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
-   amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.
 
 Section 3 - Informational
 -------------------------
-INFO:LIT:243 - Logical network XLXI_25/Mram_fifo8/SPO has no load.
-INFO:LIT:395 - The above info message is repeated 79 more times for the
+INFO:LIT:243 - Logical network vram_to_ctr<0> has no load.
+INFO:LIT:395 - The above info message is repeated 48 more times for the
    following (max. 5 shown):
-   XLXI_25/Mram_fifo7/SPO,
-   XLXI_25/Mram_fifo6/SPO,
-   XLXI_25/Mram_fifo5/SPO,
-   XLXI_25/Mram_fifo4/SPO,
-   XLXI_25/Mram_fifo3/SPO
+   vram_to_ctr<1>,
+   vram_to_ctr<2>,
+   vram_to_ctr<3>,
+   vram_to_ctr<4>,
+   vram_to_ctr<5>
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:159 - Net Timing constraints on signal clk_50mhz are pushed forward
@@ -123,9 +117,9 @@ INFO:LIT:244 - All of the single ended outputs in this design are using slew
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 105 block(s) removed
-  11 block(s) optimized away
- 105 signal(s) removed
+  42 block(s) removed
+  12 block(s) optimized away
+ 108 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -140,6 +134,7 @@ To quickly locate the original cause for the removal of a chain of logic, look
 above the place where that logic is listed in the trimming report, then locate
 the lines that are least indented (begin at the leftmost edge).
 
+The signal "U3/N0" is sourceless and has been removed.
 The signal "U8/clkdiv<31>" is sourceless and has been removed.
  Sourceless block "U8/Mcount_clkdiv_xor<31>" (XOR) removed.
   The signal "U8/Result<31>" is sourceless and has been removed.
@@ -217,407 +212,97 @@ The signal "U9/pulse" is sourceless and has been removed.
  Sourceless block "U9/pulse_rstpot1" (ROM) removed.
   The signal "U9/pulse_rstpot1" is sourceless and has been removed.
    Sourceless block "U9/pulse" (FF) removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<31>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<30>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<29>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<28>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<27>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<26>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<25>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<24>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<23>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<22>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<21>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<20>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<19>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<18>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<17>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<16>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<15>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<14>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<13>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<12>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<11>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<10>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<9>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<8>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<7>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<6>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<5>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<4>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<3>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<2>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<1>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int<0>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<31>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<30>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<29>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<28>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<27>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<26>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<25>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<24>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<23>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<22>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<21>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<20>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<19>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<18>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<17>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<16>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<15>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<14>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<13>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<12>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<11>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<10>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<9>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<8>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<7>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<6>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<5>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<4>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<3>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<2>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<1>" is
-sourceless and has been removed.
-The signal
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int<0>" is
-sourceless and has been removed.
+The signal "U11/web<0>" is sourceless and has been removed.
+The signal "U11/dinb<31>" is sourceless and has been removed.
+The signal "U11/dinb<30>" is sourceless and has been removed.
+The signal "U11/dinb<29>" is sourceless and has been removed.
+The signal "U11/dinb<28>" is sourceless and has been removed.
+The signal "U11/dinb<27>" is sourceless and has been removed.
+The signal "U11/dinb<26>" is sourceless and has been removed.
+The signal "U11/dinb<25>" is sourceless and has been removed.
+The signal "U11/dinb<24>" is sourceless and has been removed.
+The signal "U11/dinb<23>" is sourceless and has been removed.
+The signal "U11/dinb<22>" is sourceless and has been removed.
+The signal "U11/dinb<21>" is sourceless and has been removed.
+The signal "U11/dinb<20>" is sourceless and has been removed.
+The signal "U11/dinb<19>" is sourceless and has been removed.
+The signal "U11/dinb<18>" is sourceless and has been removed.
+The signal "U11/dinb<17>" is sourceless and has been removed.
+The signal "U11/dinb<16>" is sourceless and has been removed.
+The signal "U11/dinb<15>" is sourceless and has been removed.
+The signal "U11/dinb<14>" is sourceless and has been removed.
+The signal "U11/dinb<13>" is sourceless and has been removed.
+The signal "U11/dinb<12>" is sourceless and has been removed.
+The signal "U11/dinb<11>" is sourceless and has been removed.
+The signal "U11/dinb<10>" is sourceless and has been removed.
+The signal "U11/dinb<9>" is sourceless and has been removed.
+The signal "U11/dinb<8>" is sourceless and has been removed.
+The signal "U11/dinb<7>" is sourceless and has been removed.
+The signal "U11/dinb<6>" is sourceless and has been removed.
+The signal "U11/dinb<5>" is sourceless and has been removed.
+The signal "U11/dinb<4>" is sourceless and has been removed.
+The signal "U11/dinb<3>" is sourceless and has been removed.
+The signal "U11/dinb<2>" is sourceless and has been removed.
+The signal "U11/dinb<1>" is sourceless and has been removed.
+The signal "U11/dinb<0>" is sourceless and has been removed.
+The signal "U11/doutb<31>" is sourceless and has been removed.
+The signal "U11/doutb<30>" is sourceless and has been removed.
+The signal "U11/doutb<29>" is sourceless and has been removed.
+The signal "U11/doutb<28>" is sourceless and has been removed.
+The signal "U11/doutb<27>" is sourceless and has been removed.
+The signal "U11/doutb<26>" is sourceless and has been removed.
+The signal "U11/doutb<25>" is sourceless and has been removed.
+The signal "U11/doutb<24>" is sourceless and has been removed.
+The signal "U11/doutb<23>" is sourceless and has been removed.
+The signal "U11/doutb<22>" is sourceless and has been removed.
+The signal "U11/doutb<21>" is sourceless and has been removed.
+The signal "U11/doutb<20>" is sourceless and has been removed.
+The signal "U11/doutb<19>" is sourceless and has been removed.
+The signal "U11/doutb<18>" is sourceless and has been removed.
+The signal "U11/doutb<17>" is sourceless and has been removed.
+The signal "U11/doutb<16>" is sourceless and has been removed.
+The signal "U11/doutb<15>" is sourceless and has been removed.
+The signal "U11/doutb<14>" is sourceless and has been removed.
+The signal "U11/doutb<13>" is sourceless and has been removed.
+The signal "U11/doutb<12>" is sourceless and has been removed.
+The signal "U11/doutb<11>" is sourceless and has been removed.
+The signal "U11/doutb<10>" is sourceless and has been removed.
+The signal "U12/U12_3/spo<0>" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "vram_to_ctr<0>" is unused and has been removed.
+The signal "vram_to_ctr<1>" is unused and has been removed.
+The signal "vram_to_ctr<2>" is unused and has been removed.
+The signal "vram_to_ctr<3>" is unused and has been removed.
+The signal "vram_to_ctr<4>" is unused and has been removed.
+The signal "vram_to_ctr<5>" is unused and has been removed.
+The signal "vram_to_ctr<6>" is unused and has been removed.
+The signal "vram_to_ctr<7>" is unused and has been removed.
+The signal "vram_to_ctr<8>" is unused and has been removed.
+The signal "vram_to_ctr<9>" is unused and has been removed.
+Unused block "U12/U12_3/XST_GND" (ZERO) removed.
 Unused block "U9/SW_OK_4" (FF) removed.
 Unused block "U9/SW_OK_5" (FF) removed.
 Unused block "U9/SW_OK_6" (FF) removed.
 Unused block "U9/SW_OK_7" (FF) removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_0" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_1" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_10" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_11" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_12" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_13" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_14" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_15" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_16" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_17" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_18" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_19" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_2" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_20" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_21" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_22" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_23" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_24" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_25" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_26" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_27" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_28" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_29" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_3" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_30" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_31" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_4" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_5" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_6" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_7" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_8" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qdpo_int_9" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_0" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_1" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_10" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_11" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_12" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_13" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_14" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_15" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_16" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_17" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_18" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_19" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_2" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_20" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_21" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_22" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_23" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_24" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_25" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_26" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_27" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_28" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_29" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_3" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_30" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_31" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_4" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_5" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_6" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_7" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_8" (FF)
-removed.
-Unused block
-"XLXI_24/U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/qspo_int_9" (FF)
-removed.
 Unused block "U8/Mcount_clkdiv_cy<24>" (MUX) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
 GND 		U10/XST_GND
 VCC 		U10/XST_VCC
+GND 		U11/XST_GND
+VCC 		U11/XST_VCC
 GND 		U3/XST_GND
 VCC 		U3/XST_VCC
 GND 		U8/XST_GND
 VCC 		U8/XST_VCC
 GND 		U9/XST_GND
 VCC 		U9/XST_VCC
-GND 		XLXI_24/XST_GND
 VCC 		XLXI_3
 GND 		XST_GND
 

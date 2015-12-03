@@ -25,12 +25,14 @@ module VGA_controller(
 	 output hsync,
 	 output vsync,
     output [2:0] rgb,
-	 output [8:0] pixel_addr
+	 output [11:0] pixel_addr
     );
-	 wire [9:0] pixel_x,pixel_y;
+	 wire [9:0] pixel_x;
+	 wire [9:0] pixel_y;
 	 wire video_on;
+	 wire [63:0] pixel_data;
 	 
-	 assign pixel_addr={pixel_y[6:3],pixel_x[6:2]};
+	 assign pixel_addr={pixel_y[9:4],pixel_x[9:4]};
     vga_sync U12_1(.clk(clk),
 	                .reset(reset),
 						 .hsync(hsync),
@@ -38,5 +40,6 @@ module VGA_controller(
 						 .video_on(video_on),
 						 .pixel_x(pixel_x),
 						 .pixel_y(pixel_y));
-	 pixel_generation U12_2(.data(VRAM_in),.pixel_x(pixel_x),.pixel_y(pixel_y),.video_on(video_on),.rgb(rgb));
+	 Font_Table U12_3(.a(VRAM_in[9:0]),.spo(pixel_data));
+	 pixel_generation U12_2(.data(pixel_data),.pixel_x(pixel_x),.pixel_y(pixel_y),.video_on(video_on),.rgb(rgb));
 endmodule

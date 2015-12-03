@@ -54,13 +54,14 @@ input [31:0] Cpu_data2bus,ram_data_out,addr_bus,counter_out,vram_data_out;
 input [7:0] keyboard_in;			
 output reg data_ram_we,GPIOffff0200_we,GPIOffff1000_we,counter_we;
 output reg [31:0]Cpu_data4bus,ram_data_in,Peripheral_in;	
-output reg [9:0] ram_addr;
-output reg [8:0] vram_addr;
+output reg [12:0] ram_addr;
+output reg [11:0] vram_addr;
 
 		      always @*
 				begin
 			   data_ram_we <= 0;
 				counter_we <= 0;
+				
 				GPIOffff0200_we <= 0;
 				GPIOffff1000_we <= 0;
 				ram_addr <= 10'h0;
@@ -71,7 +72,7 @@ output reg [8:0] vram_addr;
 				    16'h0000:    //data_ram (0x00000000~0x0000fffc), actually lower 4KB RAM
 					    begin
 					     data_ram_we <= mem_w; //data_ram read|write enable
-                    ram_addr<=addr_bus[11:2];
+                    ram_addr<=addr_bus[14:2];
                     ram_data_in<=Cpu_data2bus;
                     Cpu_data4bus<=ram_data_out;
                    end
@@ -98,9 +99,9 @@ output reg [8:0] vram_addr;
 								Cpu_data4bus <= counter_out;	//read data from counter
 							 end
 					      endcase
-					  4'h1: //vram_addr ffff_1000~ffff_1fff 512Byte
+					  4'h8: //vram_addr f0xffff_8000-0xffff_bffc 4096 characters in text mod
 						  begin GPIOffff1000_we <= mem_w; //video_ram read|write enable
-									vram_addr<=addr_bus[8:0];
+									vram_addr<=addr_bus[13:2];
 									Peripheral_in<=Cpu_data2bus;
 									Cpu_data4bus<=vram_data_out; end
                  endcase						 

@@ -5,15 +5,15 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">XLXI_25/Mram_fifo8/SPO</arg> has no load.
+<msg type="info" file="LIT" num="243" delta="new" >Logical network <arg fmt="%s" index="1">vram_to_ctr&lt;0&gt;</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">79</arg> more times for the following (max. 5 shown):
-<arg fmt="%s" index="3">XLXI_25/Mram_fifo7/SPO,
-XLXI_25/Mram_fifo6/SPO,
-XLXI_25/Mram_fifo5/SPO,
-XLXI_25/Mram_fifo4/SPO,
-XLXI_25/Mram_fifo3/SPO</arg>
+<msg type="info" file="LIT" num="395" delta="new" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">48</arg> more times for the following (max. 5 shown):
+<arg fmt="%s" index="3">vram_to_ctr&lt;1&gt;,
+vram_to_ctr&lt;2&gt;,
+vram_to_ctr&lt;3&gt;,
+vram_to_ctr&lt;4&gt;,
+vram_to_ctr&lt;5&gt;</arg>
 To see the details of these <arg fmt="%s" index="4">info</arg> messages, please use the -detail switch.
 </msg>
 
@@ -29,19 +29,13 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">U1/U1_1/Int_status_and00001</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">U1/U1_1/Unsigned_mux000037_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
-<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">U1/U1_1/Int_status_and00001</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">U1/U1_1/PCWrite_mux000051_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
+<msg type="warning" file="Pack" num="266" delta="old" >The function generator <arg fmt="%s" index="1">U1/U1_1/Int_status_and00001</arg> failed to merge with F5 multiplexer <arg fmt="%s" index="2">U1/U1_1/PCWrite_mux000018_f5</arg>.  <arg fmt="%z" index="3">There is a conflict for the FXMUX.</arg>  The design will exhibit suboptimal timing.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Clk_CPU</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">U4/vram_addr_cmp_eq0001</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA7</arg>&gt; on block:&lt;<arg fmt="%s" index="2">U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="812" delta="old" >Dangling pin &lt;<arg fmt="%s" index="1">DOA15</arg>&gt; on block:&lt;<arg fmt="%s" index="2">U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A</arg>&gt;:&lt;<arg fmt="%s" index="3">RAMB16_RAMB16A</arg>&gt;.
 </msg>
 
 </messages>

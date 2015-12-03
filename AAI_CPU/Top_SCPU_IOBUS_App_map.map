@@ -10,7 +10,7 @@ Target Device  : xc3s500e
 Target Package : fg320
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.55 $
-Mapped Date    : Thu Nov 26 22:47:55 2015
+Mapped Date    : Fri Dec 04 00:11:12 2015
 
 Mapping design into LUTs...
 Running directed packing...
@@ -18,7 +18,7 @@ WARNING:Pack:266 - The function generator U1/U1_1/Int_status_and00001 failed to
    merge with F5 multiplexer U1/U1_1/Unsigned_mux000037_f5.  There is a conflict
    for the FXMUX.  The design will exhibit suboptimal timing.
 WARNING:Pack:266 - The function generator U1/U1_1/Int_status_and00001 failed to
-   merge with F5 multiplexer U1/U1_1/PCWrite_mux000051_f5.  There is a conflict
+   merge with F5 multiplexer U1/U1_1/PCWrite_mux000018_f5.  There is a conflict
    for the FXMUX.  The design will exhibit suboptimal timing.
 Running delay-based LUT packing...
 Running related packing...
@@ -29,47 +29,41 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net Clk_CPU is sourced by a
 WARNING:PhysDesignRules:372 - Gated clock. Clock net U4/vram_addr_cmp_eq0001 is
    sourced by a combinatorial pin. This is not good design practice. Use the CE
    pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:812 - Dangling pin <DOA7> on
-   block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
-   amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.
-WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
-   block:<U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/r
-   amloop[1].ram.r/s3_init.ram/dpram.dp18x18.ram.A>:<RAMB16_RAMB16A>.
 
 Design Summary
 --------------
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    6
+Number of warnings:    4
 Logic Utilization:
-  Total Number Slice Registers:       2,451 out of   9,312   26%
-    Number used as Flip Flops:        2,410
-    Number used as Latches:              41
-  Number of 4 input LUTs:             6,548 out of   9,312   70%
+  Total Number Slice Registers:       2,445 out of   9,312   26%
+    Number used as Flip Flops:        2,401
+    Number used as Latches:              44
+  Number of 4 input LUTs:             3,390 out of   9,312   36%
 Logic Distribution:
-  Number of occupied Slices:          4,386 out of   4,656   94%
-    Number of Slices containing only related logic:   4,386 out of   4,386 100%
-    Number of Slices containing unrelated logic:          0 out of   4,386   0%
+  Number of occupied Slices:          2,804 out of   4,656   60%
+    Number of Slices containing only related logic:   2,804 out of   2,804 100%
+    Number of Slices containing unrelated logic:          0 out of   2,804   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       6,668 out of   9,312   71%
-    Number used as logic:             4,484
-    Number used as a route-thru:        120
-    Number used for Dual Port RAMs:   2,064
+  Total Number of 4 input LUTs:       3,501 out of   9,312   37%
+    Number used as logic:             3,374
+    Number used as a route-thru:        111
+    Number used for Dual Port RAMs:      16
       (Two LUTs used per Dual Port RAM)
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
   Number of bonded IOBs:                 22 out of     232    9%
-  Number of RAMB16s:                      2 out of      20   10%
+  Number of RAMB16s:                     20 out of      20  100%
   Number of BUFGMUXs:                     2 out of      24    8%
 
-Average Fanout of Non-Clock Nets:                3.98
+Average Fanout of Non-Clock Nets:                3.60
 
-Peak Memory Usage:  418 MB
-Total REAL time to MAP completion:  6 secs 
-Total CPU time to MAP completion:   6 secs 
+Peak Memory Usage:  395 MB
+Total REAL time to MAP completion:  5 secs 
+Total CPU time to MAP completion:   4 secs 
 
 NOTES:
 

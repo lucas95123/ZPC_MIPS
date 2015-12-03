@@ -45,8 +45,8 @@
 # PART OF THIS FILE AT ALL TIMES.
 set work work
 #--------------------------------------------------------------------------------
-cp ../../../VRAM.mif .
- vlib work 
+
+vlib work
 vmap work work
 
 echo "Compiling Core Verilog UNISIM/Behavioral model"
@@ -54,18 +54,16 @@ vlog -work work ../../implement/results/routed.v
 
 echo "Compiling Test Bench Files"
 
-vcom -work work    ../VRAM_tb_pkg.vhd
-vcom -work work    ../VRAM_tb_rng.vhd
-vcom -work work    ../VRAM_tb_dgen.vhd
-vcom -work work    ../VRAM_tb_agen.vhd
-vcom -work work    ../VRAM_tb_checker.vhd
-vcom -work work    ../VRAM_tb_stim_gen.vhd
-vcom -work work    ../VRAM_tb_synth.vhd 
+vcom -work work    ../bmg_tb_pkg.vhd
+vcom -work work    ../random.vhd
+vcom -work work    ../data_gen.vhd
+vcom -work work    ../addr_gen.vhd
+vcom -work work    ../checker.vhd
+vcom -work work    ../bmg_stim_gen.vhd
+vcom -work work    ../VRAM_synth.vhd 
 vcom -work work    ../VRAM_tb.vhd
 
-
-vlog -work work $env(XILINX)/verilog/src/glbl.v
-    vsim -novopt -t ps  -L simprims_ver +transport_int_delays -sdftyp /VRAM_tb/VRAM_tb_synth_inst/dmg_port=../../implement/results/routed.sdf $work.VRAM_tb $work.glbl -novopt
+    vsim -novopt -t ps  -L simprims_ver +transport_int_delays -sdftyp /VRAM_tb/VRAM_synth_inst/bmg_port=../../implement/results/routed.sdf $work.VRAM_tb $work.glbl -novopt
 
 #Disabled waveform to save the disk space
 add log -r /*

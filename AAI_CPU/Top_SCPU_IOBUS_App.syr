@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: Top_SCPU_IOBUS_App.prj
 
@@ -148,8 +148,10 @@ Compiling verilog file "vga_sync.v" in library work
 Module <ALU> compiled
 Compiling verilog file "pixel_generation.v" in library work
 Module <vga_sync> compiled
-Compiling verilog file "Data_path.vf" in library work
+Compiling verilog file "ipcore_dir/Font_Table.v" in library work
 Module <pixel_generation> compiled
+Compiling verilog file "Data_path.vf" in library work
+Module <Font_Table> compiled
 Module <alu_MUSER_Data_path> compiled
 Compiling verilog file "ctrl.v" in library work
 Module <Data_path> compiled
@@ -194,11 +196,11 @@ Analyzing hierarchy for module <Muliti_CPU_MUSER_Top_SCPU_IOBUS_App> in library 
 
 Analyzing hierarchy for module <MIO_BUS> in library <work>.
 
+Analyzing hierarchy for module <ps2_keyboard> in library <work>.
+
 Analyzing hierarchy for module <led_Dev_IO> in library <work>.
 
 Analyzing hierarchy for module <VGA_controller> in library <work>.
-
-Analyzing hierarchy for module <ps2_keyboard> in library <work>.
 
 Analyzing hierarchy for module <ctrl> in library <work> with parameters.
 	ADD = "010"
@@ -238,11 +240,11 @@ Analyzing hierarchy for module <Data_path> in library <work>.
 
 Analyzing hierarchy for module <vga_sync> in library <work> with parameters.
 	HB = "00000000000000000000000000010000"
-	HD = "00000000000000000000001010000000"
+	HD = "00000000000000000000010000000000"
 	HF = "00000000000000000000000000110000"
 	HR = "00000000000000000000000001100000"
 	VB = "00000000000000000000000000001010"
-	VD = "00000000000000000000000111100000"
+	VD = "00000000000000000000010000000000"
 	VF = "00000000000000000000000000100001"
 	VR = "00000000000000000000000000000010"
 
@@ -291,12 +293,11 @@ Analyzing hierarchy for module <and32> in library <work>.
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <Top_SCPU_IOBUS_App>.
-WARNING:Xst:852 - "Top_SCPU_IOBUS_App.vf" line 495: Unconnected input port 'INT_CNT' of instance 'U1' is tied to GND.
 WARNING:Xst:2211 - "ipcore_dir/RAM_B.v" line 510: Instantiating black box module <RAM_B>.
-WARNING:Xst:2211 - "clk_div.v" line 539: Instantiating black box module <clk_div>.
-WARNING:Xst:2211 - "Anti_jitter.v" line 544: Instantiating black box module <Anti_jitter>.
-WARNING:Xst:2211 - "Counter_3channel.v" line 551: Instantiating black box module <Counter_x>.
-WARNING:Xst:2211 - "ipcore_dir/VRAM.v" line 582: Instantiating black box module <VRAM>.
+WARNING:Xst:2211 - "clk_div.v" line 554: Instantiating black box module <clk_div>.
+WARNING:Xst:2211 - "Anti_jitter.v" line 559: Instantiating black box module <Anti_jitter>.
+WARNING:Xst:2211 - "Counter_3channel.v" line 566: Instantiating black box module <Counter_x>.
+WARNING:Xst:2211 - "ipcore_dir/VRAM.v" line 578: Instantiating black box module <VRAM>.
 Module <Top_SCPU_IOBUS_App> is correct for synthesis.
  
 Analyzing module <Muliti_CPU_MUSER_Top_SCPU_IOBUS_App> in library <work>.
@@ -407,28 +408,29 @@ Module <PC_Minus_4> is correct for synthesis.
 Analyzing module <MIO_BUS> in library <work>.
 Module <MIO_BUS> is correct for synthesis.
  
+Analyzing module <ps2_keyboard> in library <work>.
+Module <ps2_keyboard> is correct for synthesis.
+ 
 Analyzing module <led_Dev_IO> in library <work>.
 Module <led_Dev_IO> is correct for synthesis.
  
 Analyzing module <VGA_controller> in library <work>.
+WARNING:Xst:2211 - "ipcore_dir/Font_Table.v" line 43: Instantiating black box module <Font_Table>.
 Module <VGA_controller> is correct for synthesis.
  
 Analyzing module <vga_sync> in library <work>.
 	HB = 32'sb00000000000000000000000000010000
-	HD = 32'sb00000000000000000000001010000000
+	HD = 32'sb00000000000000000000010000000000
 	HF = 32'sb00000000000000000000000000110000
 	HR = 32'sb00000000000000000000000001100000
 	VB = 32'sb00000000000000000000000000001010
-	VD = 32'sb00000000000000000000000111100000
+	VD = 32'sb00000000000000000000010000000000
 	VF = 32'sb00000000000000000000000000100001
 	VR = 32'sb00000000000000000000000000000010
 Module <vga_sync> is correct for synthesis.
  
 Analyzing module <pixel_generation> in library <work>.
 Module <pixel_generation> is correct for synthesis.
- 
-Analyzing module <ps2_keyboard> in library <work>.
-Module <ps2_keyboard> is correct for synthesis.
  
 
 =========================================================================
@@ -441,6 +443,7 @@ INFO:Xst:2679 - Register <i> in unit <CoPorcessor0> has a constant value of 1000
 
 Synthesizing Unit <MIO_BUS>.
     Related source file is "MIO_BUS.v".
+WARNING:Xst:647 - Input <addr_bus<1:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <clk> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <counter2_out> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -448,23 +451,13 @@ WARNING:Xst:647 - Input <SW<7:4>> is never used. This port will be preserved and
 WARNING:Xst:647 - Input <counter0_out> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <led_out> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 WARNING:Xst:647 - Input <counter1_out> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:737 - Found 9-bit latch for signal <vram_addr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 12-bit latch for signal <vram_addr>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 WARNING:Xst:737 - Found 32-bit latch for signal <Cpu_data4bus>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 32-bit 4-to-1 multiplexer for signal <Peripheral_in>.
     Summary:
 	inferred  32 Multiplexer(s).
 Unit <MIO_BUS> synthesized.
-
-
-Synthesizing Unit <led_Dev_IO>.
-    Related source file is "led_Dev_IO.v".
-    Found 22-bit register for signal <GPIOf0>.
-    Found 2-bit register for signal <counter_set>.
-    Found 8-bit register for signal <LED>.
-    Summary:
-	inferred  24 D-type flip-flop(s).
-Unit <led_Dev_IO> synthesized.
 
 
 Synthesizing Unit <ps2_keyboard>.
@@ -489,6 +482,16 @@ Synthesizing Unit <ps2_keyboard>.
 	inferred   3 Comparator(s).
 	inferred   1 Xor(s).
 Unit <ps2_keyboard> synthesized.
+
+
+Synthesizing Unit <led_Dev_IO>.
+    Related source file is "led_Dev_IO.v".
+    Found 22-bit register for signal <GPIOf0>.
+    Found 2-bit register for signal <counter_set>.
+    Found 8-bit register for signal <LED>.
+    Summary:
+	inferred  24 D-type flip-flop(s).
+Unit <led_Dev_IO> synthesized.
 
 
 Synthesizing Unit <ctrl>.
@@ -649,40 +652,31 @@ Unit <and32> synthesized.
 
 Synthesizing Unit <vga_sync>.
     Related source file is "vga_sync.v".
-    Found 10-bit adder for signal <h_count_next$addsub0000> created at line 82.
+    Register <v_sync_reg> equivalent to <h_sync_reg> has been removed
+    Found 10-bit adder for signal <h_count_next$addsub0000> created at line 83.
     Found 10-bit register for signal <h_count_reg>.
-    Found 10-bit comparator greatequal for signal <h_sync_next$cmp_ge0000> created at line 97.
-    Found 10-bit comparator lessequal for signal <h_sync_next$cmp_le0000> created at line 97.
     Found 1-bit register for signal <h_sync_reg>.
     Found 1-bit register for signal <mod2_reg>.
-    Found 10-bit adder for signal <v_count_next$addsub0000> created at line 91.
     Found 10-bit register for signal <v_count_reg>.
-    Found 10-bit comparator greatequal for signal <v_sync_next$cmp_ge0000> created at line 99.
-    Found 10-bit comparator lessequal for signal <v_sync_next$cmp_le0000> created at line 99.
-    Found 1-bit register for signal <v_sync_reg>.
-    Found 11-bit comparator less for signal <video_on$cmp_lt0000> created at line 101.
-    Found 10-bit comparator less for signal <video_on$cmp_lt0001> created at line 101.
     Summary:
-	inferred  23 D-type flip-flop(s).
-	inferred   2 Adder/Subtractor(s).
-	inferred   6 Comparator(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
 Unit <vga_sync> synthesized.
 
 
 Synthesizing Unit <pixel_generation>.
     Related source file is "pixel_generation.v".
-    Found 1-bit 4-to-1 multiplexer for signal <pixel_on>.
-    Found 10-bit comparator greatequal for signal <rgb$cmp_ge0000> created at line 29.
-    Found 10-bit comparator greatequal for signal <rgb$cmp_ge0001> created at line 29.
-    Found 4-bit 8-to-1 multiplexer for signal <x_data>.
-    Summary:
-	inferred   2 Comparator(s).
-	inferred   5 Multiplexer(s).
+WARNING:Xst:647 - Input <pixel_x<9:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <pixel_y<9:3>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <video_on> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <data<63:32>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <pixel_on> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <pixel_generation> synthesized.
 
 
 Synthesizing Unit <VGA_controller>.
     Related source file is "VGA_controller.v".
+WARNING:Xst:647 - Input <VRAM_in<31:10>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 Unit <VGA_controller> synthesized.
 
 
@@ -716,16 +710,16 @@ HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  8x8-bit dual-port RAM                                 : 1
-# Adders/Subtractors                                   : 5
- 10-bit adder                                          : 2
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
  3-bit adder                                           : 1
  32-bit adder carry in/out                             : 1
  32-bit subtractor                                     : 1
 # Counters                                             : 3
  3-bit up counter                                      : 2
  4-bit up counter                                      : 1
-# Registers                                            : 112
- 1-bit register                                        : 30
+# Registers                                            : 111
+ 1-bit register                                        : 29
  10-bit register                                       : 2
  2-bit register                                        : 5
  22-bit register                                       : 1
@@ -734,21 +728,15 @@ Macro Statistics
  5-bit register                                        : 1
  8-bit register                                        : 1
 # Latches                                              : 2
+ 12-bit latch                                          : 1
  32-bit latch                                          : 1
- 9-bit latch                                           : 1
-# Comparators                                          : 11
- 10-bit comparator greatequal                          : 4
- 10-bit comparator less                                : 1
- 10-bit comparator lessequal                           : 2
- 11-bit comparator less                                : 1
+# Comparators                                          : 3
  3-bit comparator equal                                : 1
  3-bit comparator not equal                            : 2
-# Multiplexers                                         : 11
- 1-bit 4-to-1 multiplexer                              : 1
+# Multiplexers                                         : 9
  32-bit 32-to-1 multiplexer                            : 1
  32-bit 4-to-1 multiplexer                             : 2
  32-bit 8-to-1 multiplexer                             : 4
- 4-bit 8-to-1 multiplexer                              : 1
  5-bit 4-to-1 multiplexer                              : 2
 # Xors                                                 : 3
  1-bit xor9                                            : 1
@@ -765,13 +753,25 @@ Reading core <clk_div.ngc>.
 Reading core <Anti_jitter.ngc>.
 Reading core <Counter_x.ngc>.
 Reading core <ipcore_dir/VRAM.ngc>.
+Reading core <ipcore_dir/Font_Table.ngc>.
 Loading core <RAM_B> for timing and area information for instance <U3>.
 Loading core <clk_div> for timing and area information for instance <U8>.
 Loading core <Anti_jitter> for timing and area information for instance <U9>.
 Loading core <Counter_x> for timing and area information for instance <U10>.
-Loading core <VRAM> for timing and area information for instance <XLXI_24>.
-WARNING:Xst:1710 - FF/Latch <Cause_2> (without init value) has a constant value of 0 in block <U1_1>. This FF/Latch will be trimmed during the optimization process.
+Loading core <VRAM> for timing and area information for instance <U11>.
+Loading core <Font_Table> for timing and area information for instance <U12_3>.
 WARNING:Xst:1710 - FF/Latch <DatatoCP0_1> (without init value) has a constant value of 0 in block <U1_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_4> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_5> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_6> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_7> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_8> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_9> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <h_sync_reg> (without init value) has a constant value of 0 in block <U12_1>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <v_count_reg_0> of sequential type is unconnected in block <U12_1>.
+WARNING:Xst:2677 - Node <v_count_reg_1> of sequential type is unconnected in block <U12_1>.
+WARNING:Xst:2677 - Node <v_count_reg_2> of sequential type is unconnected in block <U12_1>.
+WARNING:Xst:2677 - Node <v_count_reg_3> of sequential type is unconnected in block <U12_1>.
 
 Synthesizing (advanced) Unit <ps2_keyboard>.
 INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_fifo> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
@@ -798,32 +798,26 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # RAMs                                                 : 1
  8x8-bit dual-port distributed RAM                     : 1
-# Adders/Subtractors                                   : 5
- 10-bit adder                                          : 2
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 1
  3-bit adder                                           : 1
  32-bit adder carry in/out                             : 1
  32-bit subtractor                                     : 1
 # Counters                                             : 3
  3-bit up counter                                      : 2
  4-bit up counter                                      : 1
-# Registers                                            : 2254
- Flip-Flops                                            : 2254
+# Registers                                            : 2253
+ Flip-Flops                                            : 2253
 # Latches                                              : 2
+ 12-bit latch                                          : 1
  32-bit latch                                          : 1
- 9-bit latch                                           : 1
-# Comparators                                          : 11
- 10-bit comparator greatequal                          : 4
- 10-bit comparator less                                : 1
- 10-bit comparator lessequal                           : 2
- 11-bit comparator less                                : 1
+# Comparators                                          : 3
  3-bit comparator equal                                : 1
  3-bit comparator not equal                            : 2
-# Multiplexers                                         : 11
- 1-bit 4-to-1 multiplexer                              : 1
+# Multiplexers                                         : 9
  32-bit 32-to-1 multiplexer                            : 1
  32-bit 4-to-1 multiplexer                             : 2
  32-bit 8-to-1 multiplexer                             : 4
- 4-bit 8-to-1 multiplexer                              : 1
  5-bit 4-to-1 multiplexer                              : 2
 # Xors                                                 : 3
  1-bit xor9                                            : 1
@@ -834,8 +828,18 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <Cause_2> (without init value) has a constant value of 0 in block <ctrl>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <DatatoCP0_1> (without init value) has a constant value of 0 in block <ctrl>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <v_count_reg_0> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_1> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_2> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_3> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_4> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_5> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_6> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_7> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_8> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <v_count_reg_9> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <h_sync_reg> (without init value) has a constant value of 0 in block <vga_sync>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <DatatoCP0_1> (without init value) has a constant value of 0 in block <ctrl>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Top_SCPU_IOBUS_App> ...
 
@@ -858,42 +862,42 @@ Optimizing unit <ctrl> ...
 Optimizing unit <alu_MUSER_Data_path> ...
 
 Optimizing unit <Data_path> ...
-WARNING:Xst:2677 - Node <XLXI_25/overflow> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_0> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_1> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_2> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_3> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_4> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_5> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_6> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/LED_7> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_21> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_20> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_19> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_18> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_17> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_16> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_15> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_14> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_13> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_12> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_11> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_10> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_9> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_8> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_7> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_6> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_5> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_4> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_3> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_2> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_1> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
-WARNING:Xst:2677 - Node <XLXI_15/GPIOf0_0> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U6/overflow> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_0> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_1> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_2> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_3> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_4> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_5> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_6> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/LED_7> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_21> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_20> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_19> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_18> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_17> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_16> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_15> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_14> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_13> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_12> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_11> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_10> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_9> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_8> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_7> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_6> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_5> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_4> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_3> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_2> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_1> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
+WARNING:Xst:2677 - Node <U7/GPIOf0_0> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
 WARNING:Xst:2677 - Node <U1/U1_1/CPU_MIO> of sequential type is unconnected in block <Top_SCPU_IOBUS_App>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block Top_SCPU_IOBUS_App, actual ratio is 67.
+Found area constraint ratio of 100 (+ 5) on block Top_SCPU_IOBUS_App, actual ratio is 54.
 
 Final Macro Processing ...
 
@@ -901,8 +905,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 2230
- Flip-Flops                                            : 2230
+# Registers                                            : 2219
+ Flip-Flops                                            : 2219
 
 =========================================================================
 
@@ -931,38 +935,39 @@ Design Statistics
 # IOs                              : 22
 
 Cell Usage :
-# BELS                             : 6806
+# BELS                             : 4692
 #      AND2                        : 3
-#      GND                         : 6
-#      INV                         : 87
-#      LUT1                        : 118
-#      LUT2                        : 153
-#      LUT3                        : 2047
+#      GND                         : 7
+#      INV                         : 85
+#      LUT1                        : 108
+#      LUT2                        : 150
+#      LUT3                        : 1011
 #      LUT3_D                      : 2
-#      LUT4                        : 2119
+#      LUT4                        : 2084
 #      LUT4_L                      : 53
-#      MUXCY                       : 235
-#      MUXF5                       : 1053
-#      MUXF6                       : 421
-#      MUXF7                       : 194
-#      MUXF8                       : 97
+#      MUXCY                       : 226
+#      MUXF5                       : 497
+#      MUXF6                       : 161
+#      MUXF7                       : 64
+#      MUXF8                       : 32
 #      OR2                         : 1
-#      VCC                         : 5
+#      VCC                         : 6
 #      XOR2                        : 1
-#      XORCY                       : 211
-# FlipFlops/Latches                : 2531
-#      FD                          : 144
-#      FDC                         : 119
-#      FDCE                        : 2181
+#      XORCY                       : 201
+# FlipFlops/Latches                : 2461
+#      FD                          : 80
+#      FDC                         : 98
+#      FDCE                        : 2191
 #      FDCE_1                      : 2
-#      FDE                         : 28
+#      FDE                         : 30
 #      FDP                         : 6
 #      FDRE                        : 10
 #      LD                          : 32
-#      LDE                         : 9
-# RAMS                             : 1034
-#      RAM16X1D                    : 1032
-#      RAMB16_S18_S18              : 2
+#      LDE                         : 12
+# RAMS                             : 28
+#      RAM16X1D                    : 8
+#      RAMB16_S4_S4                : 16
+#      RAMB16_S9_S9                : 4
 # Clock Buffers                    : 4
 #      BUFG                        : 3
 #      BUFGP                       : 1
@@ -976,14 +981,14 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                     2641  out of   4656    56%  
- Number of Slice Flip Flops:           2531  out of   9312    27%  
- Number of 4 input LUTs:               6643  out of   9312    71%  
-    Number used as logic:              4579
-    Number used as RAMs:               2064
+ Number of Slices:                     2022  out of   4656    43%  
+ Number of Slice Flip Flops:           2461  out of   9312    26%  
+ Number of 4 input LUTs:               3509  out of   9312    37%  
+    Number used as logic:              3493
+    Number used as RAMs:                 16
  Number of IOs:                          22
  Number of bonded IOBs:                  22  out of    232     9%  
- Number of BRAMs:                         2  out of     20    10%  
+ Number of BRAMs:                        20  out of     20   100%  
  Number of GCLKs:                         4  out of     24    16%  
 
 ---------------------------
@@ -1004,16 +1009,16 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
-Clock Signal                                         | Clock buffer(FF name)                                                                                                    | Load  |
------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
-clk_50mhz                                            | BUFGP                                                                                                                    | 1269  |
-U3/N1                                                | NONE(U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp18x18.ram)| 2     |
-U8/Clk_CPU1(U8/Clk_CPU1:O)                           | BUFG(*)(U10/M0)                                                                                                          | 2220  |
-U8/clkdiv<7>1                                        | BUFG                                                                                                                     | 35    |
-U4/vram_addr_cmp_eq0001(U4/vram_addr_cmp_eq000136:O) | NONE(*)(U4/vram_addr_8)                                                                                                  | 9     |
-U4/Cpu_data4bus_not00011(U4/Cpu_data4bus_not000135:O)| BUFG(*)(U4/Cpu_data4bus_31)                                                                                              | 32    |
------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+-------+
+-----------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                                         | Clock buffer(FF name)                                                                                                  | Load  |
+-----------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------+
+clk_50mhz                                            | BUFGP                                                                                                                  | 189   |
+U3/N1                                                | NONE(U3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/dpram.dp4x4.ram)| 12    |
+U8/Clk_CPU1(U8/Clk_CPU1:O)                           | BUFG(*)(U10/M0)                                                                                                        | 2221  |
+U8/clkdiv<7>1                                        | BUFG                                                                                                                   | 35    |
+U4/vram_addr_cmp_eq0001(U4/vram_addr_cmp_eq000136:O) | NONE(*)(U4/vram_addr_11)                                                                                               | 12    |
+U4/Cpu_data4bus_not00011(U4/Cpu_data4bus_not000135:O)| BUFG(*)(U4/Cpu_data4bus_31)                                                                                            | 32    |
+-----------------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------+
 (*) These 3 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
@@ -1024,7 +1029,7 @@ Asynchronous Control Signals Information:
 -----------------------------------+-------------------------+-------+
 Control Signal                     | Buffer(FF name)         | Load  |
 -----------------------------------+-------------------------+-------+
-U9/rst(U9/rst:Q)                   | NONE(U1/U1_1/ALUSrcA)   | 2212  |
+U9/rst(U9/rst:Q)                   | NONE(U1/U1_1/ALUSrcA)   | 2201  |
 N0(XST_GND:G)                      | NONE(U1/U1_2/ALUOut/Q_0)| 96    |
 -----------------------------------+-------------------------+-------+
 
@@ -1032,9 +1037,9 @@ Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 26.977ns (Maximum Frequency: 37.068MHz)
+   Minimum period: 26.998ns (Maximum Frequency: 37.040MHz)
    Minimum input arrival time before clock: 7.305ns
-   Maximum output required time after clock: 14.008ns
+   Maximum output required time after clock: 7.980ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -1043,100 +1048,59 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_50mhz'
-  Clock period: 9.045ns (frequency: 110.558MHz)
-  Total number of paths / destination ports: 17995 / 4406
+  Clock period: 8.360ns (frequency: 119.617MHz)
+  Total number of paths / destination ports: 6301 / 292
 -------------------------------------------------------------------------
-Delay:               9.045ns (Levels of Logic = 5)
-  Source:            XLXI_17/U12_1/h_count_reg_4 (FF)
-  Destination:       XLXI_17/U12_1/v_count_reg_9 (FF)
+Delay:               8.360ns (Levels of Logic = 6)
+  Source:            U6/ps2_clk_sync_1 (FF)
+  Destination:       U6/Mram_fifo8 (RAM)
   Source Clock:      clk_50mhz rising
   Destination Clock: clk_50mhz rising
 
-  Data Path: XLXI_17/U12_1/h_count_reg_4 to XLXI_17/U12_1/v_count_reg_9
+  Data Path: U6/ps2_clk_sync_1 to U6/Mram_fifo8
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q           1028   0.591   1.585  XLXI_17/U12_1/h_count_reg_4 (XLXI_17/U12_1/h_count_reg_4)
-     LUT4:I0->O            1   0.704   0.424  XLXI_17/U12_1/h_end22 (XLXI_17/U12_1/h_end22)
-     LUT4:I3->O            1   0.704   0.424  XLXI_17/U12_1/h_end24_SW0 (N289)
-     LUT4:I3->O           12   0.704   1.136  XLXI_17/U12_1/h_end24 (XLXI_17/U12_1/h_end)
-     LUT2:I0->O           10   0.704   1.057  XLXI_17/U12_1/v_count_next<0>11 (XLXI_17/U12_1/N11)
-     LUT4:I0->O            1   0.704   0.000  XLXI_17/U12_1/v_count_next<9>1 (XLXI_17/U12_1/v_count_next<9>)
-     FDC:D                     0.308          XLXI_17/U12_1/v_count_reg_9
+     FD:C->Q               3   0.591   0.706  U6/ps2_clk_sync_1 (U6/ps2_clk_sync_1)
+     LUT2:I0->O            7   0.704   0.712  U6/sampling1 (U6/sampling)
+     LUT4:I3->O            1   0.704   0.424  U6/_cmp_ne0000229_SW0 (N324)
+     LUT4:I3->O            1   0.704   0.455  U6/_cmp_ne0000229 (U6/_cmp_ne0000229)
+     LUT3:I2->O            2   0.704   0.482  U6/_cmp_ne0000234 (U6/N11)
+     LUT4:I2->O            1   0.704   0.000  U6/_cmp_ne000021 (U6/_cmp_ne00002)
+     MUXF5:I1->O           8   0.321   0.757  U6/_cmp_ne00002_f5 (U6/_cmp_ne0000_0)
+     RAM16X1D:WE               0.392          U6/Mram_fifo2
     ----------------------------------------
-    Total                      9.045ns (4.419ns logic, 4.626ns route)
-                                       (48.9% logic, 51.1% route)
+    Total                      8.360ns (4.824ns logic, 3.536ns route)
+                                       (57.7% logic, 42.3% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'U8/Clk_CPU1'
-  Clock period: 26.977ns (frequency: 37.068MHz)
-  Total number of paths / destination ports: 28046840 / 4273
+  Clock period: 26.998ns (frequency: 37.040MHz)
+  Total number of paths / destination ports: 28040471 / 4274
 -------------------------------------------------------------------------
-Delay:               26.977ns (Levels of Logic = 50)
-  Source:            U1/U1_2/IR/Q_17 (FF)
-  Destination:       U1/U1_2/PC/Q_0 (FF)
+Delay:               13.499ns (Levels of Logic = 8)
+  Source:            U1/U1_1/IorD (FF)
+  Destination:       U10/M0 (FF)
   Source Clock:      U8/Clk_CPU1 rising
-  Destination Clock: U8/Clk_CPU1 rising
+  Destination Clock: U8/Clk_CPU1 falling
 
-  Data Path: U1/U1_2/IR/Q_17 to U1/U1_2/PC/Q_0
+  Data Path: U1/U1_1/IorD to U10/M0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             6   0.591   0.844  U1/U1_2/IR/Q_17 (U1/U1_2/IR/Q_17)
-     LUT2:I0->O            8   0.704   0.761  U1/U1_2/U2/varindex0001_cmp_eq000111 (U1/U1_2/U2/N90)
-     LUT4:I3->O           32   0.704   1.297  U1/U1_2/U2/varindex0001_cmp_eq00251 (U1/U1_2/U2/varindex0001_cmp_eq0025)
-     LUT4:I2->O            1   0.704   0.595  U1/U1_2/U2/rdata_B<2>105 (U1/U1_2/U2/rdata_B<2>105)
-     LUT4:I0->O            1   0.704   0.595  U1/U1_2/U2/rdata_B<2>137 (U1/U1_2/U2/rdata_B<2>137)
-     LUT2:I0->O            1   0.704   0.424  U1/U1_2/U2/rdata_B<2>185 (U1/U1_2/U2/rdata_B<2>185)
-     LUT4:I3->O            6   0.704   0.748  U1/U1_2/U2/rdata_B<2>211 (Cpu_data2bus<2>)
-     LUT4:I1->O            1   0.704   0.000  U1/U1_2/mux3/Mmux_o_2_f5_72 (U1/U1_2/mux3/Mmux_o_2_f5_71)
-     MUXF5:I0->O           4   0.321   0.622  U1/U1_2/mux3/Mmux_o_2_f5_7_f5 (U1/U1_2/XLXN_41<2>)
-     LUT3:I2->O            1   0.704   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_lut<2> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_lut<2>)
-     MUXCY:S->O            1   0.464   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<2> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<3> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<4> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<5> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<6> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<6>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<7> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<7>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<8> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<8>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<9> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<9>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<10> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<10>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<11> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<11>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<12> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<12>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<13> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<13>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<14> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<14>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<15> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<15>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<16> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<16>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<17> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<17>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<18> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<18>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<19> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<19>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<20> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<20>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<21> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<21>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<22> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<22>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<23> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<23>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<24> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<24>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<25> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<25>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<26> (U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_cy<26>)
-     XORCY:CI->O           2   0.804   0.482  U1/U1_2/U1/XLXI_4/Madd_S_addsub0000_xor<27> (U1/U1_2/U1/S<27>)
-     LUT3:I2->O            1   0.704   0.000  U1/U1_2/U1/XLXI_20/Mmux_o_419 (U1/U1_2/U1/XLXI_20/Mmux_o_419)
-     MUXF5:I1->O           1   0.321   0.000  U1/U1_2/U1/XLXI_20/Mmux_o_3_f5_18 (U1/U1_2/U1/XLXI_20/Mmux_o_3_f519)
-     MUXF6:I1->O           3   0.521   0.535  U1/U1_2/U1/XLXI_20/Mmux_o_2_f6_18 (U1/U1_2/XLXN_42<27>)
-     LUT4:I3->O            1   0.704   0.000  U1/U1_2/U1/XLXI_8/o_wg_lut<2> (U1/U1_2/U1/XLXI_8/o_wg_lut<2>)
-     MUXCY:S->O            1   0.464   0.000  U1/U1_2/U1/XLXI_8/o_wg_cy<2> (U1/U1_2/U1/XLXI_8/o_wg_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_8/o_wg_cy<3> (U1/U1_2/U1/XLXI_8/o_wg_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_8/o_wg_cy<4> (U1/U1_2/U1/XLXI_8/o_wg_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_8/o_wg_cy<5> (U1/U1_2/U1/XLXI_8/o_wg_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  U1/U1_2/U1/XLXI_8/o_wg_cy<6> (U1/U1_2/U1/XLXI_8/o_wg_cy<6>)
-     MUXCY:CI->O           1   0.459   0.420  U1/U1_2/U1/XLXI_8/o_wg_cy<7> (U1/U1_2/U1/XLXI_8/o_wg_cy<7>)
-     XOR2:I0->O            1   0.704   0.420  U1/U1_2/XLXI_21 (U1/U1_2/XLXN_56)
-     INV:I->O              1   0.704   0.420  U1/U1_2/XLXI_22 (U1/U1_2/XLXN_61)
-     AND2:I0->O            1   0.704   0.420  U1/U1_2/XLXI_23 (U1/U1_2/XLXN_62)
-     OR2:I0->O             1   0.704   0.420  U1/U1_2/XLXI_24 (U1/U1_2/XLXN_65)
-     AND2:I0->O           32   0.704   1.262  U1/U1_2/XLXI_25 (U1/U1_2/XLXN_70)
-     FDCE:CE                   0.555          U1/U1_2/PC/Q_0
+     FDC:C->Q             51   0.591   1.303  U1/U1_1/IorD (U1/U1_1/IorD)
+     LUT3:I2->O            2   0.704   0.622  U1/U1_2/mux6/o<16>1 (Addr_out<16>)
+     LUT4:I0->O            1   0.704   0.595  U4/vram_addr_cmp_eq00014 (U4/vram_addr_cmp_eq00014)
+     LUT4:I0->O           24   0.704   1.256  U4/vram_addr_cmp_eq000136 (U4/vram_addr_cmp_eq0001)
+     LUT4:I3->O           29   0.704   1.265  U4/Cpu_data4bus_mux0000<4>11 (U4/N7)
+     LUT4:I3->O            4   0.704   0.622  U4/counter_we1 (counter_we)
+     begin scope: 'U10'
+     LUT3:I2->O           33   0.704   1.342  M0_and0000111 (counter0_Lock_not0001)
+     LUT4:I1->O            1   0.704   0.420  M0_and00001 (M0_and0000)
+     FDE:CE                    0.555          M0
     ----------------------------------------
-    Total                     26.977ns (16.712ns logic, 10.265ns route)
-                                       (61.9% logic, 38.1% route)
+    Total                     13.499ns (6.074ns logic, 7.425ns route)
+                                       (45.0% logic, 55.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'U8/clkdiv<7>1'
@@ -1221,7 +1185,7 @@ Offset:              7.305ns (Levels of Logic = 6)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'U8/Clk_CPU1'
   Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              4.532ns (Levels of Logic = 1)
+Offset:              4.450ns (Levels of Logic = 1)
   Source:            U1/U1_1/Int_status (FF)
   Destination:       INT_STATE (PAD)
   Source Clock:      U8/Clk_CPU1 rising
@@ -1230,56 +1194,44 @@ Offset:              4.532ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              6   0.591   0.669  U1/U1_1/Int_status (U1/U1_1/Int_status)
+     FDC:C->Q              4   0.591   0.587  U1/U1_1/Int_status (U1/U1_1/Int_status)
      OBUF:I->O                 3.272          INT_STATE_OBUF (INT_STATE)
     ----------------------------------------
-    Total                      4.532ns (3.863ns logic, 0.669ns route)
-                                       (85.2% logic, 14.8% route)
+    Total                      4.450ns (3.863ns logic, 0.587ns route)
+                                       (86.8% logic, 13.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk_50mhz'
-  Total number of paths / destination ports: 18455 / 6
+  Total number of paths / destination ports: 6 / 1
 -------------------------------------------------------------------------
-Offset:              14.008ns (Levels of Logic = 14)
-  Source:            XLXI_17/U12_1/h_count_reg_5 (FF)
-  Destination:       vga_rgb<2> (PAD)
+Offset:              7.980ns (Levels of Logic = 3)
+  Source:            U6/w_ptr_2 (FF)
+  Destination:       INT_KBD (PAD)
   Source Clock:      clk_50mhz rising
 
-  Data Path: XLXI_17/U12_1/h_count_reg_5 to vga_rgb<2>
+  Data Path: U6/w_ptr_2 to INT_KBD
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q           1028   0.591   1.410  XLXI_17/U12_1/h_count_reg_5 (XLXI_17/U12_1/h_count_reg_5)
-     begin scope: 'XLXI_24'
-     RAM16X1D:DPRA3->DPO    1   0.704   0.499  U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/Mram_ram129 (U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/N291)
-     LUT3:I1->O            1   0.704   0.000  U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_10 (U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_10)
-     MUXF5:I0->O           1   0.321   0.000  U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_8_f5 (U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_8_f5)
-     MUXF6:I0->O           1   0.521   0.000  U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_6_f6 (U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_6_f6)
-     MUXF7:I0->O           1   0.521   0.000  U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_4_f7 (U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_4_f7)
-     MUXF8:I0->O           2   0.521   0.526  U0/xst_options.dist_mem_inst/gen_dp_ram.dpram_inst/inst_LPM_MUX36_2_f8 (dpo<4>)
-     end scope: 'XLXI_24'
-     LUT3:I1->O            1   0.704   0.000  XLXI_17/U12_2/Mmux_pixel_on_6 (XLXI_17/U12_2/Mmux_pixel_on_6)
-     MUXF5:I1->O           1   0.321   0.000  XLXI_17/U12_2/Mmux_pixel_on_5_f5 (XLXI_17/U12_2/Mmux_pixel_on_5_f5)
-     MUXF6:I1->O           1   0.521   0.000  XLXI_17/U12_2/Mmux_pixel_on_4_f6 (XLXI_17/U12_2/Mmux_pixel_on_4_f6)
-     MUXF7:I1->O           1   0.521   0.000  XLXI_17/U12_2/Mmux_pixel_on_3_f7 (XLXI_17/U12_2/Mmux_pixel_on_3_f7)
-     MUXF8:I1->O           1   0.521   0.595  XLXI_17/U12_2/Mmux_pixel_on_2_f8 (XLXI_17/U12_2/pixel_on)
-     LUT4:I0->O            3   0.704   0.531  XLXI_17/U12_2/rgb<1> (vga_rgb_0_OBUF)
-     OBUF:I->O                 3.272          vga_rgb_2_OBUF (vga_rgb<2>)
+     FDRE:C->Q            26   0.591   1.435  U6/w_ptr_2 (U6/w_ptr_2)
+     LUT4:I0->O            3   0.704   0.566  U6/overflow_or000041 (U6/overflow_or0000_bdd4)
+     LUT3:I2->O            7   0.704   0.708  U6/ready11 (INT_KBD_OBUF)
+     OBUF:I->O                 3.272          INT_KBD_OBUF (INT_KBD)
     ----------------------------------------
-    Total                     14.008ns (10.447ns logic, 3.561ns route)
-                                       (74.6% logic, 25.4% route)
+    Total                      7.980ns (5.271ns logic, 2.709ns route)
+                                       (66.1% logic, 33.9% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 43.00 secs
-Total CPU time to Xst completion: 43.66 secs
+Total REAL time to Xst completion: 35.00 secs
+Total CPU time to Xst completion: 34.69 secs
  
 --> 
 
-Total memory usage is 453536 kilobytes
+Total memory usage is 434220 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   67 (   0 filtered)
+Number of warnings :   94 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 

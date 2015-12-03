@@ -5,14 +5,14 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Thu Nov 26 22:48:02 2015">
+  <application stringID="Map" timeStamp="Fri Dec 04 00:11:17 2015">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
         <column stringID="value"/>
         <row stringID="row" value="0">
           <item stringID="variable" value="Path"/>
-          <item stringID="value" value="D:\XilinxIse\14.6\ISE_DS\ISE\\lib\nt64;D:\XilinxIse\14.6\ISE_DS\ISE\\bin\nt64;.,C:\Program Files\Java\jdk1.8.0_31\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;D:\Program files\adt-bundle-windows-x86_64-20131030\sdk\platform-tools;D:\Program files\adt-bundle-windows-x86_64-20131030\sdk\tools;C:\TDM-GCC-64\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;D:\Program files\SQL Server 2012\110\Tools\Binn\;D:\Program files\Python;C:\Program Files (x86)\GtkSharp\2.12\bin;D:\Program files\SQL Server 2012\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files (x86)\Autodesk\Backburner\;D:\Cocos\frameworks\cocos2d-x-3.6\tools\cocos2d-console\bin;D:\Cocos\tools\Python27"/>
+          <item stringID="value" value="D:\XilinxIse\14.6\ISE_DS\ISE\\lib\nt64;D:\XilinxIse\14.6\ISE_DS\ISE\\bin\nt64;.,C:\Program Files\Java\jdk1.8.0_31\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;D:\Program files\adt-bundle-windows-x86_64-20131030\sdk\platform-tools;D:\Program files\adt-bundle-windows-x86_64-20131030\sdk\tools;C:\TDM-GCC-64\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;D:\Program files\SQL Server 2012\110\Tools\Binn\;D:\Program files\Python;C:\Program Files (x86)\GtkSharp\2.12\bin;D:\Program files\SQL Server 2012\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\Common Files\Autodesk Shared\;D:\opencv\build\x86\vc12\bin;C:\Program Files (x86)\Autodesk\Backburner\;D:\Cocos\frameworks\cocos2d-x-3.6\tools\cocos2d-console\bin;D:\Cocos\tools\Python27"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="variable" value="PATHEXT"/>
@@ -60,21 +60,21 @@
       <section stringID="MAP_DESIGN_SUMMARY">
         <item dataType="int" stringID="MAP_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="MAP_FILTERED_WARNINGS" value="0"/>
-        <item dataType="int" stringID="MAP_NUM_WARNINGS" value="6"/>
-        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="427652"/>
-        <item stringID="MAP_TOTAL_REAL_TIME" value="6 secs "/>
-        <item stringID="MAP_TOTAL_CPU_TIME" value="6 secs "/>
+        <item dataType="int" stringID="MAP_NUM_WARNINGS" value="4"/>
+        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="403992"/>
+        <item stringID="MAP_TOTAL_REAL_TIME" value="5 secs "/>
+        <item stringID="MAP_TOTAL_CPU_TIME" value="4 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING">
-        <item AVAILABLE="9312" dataType="int" label="Number of Slice Registers" stringID="MAP_SLICE_REGISTERS" value="2451">
-          <item dataType="int" label="Number of Slice Flip Flops" stringID="MAP_NUM_SLICE_FF" value="2410"/>
-          <item dataType="int" stringID="MAP_NUM_SLICE_LATCH" value="41"/>
+        <item AVAILABLE="9312" dataType="int" label="Number of Slice Registers" stringID="MAP_SLICE_REGISTERS" value="2445">
+          <item dataType="int" label="Number of Slice Flip Flops" stringID="MAP_NUM_SLICE_FF" value="2401"/>
+          <item dataType="int" stringID="MAP_NUM_SLICE_LATCH" value="44"/>
         </item>
-        <item AVAILABLE="9312" dataType="int" label="Number of 4 input LUTs" stringID="MAP_NUM_4_INPUT_LUT" value="6668">
-          <item dataType="int" label="Number of route-thrus" stringID="MAP_NUM_LUT_RT" value="120"/>
-          <item dataType="int" stringID="MAP_NUM_DP_RAM" value="2064"/>
+        <item AVAILABLE="9312" dataType="int" label="Number of 4 input LUTs" stringID="MAP_NUM_4_INPUT_LUT" value="3501">
+          <item dataType="int" label="Number of route-thrus" stringID="MAP_NUM_LUT_RT" value="111"/>
+          <item dataType="int" stringID="MAP_NUM_DP_RAM" value="16"/>
         </item>
-        <item AVAILABLE="4656" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="4386">
+        <item AVAILABLE="4656" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="2804">
           <item dataType="int" label="Number of Slices containing unrelated logic" stringID="MAP_NUM_SLICE_UNRELATED" value="0"/>
         </item>
       </section>
@@ -84,7 +84,7 @@
         </section>
       </section>
       <section stringID="MAP_HARD_IP_REPORTING">
-        <item AVAILABLE="20" dataType="int" stringID="MAP_NUM_RAMB16" value="2"/>
+        <item AVAILABLE="20" dataType="int" stringID="MAP_NUM_RAMB16" value="20"/>
         <item AVAILABLE="24" dataType="int" label="Number of BUFGMUXs" stringID="MAP_NUM_BUFGMUX" value="2"/>
       </section>
       <section stringID="MAP_MACRO_RPM_REPORTING">
@@ -285,7 +285,7 @@
       </section>
       <section stringID="MAP_RPM_MACROS">
         <section stringID="MAP_SHAPE_SECTION">
-          <item dataType="int" stringID="MAP_NUM_SHAPE" value="141"/>
+          <item dataType="int" stringID="MAP_NUM_SHAPE" value="75"/>
         </section>
       </section>
       <section stringID="MAP_GUIDE_REPORT"/>
@@ -293,19 +293,11 @@
       <section stringID="MAP_TIMING_REPORT"/>
       <section stringID="MAP_CONFIGURATION_STRING_DETAILS"/>
       <section stringID="MAP_GENERAL_CONFIG_DATA">
-        <item stringID="MAP_INITP_00" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_01" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_02" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_03" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_04" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_05" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_06" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INITP_07" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INIT_00" value="1002562A12421E02200200000000000000000000040010391E01120112291E01"/>
-        <item stringID="MAP_INIT_01" value="1E0221000000084A10020000084A10020000084A10020000084A10020000084A"/>
-        <item stringID="MAP_INIT_02" value="210000000400563300000400000004000000087600000A76463B1006562A1242"/>
-        <item stringID="MAP_INIT_03" value="0000000000000000000000002100100221001002210010022100562A12421E02"/>
-        <item stringID="MAP_INIT_04" value="0000000000000000000000000000000000000000000000000400000000000000"/>
+        <item stringID="MAP_INIT_00" value="08000C5C208C0801C008C0080105C0C5C2010010010010010C5C000080C44C4C"/>
+        <item stringID="MAP_INIT_01" value="008000000000000000000000805C00202020208C0C5C08C0C5C08010010CCC5C"/>
+        <item stringID="MAP_INIT_02" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INIT_03" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INIT_04" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_05" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_06" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_07" value="0000000000000000000000000000000000000000000000000000000000000000"/>
@@ -365,10 +357,18 @@
         <item stringID="MAP_INIT_3D" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_3E" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_INIT_3F" value="0000000000000000000000000000000000000000000000000000000000000000"/>
-        <item stringID="MAP_INIT_A" value="00000"/>
-        <item stringID="MAP_SRVAL_A" value="00000"/>
-        <item stringID="MAP_INIT_B" value="00000"/>
-        <item stringID="MAP_SRVAL_B" value="00000"/>
+        <item stringID="MAP_INIT_A" value="0"/>
+        <item stringID="MAP_SRVAL_A" value="0"/>
+        <item stringID="MAP_INIT_B" value="0"/>
+        <item stringID="MAP_SRVAL_B" value="0"/>
+        <item stringID="MAP_INITP_00" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_01" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_02" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_03" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_04" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_05" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_06" value="0000000000000000000000000000000000000000000000000000000000000000"/>
+        <item stringID="MAP_INITP_07" value="0000000000000000000000000000000000000000000000000000000000000000"/>
         <item stringID="MAP_DISABLE_ATTR" value="LOW"/>
       </section>
       <section stringID="MAP_CONTROL_SET_INFORMATION"/>

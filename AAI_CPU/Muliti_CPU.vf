@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.6
 //  \   \         Application : sch2hdl
 //  /   /         Filename : Muliti_CPU.vf
-// /___/   /\     Timestamp : 11/26/2015 21:23:53
+// /___/   /\     Timestamp : 12/03/2015 22:38:49
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -148,13 +148,13 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
    wire [4:0] CP0_addr;
    wire [31:0] CP0_out;
    wire [31:0] CP0_WData;
+   wire [31:0] Data_in;
    wire [31:0] Imm_32;
    wire N0;
    wire [31:0] PC_Previous;
    wire V5;
    wire [4:0] Wt_addr;
    wire [31:0] Wt_data;
-   wire [31:0] XLXN_3;
    wire [31:0] XLXN_41;
    wire [31:0] XLXN_42;
    wire [31:0] XLXN_48;
@@ -192,7 +192,7 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
               .clk(clk), 
               .D(data2CPU[31:0]), 
               .rst(N0), 
-              .Q(XLXN_3[31:0]));
+              .Q(Data_in[31:0]));
    mux4to1_5  mux2 (.a(Inst_DUMMY[20:16]), 
                    .b(Inst_DUMMY[15:11]), 
                    .c({V5, V5, V5, V5, V5}), 
@@ -259,7 +259,7 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
                        .o(Imm_32[31:0]));
    mux8to1_32  XLXI_33 (.sel(MemtoReg[2:0]), 
                        .x0(ALU_Out[31:0]), 
-                       .x1(XLXN_3[31:0]), 
+                       .x1(Data_in[31:0]), 
                        .x2({Inst_DUMMY[15:0], N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0}), 
                        .x3(PC_Current_DUMMY[31:0]), 
@@ -299,7 +299,7 @@ module Data_path_MUSER_Muliti_CPU(ALUSrcA,
                        .x1({N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, N0, 
          Cause[2:0]}), 
-                       .x2({CP0_out[27:0], N0, N0, N0, N0}), 
+                       .x2({CP0_out[31:1], V5}), 
                        .x3({N0, N0, N0, N0, CP0_out[31:4]}), 
                        .x4(PC_Current_DUMMY[31:0]), 
                        .x5(PC_Previous[31:0]), 

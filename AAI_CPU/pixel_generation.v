@@ -1,5 +1,6 @@
-module pixel_generation(input [31:0] data,
-                        input [9:0] pixel_x,pixel_y,
+module pixel_generation(input [63:0] data,
+                        input [9:0] pixel_x,
+								input [9:0] pixel_y,
 								input video_on,
 								output [2:0] rgb
     );
@@ -26,6 +27,6 @@ module pixel_generation(input [31:0] data,
 	  2'd0: pixel_on=x_data[3];
 	 endcase 
 	 
-	 assign rgb=(video_on&pixel_on)? (pixel_x>=10'd128||pixel_y>=10'd128)? 3'b000:3'b111:3'b000;
+	 assign rgb=(video_on&pixel_on)? (pixel_x>=10'd1024||pixel_y>=10'd1024)? 3'b000:3'b111:3'b000;
 	  
 endmodule

@@ -1,7 +1,7 @@
 Release 14.6 par P.68d (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-MSI::  Thu Nov 26 22:48:04 2015
+MSI::  Fri Dec 04 00:11:20 2015
 
 par -w -intstyle ise -pl high -rl high -t 1 -power on
 Top_SCPU_IOBUS_App_map.ncd Top_SCPU_IOBUS_App.ncd Top_SCPU_IOBUS_App.pcf 
@@ -38,9 +38,9 @@ Design Summary Report:
 
 
    Number of BUFGMUXs                        2 out of 24      8%
-   Number of RAMB16s                         2 out of 20     10%
-   Number of Slices                       4386 out of 4656   94%
-      Number of SLICEMs                   1420 out of 2328   60%
+   Number of RAMB16s                        20 out of 20    100%
+   Number of Slices                       2804 out of 4656   60%
+      Number of SLICEMs                    136 out of 2328    5%
 
 
 
@@ -55,56 +55,56 @@ Finished initial Timing Analysis.  REAL time: 2 secs
 
 Starting Placer
 Total REAL time at the beginning of Placer: 2 secs 
-Total CPU  time at the beginning of Placer: 2 secs 
+Total CPU  time at the beginning of Placer: 1 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:900d7eb4) REAL time: 5 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:5be9be43) REAL time: 3 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:900d7eb4) REAL time: 5 secs 
+Phase 2.7  Design Feasibility Check (Checksum:5be9be43) REAL time: 3 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:900d7eb4) REAL time: 5 secs 
+Phase 3.31  Local Placement Optimization (Checksum:5be9be43) REAL time: 3 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 .......
-Phase 4.2  Initial Clock and IO Placement (Checksum:34d2a23c) REAL time: 6 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:ea7956b) REAL time: 5 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:34d2a23c) REAL time: 6 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:ea7956b) REAL time: 5 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:34d2a23c) REAL time: 6 secs 
+Phase 6.36  Local Placement Optimization (Checksum:ea7956b) REAL time: 5 secs 
 
 Phase 7.3  Local Placement Optimization
-......
-Phase 7.3  Local Placement Optimization (Checksum:d3bafb3e) REAL time: 6 secs 
+.......
+Phase 7.3  Local Placement Optimization (Checksum:63d05135) REAL time: 5 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:d3bafb3e) REAL time: 7 secs 
+Phase 8.5  Local Placement Optimization (Checksum:63d05135) REAL time: 5 secs 
 
 Phase 9.8  Global Placement
-................
-....................................................................................................................................................................
-....................
-.....................................................................................................................
-...............................
+...............
+.............................................................................................
+..................
+..................................................................................................................................................................
+..........................
 .........................
 ..
-...............
-Phase 9.8  Global Placement (Checksum:70c50c2a) REAL time: 11 secs 
+...........
+Phase 9.8  Global Placement (Checksum:174933fe) REAL time: 8 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:70c50c2a) REAL time: 11 secs 
+Phase 10.5  Local Placement Optimization (Checksum:174933fe) REAL time: 8 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:3a9a4388) REAL time: 14 secs 
+Phase 11.18  Placement Optimization (Checksum:53f029b7) REAL time: 10 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:3a9a4388) REAL time: 14 secs 
+Phase 12.5  Local Placement Optimization (Checksum:53f029b7) REAL time: 10 secs 
 
-Total REAL time to Placer completion: 14 secs 
-Total CPU  time to Placer completion: 14 secs 
+Total REAL time to Placer completion: 10 secs 
+Total CPU  time to Placer completion: 10 secs 
 Writing design to file Top_SCPU_IOBUS_App.ncd
 
 
@@ -112,32 +112,32 @@ Writing design to file Top_SCPU_IOBUS_App.ncd
 Starting Router
 
 
-Phase  1  : 34269 unrouted;      REAL time: 20 secs 
+Phase  1  : 19366 unrouted;      REAL time: 15 secs 
 
-Phase  2  : 31900 unrouted;      REAL time: 24 secs 
+Phase  2  : 17927 unrouted;      REAL time: 16 secs 
 
-Phase  3  : 9396 unrouted;      REAL time: 43 secs 
+Phase  3  : 6680 unrouted;      REAL time: 25 secs 
 
-Phase  4  : 9396 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+Phase  4  : 6680 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 25 secs 
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 6 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 33 secs 
 
 Updating file: Top_SCPU_IOBUS_App.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 7 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 34 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 7 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 34 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 1 mins 7 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 34 secs 
 WARNING:Route:455 - CLK Net:Clk_CPU may have excessive skew because 
-      24 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+      18 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:U4/vram_addr_cmp_eq0001 may have excessive skew because 
       0 CLK pins and 12 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:clkdiv<7> may have excessive skew because 
       0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 1 mins 8 secs 
-Total CPU time to Router completion: 1 mins 7 secs 
+Total REAL time to Router completion: 35 secs 
+Total CPU time to Router completion: 34 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -156,16 +156,16 @@ Generating Clock Report
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
 |U4/Cpu_data4bus_not0 |              |      |      |            |             |
-|                 001 | BUFGMUX_X1Y10| No   |   30 |  0.037     |  0.161      |
+|                 001 | BUFGMUX_X1Y10| No   |   30 |  0.042     |  0.164      |
 +---------------------+--------------+------+------+------------+-------------+
-|     clk_50mhz_BUFGP | BUFGMUX_X1Y11| No   | 1122 |  0.086     |  0.203      |
+|     clk_50mhz_BUFGP | BUFGMUX_X1Y11| No   |  118 |  0.086     |  0.204      |
 +---------------------+--------------+------+------+------------+-------------+
-|             Clk_CPU |         Local|      | 1160 |  1.920     |  3.708      |
+|             Clk_CPU |         Local|      | 1161 |  1.592     |  3.418      |
++---------------------+--------------+------+------+------------+-------------+
+|           clkdiv<7> |         Local|      |   36 |  0.394     |  2.283      |
 +---------------------+--------------+------+------+------------+-------------+
 |U4/vram_addr_cmp_eq0 |              |      |      |            |             |
-|                 001 |         Local|      |   17 |  0.169     |  1.992      |
-+---------------------+--------------+------+------+------------+-------------+
-|           clkdiv<7> |         Local|      |   36 |  0.294     |  2.409      |
+|                 001 |         Local|      |   20 |  0.035     |  1.616      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -185,8 +185,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  NET "clk_50mhz_BUFGP/IBUFG" PERIOD = 20 n | SETUP       |    10.470ns|     9.530ns|       0|           0
-  s HIGH 50%                                | HOLD        |     0.905ns|            |       0|           0
+  NET "clk_50mhz_BUFGP/IBUFG" PERIOD = 20 n | SETUP       |    10.125ns|     9.875ns|       0|           0
+  s HIGH 50%                                | HOLD        |     0.903ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -199,10 +199,10 @@ INFO:Par:277 - Power optimization/reduction has been run on this design.  Please
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 1 mins 9 secs 
-Total CPU time to PAR completion: 1 mins 8 secs 
+Total REAL time to PAR completion: 35 secs 
+Total CPU time to PAR completion: 35 secs 
 
-Peak Memory Usage:  431 MB
+Peak Memory Usage:  418 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.
